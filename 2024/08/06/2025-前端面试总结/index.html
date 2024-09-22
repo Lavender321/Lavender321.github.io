@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>2025-前端面试总结 | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微前端技术选型优缺点比较 为什么要在项目中引入微前端 qiankun的实现原理，微前端环境如何隔离 qiankun的css隔离原理 js隔离原理 设计一个沙箱机制 vite 和 webpack 的区别 前端性能优化方式 单点登录方案 讲一下 Outh2.0  OAuth 2.0 是一种授权框架，用于让应用程序可以安全地访问用户资源，而无需直接处理用户的凭据（如用户名和密码）。它提供了一种机制，使第">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025-前端面试总结">
+<meta property="og:url" content="http://lavender321.github.com/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="微前端技术选型优缺点比较 为什么要在项目中引入微前端 qiankun的实现原理，微前端环境如何隔离 qiankun的css隔离原理 js隔离原理 设计一个沙箱机制 vite 和 webpack 的区别 前端性能优化方式 单点登录方案 讲一下 Outh2.0  OAuth 2.0 是一种授权框架，用于让应用程序可以安全地访问用户资源，而无需直接处理用户的凭据（如用户名和密码）。它提供了一种机制，使第">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-08-06T03:22:45.000Z">
+<meta property="article:modified_time" content="2024-09-18T05:41:23.554Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2025-前端面试总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-18 13:41:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">2025-前端面试总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-06T03:22:45.000Z" title="发表于 2024-08-06 11:22:45">2024-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-18T05:41:23.554Z" title="更新于 2024-09-18 13:41:23">2024-09-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2025-前端面试总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>微前端技术选型优缺点比较</p>
+<p>为什么要在项目中引入微前端</p>
+<p>qiankun的实现原理，微前端环境如何隔离</p>
+<p>qiankun的css隔离原理</p>
+<p>js隔离原理</p>
+<p>设计一个沙箱机制</p>
+<p>vite 和 webpack 的区别</p>
+<p>前端性能优化方式</p>
+<p>单点登录方案</p>
+<p>讲一下 Outh2.0</p>
+<blockquote>
+<p>OAuth 2.0 是一种授权框架，用于让应用程序可以安全地访问用户资源，而无需直接处理用户的凭据（如用户名和密码）。它提供了一种机制，使第三方应用能够访问用户的资源，并在授权的范围内操作，而无需用户直接向第三方提供其凭据。</p>
+</blockquote>
+<h3 id="OAuth-2-0-的核心概念"><a href="#OAuth-2-0-的核心概念" class="headerlink" title="OAuth 2.0 的核心概念"></a>OAuth 2.0 的核心概念</h3><ol>
+<li><p>**授权服务器 (Authorization Server)**：<br>负责验证用户身份，并颁发访问令牌 (Access Token)。授权服务器通常与身份提供者 (Identity Provider) 结合使用，如 Google、Facebook、GitHub 等。</p>
+</li>
+<li><p>**资源服务器 (Resource Server)**：<br>存储用户的资源，并负责保护这些资源。它验证访问令牌并处理授权请求。</p>
+</li>
+<li><p>**客户端 (Client)**：<br>请求访问资源的应用程序或服务。客户端可以是第三方应用、Web 应用、移动应用等。</p>
+</li>
+<li><p>**资源所有者 (Resource Owner)**：<br>拥有资源的用户或实体。资源所有者授权客户端访问其资源。</p>
+</li>
+<li><p>**访问令牌 (Access Token)**：<br>授权服务器颁发给客户端的令牌，用于访问资源服务器上的资源。访问令牌具有时效性和范围，规定了客户端可以访问哪些资源。</p>
+</li>
+<li><p>**刷新令牌 (Refresh Token)**：<br>用于获取新的访问令牌。当访问令牌过期时，客户端可以使用刷新令牌向授权服务器请求新的访问令牌。</p>
+</li>
+</ol>
+<h3 id="OAuth-2-0-的授权流程"><a href="#OAuth-2-0-的授权流程" class="headerlink" title="OAuth 2.0 的授权流程"></a>OAuth 2.0 的授权流程</h3><ol>
+<li><p><strong>授权请求</strong>：<br>客户端将用户重定向到授权服务器的授权端点，请求访问权限。用户登录并授权客户端访问其资源。</p>
+</li>
+<li><p><strong>授权码（Authorization Code）</strong>：<br>用户授权后，授权服务器向客户端重定向，并提供一个授权码。</p>
+</li>
+<li><p><strong>令牌请求</strong>：<br>客户端使用授权码向授权服务器的令牌端点请求访问令牌。</p>
+</li>
+<li><p><strong>访问令牌（Access Token）</strong>：<br>授权服务器验证授权码，并返回访问令牌（以及可能的刷新令牌）给客户端。</p>
+</li>
+<li><p><strong>访问资源</strong>：<br>客户端使用访问令牌向资源服务器请求资源。</p>
+</li>
+</ol>
+<h3 id="OAuth-2-0-的授权模式"><a href="#OAuth-2-0-的授权模式" class="headerlink" title="OAuth 2.0 的授权模式"></a>OAuth 2.0 的授权模式</h3><ol>
+<li><p>**授权码模式 (Authorization Code Grant)**：<br>适用于 Web 应用程序，客户端通过授权码交换访问令牌。这是最安全的模式，因为授权码在服务器端交换访问令牌，避免了直接暴露访问令牌。</p>
+</li>
+<li><p>**隐式授权模式 (Implicit Grant)**：<br>适用于浏览器中的单页应用（SPA）。用户在浏览器中授权后，直接将访问令牌返回给客户端。由于安全性较低，不推荐用于长期使用。</p>
+</li>
+<li><p>**密码凭证模式 (Resource Owner Password Credentials Grant)**：<br>客户端直接获取用户的用户名和密码，然后请求访问令牌。适用于客户端与资源所有者完全信任的情况（如移动应用），但不推荐在开放环境中使用。</p>
+</li>
+<li><p>**客户端凭证模式 (Client Credentials Grant)**：<br>用于应用程序间的授权，不涉及用户身份。客户端使用自身的凭证向授权服务器请求访问令牌，用于访问保护的资源。</p>
+</li>
+<li><p>**设备授权模式 (Device Authorization Grant)**：<br>适用于设备无法直接进行用户交互的场景（如智能电视）。用户在另一个设备上进行授权，设备最终获取访问令牌。</p>
+</li>
+</ol>
+<h3 id="OAuth-2-0-的安全考虑"><a href="#OAuth-2-0-的安全考虑" class="headerlink" title="OAuth 2.0 的安全考虑"></a>OAuth 2.0 的安全考虑</h3><ul>
+<li><strong>令牌泄露</strong>：需要保护访问令牌和刷新令牌的安全，避免泄露。</li>
+<li><strong>令牌过期</strong>：使用短期有效的访问令牌和长期有效的刷新令牌来减少风险。</li>
+<li><strong>安全通信</strong>：确保所有通信都通过 HTTPS 进行，以保护数据安全。</li>
+</ul>
+<p>OAuth 2.0 提供了一种灵活而安全的方式来授权客户端访问资源，是现代 Web 应用和 API 的重要组成部分。</p>
+<h1 id="判断对象为空的方法？"><a href="#判断对象为空的方法？" class="headerlink" title="判断对象为空的方法？"></a>判断对象为空的方法？</h1><p>要判断一个对象是否为空对象（即没有可枚举的属性），有几种常用的方法。以下是一些常见的实现方式：</p>
+<h3 id="1-使用-Object-keys-方法"><a href="#1-使用-Object-keys-方法" class="headerlink" title="1. 使用 Object.keys() 方法"></a>1. 使用 <code>Object.keys()</code> 方法</h3><p><code>Object.keys()</code> 方法返回一个由给定对象的可枚举属性组成的数组。如果数组长度为 0，则表示对象为空。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isEmptyObject</span> = obj =&gt; <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj).<span class="property">length</span> === <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="attr">key</span>: <span class="string">&#x27;value&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj1)); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-使用-for-in-循环"><a href="#2-使用-for-in-循环" class="headerlink" title="2. 使用 for...in 循环"></a>2. 使用 <code>for...in</code> 循环</h3><p><code>for...in</code> 循环遍历对象的可枚举属性。如果没有属性可以遍历，则对象为空。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isEmptyObject</span> = obj =&gt; &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="attr">key</span>: <span class="string">&#x27;value&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj1)); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-使用-JSON-stringify"><a href="#3-使用-JSON-stringify" class="headerlink" title="3. 使用 JSON.stringify()"></a>3. 使用 <code>JSON.stringify()</code></h3><p>将对象转换为 JSON 字符串，并与空对象的字符串表示进行比较。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isEmptyObject</span> = obj =&gt; <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj) === <span class="string">&#x27;&#123;&#125;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="attr">key</span>: <span class="string">&#x27;value&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj1)); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-使用-Object-entries-方法"><a href="#4-使用-Object-entries-方法" class="headerlink" title="4. 使用 Object.entries() 方法"></a>4. 使用 <code>Object.entries()</code> 方法</h3><p><code>Object.entries()</code> 方法返回一个对象自身可枚举属性的键值对数组。如果数组长度为 0，则表示对象为空。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isEmptyObject</span> = obj =&gt; <span class="title class_">Object</span>.<span class="title function_">entries</span>(obj).<span class="property">length</span> === <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="attr">key</span>: <span class="string">&#x27;value&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj1)); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isEmptyObject</span>(obj2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>这些方法判断的都是对象自身的可枚举属性，继承的属性不会被考虑在内。</li>
+<li>如果对象的属性是不可枚举的，这些方法也会将其视为空对象。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">http://lavender321.github.com/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试"><img class="cover" src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">小程序面试</div></div></a></div><div class="next-post pull-right"><a href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客"><img class="cover" src="https://s2.loli.net/2023/01/29/yz4ZcjfxPlEMnUD.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo创建博客</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OAuth-2-0-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">OAuth 2.0 的核心概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OAuth-2-0-%E7%9A%84%E6%8E%88%E6%9D%83%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">OAuth 2.0 的授权流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OAuth-2-0-%E7%9A%84%E6%8E%88%E6%9D%83%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">OAuth 2.0 的授权模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OAuth-2-0-%E7%9A%84%E5%AE%89%E5%85%A8%E8%80%83%E8%99%91"><span class="toc-number">4.</span> <span class="toc-text">OAuth 2.0 的安全考虑</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E4%B8%BA%E7%A9%BA%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number"></span> <span class="toc-text">判断对象为空的方法？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-Object-keys-%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">1. 使用 Object.keys() 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-for-in-%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.</span> <span class="toc-text">2. 使用 for...in 循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8-JSON-stringify"><span class="toc-number">3.</span> <span class="toc-text">3. 使用 JSON.stringify()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8-Object-entries-%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4. 使用 Object.entries() 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.</span> <span class="toc-text">注意事项</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/18/58/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/09/18/58/" title="无题">无题</a><time datetime="2024-09-18T07:21:55.572Z" title="发表于 2024-09-18 15:21:55">2024-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vite相关面试题"/></a><div class="content"><a class="title" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题">vite相关面试题</a><time datetime="2024-08-31T10:37:40.000Z" title="发表于 2024-08-31 18:37:40">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小程序面试"/></a><div class="content"><a class="title" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试">小程序面试</a><time datetime="2024-08-31T07:30:26.000Z" title="发表于 2024-08-31 15:30:26">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025-前端面试总结"/></a><div class="content"><a class="title" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结">2025-前端面试总结</a><time datetime="2024-08-06T03:22:45.000Z" title="发表于 2024-08-06 11:22:45">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客"><img src="https://s2.loli.net/2023/01/29/yz4ZcjfxPlEMnUD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo创建博客"/></a><div class="content"><a class="title" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客">hexo创建博客</a><time datetime="2024-08-05T14:43:08.713Z" title="发表于 2024-08-05 22:43:08">2024-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

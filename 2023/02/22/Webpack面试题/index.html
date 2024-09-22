@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Webpack面试题 | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Webpack和 viteVite 和 Webpack都是现代前端构建工具，但它们在设计理念、构建方式和性能方面有着显著的区别。以下是 Vite 和 Webpack之间的主要区别： 设计理念Webpack：  打包一切：Webpack的核心理念是将所有资源（JavaScript、CSS、图片等）视为模块，将它们打包成一个或多个 bundle。 依赖图：Webpack通过分析入口文件及其依赖关系，构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack面试题">
+<meta property="og:url" content="http://lavender321.github.com/2023/02/22/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="Webpack和 viteVite 和 Webpack都是现代前端构建工具，但它们在设计理念、构建方式和性能方面有着显著的区别。以下是 Vite 和 Webpack之间的主要区别： 设计理念Webpack：  打包一切：Webpack的核心理念是将所有资源（JavaScript、CSS、图片等）视为模块，将它们打包成一个或多个 bundle。 依赖图：Webpack通过分析入口文件及其依赖关系，构">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2023-02-22T06:45:28.000Z">
+<meta property="article:modified_time" content="2024-09-16T04:32:32.797Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta property="article:tag" content="Webpack">
+<meta property="article:tag" content="Vite">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2023/02/22/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Webpack面试题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-16 12:32:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Webpack面试题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-22T06:45:28.000Z" title="发表于 2023-02-22 14:45:28">2023-02-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-16T04:32:32.797Z" title="更新于 2024-09-16 12:32:32">2024-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Webpack面试题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Webpack和-vite"><a href="#Webpack和-vite" class="headerlink" title="Webpack和 vite"></a>Webpack和 vite</h1><p>Vite 和 <code>Webpack</code>都是现代前端构建工具，但它们在设计理念、构建方式和性能方面有着显著的区别。以下是 Vite 和 <code>Webpack</code>之间的主要区别：</p>
+<h3 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h3><p><strong>Webpack</strong>：</p>
+<ul>
+<li><strong>打包一切</strong>：<code>Webpack</code>的核心理念是将所有资源（JavaScript、CSS、图片等）视为模块，将它们打包成一个或多个 bundle。</li>
+<li><strong>依赖图</strong>：<code>Webpack</code>通过分析入口文件及其依赖关系，构建一个依赖图，然后将这些模块打包到一起。</li>
+</ul>
+<p><strong>Vite</strong>：</p>
+<ul>
+<li><strong>即时开发服务器</strong>：Vite 的核心理念是利用浏览器的原生 ES 模块支持，在开发环境中提供即时的模块热替换（HMR），无需预打包。</li>
+<li><strong>现代构建工具</strong>：Vite 在生产环境中使用 Rollup 进行打包，提供高效的构建性能和灵活的配置。</li>
+</ul>
+<h3 id="开发体验"><a href="#开发体验" class="headerlink" title="开发体验"></a>开发体验</h3><p><strong>Webpack</strong>：</p>
+<ul>
+<li><strong>打包时间长</strong>：在开发环境中，<code>Webpack</code>需要将整个项目打包成一个或多个 bundle，这会导致初次启动时间较长，尤其是对于大型项目。</li>
+<li><strong>热更新</strong>：<code>Webpack</code>提供模块热替换（HMR），但由于需要重新打包，更新速度可能较慢。</li>
+</ul>
+<p><strong>Vite</strong>：</p>
+<ul>
+<li><strong>即时启动</strong>：Vite 利用浏览器的原生 ES 模块支持，无需预打包，启动速度非常快。</li>
+<li><strong>即时热更新</strong>：Vite 的 HMR 速度非常快，因为它只需要重新编译和发送变化的模块，而不是整个项目。</li>
+</ul>
+<h3 id="构建性能"><a href="#构建性能" class="headerlink" title="构建性能"></a>构建性能</h3><p><strong>Webpack</strong>：</p>
+<ul>
+<li><strong>单次打包</strong>：<code>Webpack</code>在构建过程中会将所有资源打包成一个或多个 bundle，构建时间较长。</li>
+<li><strong>优化插件</strong>：<code>Webpack</code>通过各种优化插件（如 Tree Shaking、代码分割等）来提高构建性能，但配置复杂。</li>
+</ul>
+<p><strong>Vite</strong>：</p>
+<ul>
+<li><strong>分块构建</strong>：Vite 在开发环境中不进行预打包，而是在请求时按需加载模块，极大地提高了开发效率。</li>
+<li><strong>Rollup 构建</strong>：在生产环境中，Vite 使用 Rollup 进行打包，提供高效的构建性能和灵活的配置。</li>
+</ul>
+<h3 id="配置复杂度"><a href="#配置复杂度" class="headerlink" title="配置复杂度"></a>配置复杂度</h3><p><strong>Webpack</strong>：</p>
+<ul>
+<li><strong>配置复杂</strong>：<code>Webpack</code>的配置文件通常较为复杂，需要手动配置各种 Loader 和 Plugin，以处理不同类型的资源。</li>
+<li><strong>灵活性高</strong>：虽然配置复杂，但 <code>Webpack</code>提供了高度的灵活性，可以满足各种复杂的构建需求。</li>
+</ul>
+<p><strong>Vite</strong>：</p>
+<ul>
+<li><strong>配置简单</strong>：Vite 的配置文件相对简单，内置了对常见资源类型的支持，极大地简化了配置过程。</li>
+<li><strong>开箱即用</strong>：Vite 提供了开箱即用的默认配置，适合大多数项目的需求。</li>
+</ul>
+<h3 id="插件生态"><a href="#插件生态" class="headerlink" title="插件生态"></a>插件生态</h3><p><strong>Webpack</strong>：</p>
+<ul>
+<li><strong>成熟生态</strong>：<code>Webpack</code>作为老牌的构建工具，拥有庞大的插件生态，可以满足各种需求。</li>
+<li><strong>社区支持</strong>：<code>Webpack</code>拥有广泛的社区支持，几乎可以找到所有常见问题的解决方案。</li>
+</ul>
+<p><strong>Vite</strong>：</p>
+<ul>
+<li><strong>快速增长</strong>：Vite 的插件生态正在快速增长，许多常见的功能已经有对应的插件支持。</li>
+<li><strong>兼容性</strong>：Vite 支持 Rollup 插件，进一步扩展了其插件生态。</li>
+</ul>
+<h3 id="示例对比"><a href="#示例对比" class="headerlink" title="示例对比"></a>示例对比</h3><h4 id="Webpack配置示例"><a href="#Webpack配置示例" class="headerlink" title="Webpack配置示例"></a><code>Webpack</code>配置示例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        <span class="attr">use</span>: <span class="string">&#x27;babel-loader&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;./src/index.html&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">contentBase</span>: <span class="string">&#x27;./dist&#x27;</span>,</span><br><span class="line">    <span class="attr">hot</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vite-配置示例"><a href="#Vite-配置示例" class="headerlink" title="Vite 配置示例"></a>Vite 配置示例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="title function_">vue</span>()],</span><br><span class="line">  <span class="attr">server</span>: &#123;</span><br><span class="line">    <span class="attr">port</span>: <span class="number">3000</span>,</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://localhost:5000&#x27;</span>,</span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">rewrite</span>: <span class="function"><span class="params">path</span> =&gt;</span> path.<span class="title function_">replace</span>(<span class="regexp">/^\/api/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>开发体验</strong>：Vite 提供了更快的启动速度和即时的模块热替换，极大地提升了开发体验。<code>Webpack</code>在开发环境中的启动速度较慢，但也提供了模块热替换功能。</li>
+<li><strong>构建性能</strong>：Vite 在开发环境中不进行预打包，构建速度更快。在生产环境中，Vite 使用 Rollup 进行打包，性能优异。<code>Webpack</code>在构建过程中需要打包所有资源，构建时间较长，但通过各种优化插件可以提高性能。</li>
+<li><strong>配置复杂度</strong>：Vite 的配置文件相对简单，开箱即用，适合大多数项目的需求。<code>Webpack</code>的配置文件较为复杂，但提供了高度的灵活性，可以满足各种复杂的构建需求。</li>
+<li><strong>插件生态</strong>：<code>Webpack</code>拥有成熟的插件生态和广泛的社区支持。Vite 的插件生态正在快速增长，并且支持 Rollup 插件，扩展了其插件生态。</li>
+</ul>
+<p>总体来说，Vite 更适合现代前端开发，特别是对于需要快速迭代和高效开发的项目。而 <code>Webpack</code>由于其成熟的生态和高度的灵活性，仍然是许多复杂项目的首选。</p>
+<h2 id="HMR-Hot-Module-Replacement-热更新又称热替换"><a href="#HMR-Hot-Module-Replacement-热更新又称热替换" class="headerlink" title="HMR(Hot Module Replacement)热更新又称热替换"></a>HMR(Hot Module Replacement)热更新又称热替换</h2><blockquote>
+<p>当你对代码进行修改并保存后，<code>Webpack</code>将对代码重新打包，并将新的模块发送到浏览器端，浏览器通过新的模块替换老的模块，这样在不刷新浏览器的前提下就能够对应用进行更新。HMR 的核心就是客户端从服务端拉取更新后的文件。准确的说是 chunk diff(chunk 需要更新的部分)，</p>
+</blockquote>
+<p>实际上 WDS(webpack-dev-server)与浏览器之间维护了一个 websocket 进行通信。</p>
+<p>当本地资源发生变化后， WDS 会向浏览器推送更新，并带上构建时的 hash，让浏览器与上一次的资源进行对比</p>
+<p>客户端对比出差异后会向 WDS 发起 Ajax 请求来获取更改内容(文件列表、hash),也就是请求 update.json，</p>
+<p>这样客户端就可以再借助这些信息继续向 WDS 发起 jsonp 请求获取该 chunk 的增量更新也就是请求 update.js。更新的 js 是存储在内存中的</p>
+<h1 id="如何配置webpack多入口？"><a href="#如何配置webpack多入口？" class="headerlink" title="如何配置webpack多入口？"></a>如何配置webpack多入口？</h1><p>在 <code>Webpack</code>中配置多个入口文件可以让你为不同的页面或功能模块生成独立的打包文件。这样做可以提高应用的可扩展性，并允许对不同页面加载不同的资源，优化加载速度。下面是如何在 <code>Webpack</code>中配置多入口的步骤：</p>
+<h2 id="1-基础多入口配置"><a href="#1-基础多入口配置" class="headerlink" title="1. 基础多入口配置"></a>1. 基础多入口配置</h2><p>在 <code>webpack.config.js</code> 文件中，你可以设置一个对象作为 <code>entry</code> 属性的值，每个键值对应一个入口文件。例如，如果你想为“首页”和“关于页面”分别创建一个入口，可以这样配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 其他配置...</span></span><br><span class="line">  <span class="attr">entry</span>: &#123;</span><br><span class="line">    <span class="attr">home</span>: <span class="string">&#x27;./src/home.js&#x27;</span>,</span><br><span class="line">    <span class="attr">about</span>: <span class="string">&#x27;./src/about.js&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].bundle.js&#x27;</span>, <span class="comment">// 使用 [name] 占位符确保每个入口生成独立的文件</span></span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 其他配置...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>Webpack</code>将会为 <code>home.js</code> 和 <code>about.js</code> 分别打包生成 <code>home.bundle.js</code> 和 <code>about.bundle.js</code>。</p>
+<h2 id="2-配合-HtmlWebpackPlugin-使用"><a href="#2-配合-HtmlWebpackPlugin-使用" class="headerlink" title="2. 配合 HtmlWebpackPlugin 使用"></a>2. 配合 HtmlWebpackPlugin 使用</h2><p>通常在使用多入口配置时，会搭配 <code>HtmlWebpackPlugin</code> 插件来生成每个入口的 HTML 文件。这样做可以自动为每个 HTML 文件注入正确的脚本标签。以下是如何配置 <code>HtmlWebpackPlugin</code> 以适应多入口：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">entry</span>: &#123;</span><br><span class="line">    <span class="attr">home</span>: <span class="string">&#x27;./src/home.js&#x27;</span>,</span><br><span class="line">    <span class="attr">about</span>: <span class="string">&#x27;./src/about.js&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].[contenthash].js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;./src/home.html&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;home.html&#x27;</span>,</span><br><span class="line">      <span class="attr">chunks</span>: [<span class="string">&#x27;home&#x27;</span>]  <span class="comment">// 指定只包含 home 入口生成的文件</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;./src/about.html&#x27;</span>,</span><br><span class="line">      <span class="attr">filename</span>: <span class="string">&#x27;about.html&#x27;</span>,</span><br><span class="line">      <span class="attr">chunks</span>: [<span class="string">&#x27;about&#x27;</span>]  <span class="comment">// 指定只包含 about 入口生成的文件</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// 其他配置...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在这个配置中，<code>chunks</code> 选项告诉 <code>HtmlWebpackPlugin</code> 只将指定的 JavaScript 文件包含到生成的 HTML 中。这确保了 <code>home.html</code> 只引用了 <code>home.bundle.js</code>，<code>about.html</code> 只引用了 <code>about.bundle.js</code>。</p>
+<h2 id="3-高级应用和优化"><a href="#3-高级应用和优化" class="headerlink" title="3. 高级应用和优化"></a>3. 高级应用和优化</h2><p>当你的应用变得更加复杂时，你可能需要考虑代码拆分和优化。<code>Webpack</code>提供了如 <code>SplitChunksPlugin</code> 的插件来帮助进行代码分割，抽取公共模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">      <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span>, <span class="comment">// 可以是 async, initial, all</span></span><br><span class="line">      <span class="attr">minSize</span>: <span class="number">20000</span>,</span><br><span class="line">      <span class="attr">minRemainingSize</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">minChunks</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">maxAsyncRequests</span>: <span class="number">30</span>,</span><br><span class="line">      <span class="attr">maxInitialRequests</span>: <span class="number">30</span>,</span><br><span class="line">      <span class="attr">automaticNameDelimiter</span>: <span class="string">&#x27;~&#x27;</span>,</span><br><span class="line">      <span class="attr">enforceSizeThreshold</span>: <span class="number">50000</span>,</span><br><span class="line">      <span class="attr">cacheGroups</span>: &#123;</span><br><span class="line">        <span class="attr">defaultVendors</span>: &#123;</span><br><span class="line">          <span class="attr">test</span>: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">          <span class="attr">priority</span>: -<span class="number">10</span>,</span><br><span class="line">          <span class="attr">reuseExistingChunk</span>: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">default</span>: &#123;</span><br><span class="line">          <span class="attr">minChunks</span>: <span class="number">2</span>,</span><br><span class="line">          <span class="attr">priority</span>: -<span class="number">20</span>,</span><br><span class="line">          <span class="attr">reuseExistingChunk</span>: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这些高级功能可以帮助你更好地管理和优化大型应用的资源。</p>
+<p>配置多入口可以非常灵活，确保根据你的项目需求调整配置。</p>
+<p>在使用 <code>Webpack</code>进行前端项目构建时，控制输出文件的大小是优化加载时间和提高应用性能的重要策略之一。限制打包文件大小至1MB或其他特定大小可以通过配置和优化技术实现。下面是一些主要方法：</p>
+<h3 id="1-配置-performance-属性"><a href="#1-配置-performance-属性" class="headerlink" title="1. 配置 performance 属性"></a>1. 配置 <code>performance</code> 属性</h3><p><code>Webpack</code>提供了 <code>performance</code> 配置项，允许你设置资源文件大小警告的阈值。虽然这不会阻止文件超过指定大小，但它会在构建过程中提醒你文件大小问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 其他配置...</span></span><br><span class="line">  <span class="attr">performance</span>: &#123;</span><br><span class="line">    <span class="attr">hints</span>: <span class="string">&#x27;warning&#x27;</span>, <span class="comment">// 或 &#x27;error&#x27; 如果你想让构建失败</span></span><br><span class="line">    <span class="attr">maxEntrypointSize</span>: <span class="number">1024000</span>, <span class="comment">// 最大入口文件大小（字节）</span></span><br><span class="line">    <span class="attr">maxAssetSize</span>: <span class="number">1024000</span>, <span class="comment">// 单个资源最大大小（字节）</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 其他配置...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在这个配置中，<code>maxEntrypointSize</code> 控制入口点总体大小的限制，而 <code>maxAssetSize</code> 控制单个资源（如输出的每个 JavaScript 文件）的大小。如果任一文件超出这个限制，<code>Webpack</code>将根据 <code>hints</code> 的配置显示警告或错误。</p>
+<h3 id="2-代码分割"><a href="#2-代码分割" class="headerlink" title="2. 代码分割"></a>2. 代码分割</h3><p>使用代码分割技术是减小打包文件大小的有效方式。通过将代码拆分成多个块，只有用户需要时才加载，可以显著减少初始加载时间和资源大小。</p>
+<h4 id="动态导入"><a href="#动态导入" class="headerlink" title="动态导入"></a>动态导入</h4><p><code>Webpack</code>支持通过动态 <code>import()</code> 语法来实现代码分割。例如，可以将不同路由下的组件拆分为独立的代码块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">HomePage</span> = (<span class="params"></span>) =&gt; <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: &quot;home&quot; */</span> <span class="string">&#x27;./HomePage&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">AboutPage</span> = (<span class="params"></span>) =&gt; <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: &quot;about&quot; */</span> <span class="string">&#x27;./AboutPage&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="SplitChunksPlugin"><a href="#SplitChunksPlugin" class="headerlink" title="SplitChunksPlugin"></a>SplitChunksPlugin</h4><p>在 <code>Webpack</code>中，<code>SplitChunksPlugin</code> 插件可以自动帮助你拆分公共模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">      <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">      <span class="attr">maxSize</span>: <span class="number">1024000</span>, <span class="comment">// 尝试将每个块的大小限制在1MB以内</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>maxSize</code> 选项告诉 <code>Webpack</code>尝试将每个块的大小限制在指定的字节数以下。</p>
+<h3 id="3-优化和压缩资源"><a href="#3-优化和压缩资源" class="headerlink" title="3. 优化和压缩资源"></a>3. 优化和压缩资源</h3><p>确保你使用了如 UglifyJS、Terser 或其他 <code>Webpack</code>插件来压缩 JavaScript 代码。此外，对于 CSS 和图片资源，也应该使用相应的加载器和插件进行优化和压缩：</p>
+<ul>
+<li><strong>CSS</strong>: 使用 <code>css-loader</code> 和 <code>mini-css-extract-plugin</code> 来压缩和优化样式表。</li>
+<li><strong>图片</strong>: 使用 <code>image-webpack-loader</code> 来压缩图片文件。</li>
+</ul>
+<h3 id="4-监控和分析"><a href="#4-监控和分析" class="headerlink" title="4. 监控和分析"></a>4. 监控和分析</h3><p>使用 <code>webpack-bundle-analyzer</code> 或其他类似工具来可视化和分析输出文件的大小和依赖。这可以帮助你识别哪些库或模块占用了过多空间，并进行相应的优化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">BundleAnalyzerPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>).<span class="property">BundleAnalyzerPlugin</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">BundleAnalyzerPlugin</span>(),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>通过这些方法，你可以更有效地控制 <code>Webpack</code>构建输出的大小，提升应用的性能和用户体验。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2023/02/22/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98/">http://lavender321.github.com/2023/02/22/Webpack%E9%9D%A2%E8%AF%95%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Webpack/">Webpack</a><a class="post-meta__tags" href="/tags/Vite/">Vite</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/25/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" title="目标检测(一)"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">目标检测(一)</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/21/%E5%8F%96%E6%B6%88git%E4%BB%A3%E7%90%86/" title="取消git代理"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">取消git代理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/01/Node%20Webpack%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="Node Webpack 性能优化"><img class="cover" src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-01</div><div class="title">Node Webpack 性能优化</div></div></a></div><div><a href="/2023/02/13/%E7%90%86%E8%A7%A3Webpack%E6%89%93%E5%8C%85%E8%BF%87%E7%A8%8B/" title="理解Webpack打包过程"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-13</div><div class="title">理解Webpack打包过程</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Webpack%E5%92%8C-vite"><span class="toc-number">1.</span> <span class="toc-text">Webpack和 vite</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-number">1.0.1.</span> <span class="toc-text">设计理念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C"><span class="toc-number">1.0.2.</span> <span class="toc-text">开发体验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E6%80%A7%E8%83%BD"><span class="toc-number">1.0.3.</span> <span class="toc-text">构建性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">1.0.4.</span> <span class="toc-text">配置复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E7%94%9F%E6%80%81"><span class="toc-number">1.0.5.</span> <span class="toc-text">插件生态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E5%AF%B9%E6%AF%94"><span class="toc-number">1.0.6.</span> <span class="toc-text">示例对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Webpack%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">Webpack配置示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vite-%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.6.2.</span> <span class="toc-text">Vite 配置示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.7.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMR-Hot-Module-Replacement-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%8F%88%E7%A7%B0%E7%83%AD%E6%9B%BF%E6%8D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">HMR(Hot Module Replacement)热更新又称热替换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEwebpack%E5%A4%9A%E5%85%A5%E5%8F%A3%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">如何配置webpack多入口？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%A4%9A%E5%85%A5%E5%8F%A3%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">1. 基础多入口配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%85%8D%E5%90%88-HtmlWebpackPlugin-%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2. 配合 HtmlWebpackPlugin 使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E5%92%8C%E4%BC%98%E5%8C%96"><span class="toc-number">2.3.</span> <span class="toc-text">3. 高级应用和优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE-performance-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. 配置 performance 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. 代码分割</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">动态导入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SplitChunksPlugin"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">SplitChunksPlugin</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BC%98%E5%8C%96%E5%92%8C%E5%8E%8B%E7%BC%A9%E8%B5%84%E6%BA%90"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. 优化和压缩资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%9B%91%E6%8E%A7%E5%92%8C%E5%88%86%E6%9E%90"><span class="toc-number">2.3.4.</span> <span class="toc-text">4. 监控和分析</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/18/58/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/09/18/58/" title="无题">无题</a><time datetime="2024-09-18T07:21:55.572Z" title="发表于 2024-09-18 15:21:55">2024-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vite相关面试题"/></a><div class="content"><a class="title" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题">vite相关面试题</a><time datetime="2024-08-31T10:37:40.000Z" title="发表于 2024-08-31 18:37:40">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小程序面试"/></a><div class="content"><a class="title" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试">小程序面试</a><time datetime="2024-08-31T07:30:26.000Z" title="发表于 2024-08-31 15:30:26">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025-前端面试总结"/></a><div class="content"><a class="title" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结">2025-前端面试总结</a><time datetime="2024-08-06T03:22:45.000Z" title="发表于 2024-08-06 11:22:45">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客"><img src="https://s2.loli.net/2023/01/29/yz4ZcjfxPlEMnUD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo创建博客"/></a><div class="content"><a class="title" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客">hexo创建博客</a><time datetime="2024-08-05T14:43:08.713Z" title="发表于 2024-08-05 22:43:08">2024-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

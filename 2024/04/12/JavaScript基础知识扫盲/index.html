@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>JavaScript基础知识扫盲 | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JavaScript有几种方式声明函数？ 函数声明（Function Declaration）： 123function functionName(parameters) &amp;#123;    &#x2F;&#x2F; 函数体&amp;#125;  函数表达式（Function Expression）： 123var functionName &#x3D; function(parameters) &amp;#123;    &#x2F;&#x2F; 函数体&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础知识扫盲">
+<meta property="og:url" content="http://lavender321.github.com/2024/04/12/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="JavaScript有几种方式声明函数？ 函数声明（Function Declaration）： 123function functionName(parameters) &amp;#123;    &#x2F;&#x2F; 函数体&amp;#125;  函数表达式（Function Expression）： 123var functionName &#x3D; function(parameters) &amp;#123;    &#x2F;&#x2F; 函数体&amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-04-12T09:29:07.000Z">
+<meta property="article:modified_time" content="2024-08-05T14:43:08.678Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2024/04/12/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaScript基础知识扫盲',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-05 22:43:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaScript基础知识扫盲</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-12T09:29:07.000Z" title="发表于 2024-04-12 17:29:07">2024-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-05T14:43:08.678Z" title="更新于 2024-08-05 22:43:08">2024-08-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JavaScript基础知识扫盲"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="JavaScript有几种方式声明函数？"><a href="#JavaScript有几种方式声明函数？" class="headerlink" title="JavaScript有几种方式声明函数？"></a>JavaScript有几种方式声明函数？</h1><ol>
+<li><p><strong>函数声明（Function Declaration）</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>函数表达式（Function Expression）</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="keyword">function</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>箭头函数（Arrow Function）</strong>（ES6引入）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">functionName</span> = (<span class="params">parameters</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Function构造函数</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&#x27;parameters&#x27;</span>, <span class="string">&#x27;function body&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这些方式各有特点，函数声明和函数表达式是最常见和推荐的方式，而箭头函数是在ES6中引入的一种更简洁的写法，而Function构造函数则较少使用，因为它会在运行时解析字符串，有一定的性能开销和安全风险。</p>
+<img src="https://uploadfiles.nowcoder.com/message_images/20240321/550678068_1711009268544/discuss_1711009267441.jpeg" alt="img" style="zoom: 33%;" />
+
+<h1 id="原生Javascript获取DOM节点有哪些方式？"><a href="#原生Javascript获取DOM节点有哪些方式？" class="headerlink" title="原生Javascript获取DOM节点有哪些方式？"></a>原生Javascript获取DOM节点有哪些方式？</h1><h2 id="document-getElementById"><a href="#document-getElementById" class="headerlink" title="document.getElementById"></a>document.getElementById</h2><blockquote>
+<p>获取具有指定的ID，ID唯一。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leta=<span class="variable language_">document</span>。<span class="title function_">getElementById</span>(<span class="string">&#x27;id&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="document-getElementByTagName"><a href="#document-getElementByTagName" class="headerlink" title="document.getElementByTagName"></a>document.getElementByTagName</h2><blockquote>
+<p>返回一个包含所有给定标签名元素的HTML</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="variable language_">document</span>.<span class="title function_">getElementByTagName</span>(<span class="string">&#x27;div&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="1document-getElementByClassName"><a href="#1document-getElementByClassName" class="headerlink" title="1document.getElementByClassName"></a>1document.getElementByClassName</h2><blockquote>
+<p>返回一个包含所有给定类名的元素的 <code>HTMLCollection</code>。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a=document.getElementByClassName(&#x27;myclass&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>在原生 JavaScript 中，有多种方式可以获取或选择 DOM (Document Object Model) 元素。这些方法提供了从简单到复杂的不同级别的选择功能，可以让你根据 ID、类名、标签名、CSS 选择器等多种方式选择元素。以下是一些最常用的方法：</p>
+<h3 id="1-document-getElementById"><a href="#1-document-getElementById" class="headerlink" title="1. document.getElementById"></a>1. <code>document.getElementById</code></h3><p>获取具有指定 ID 的一个元素。ID 在一个文档中应该是唯一的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myId&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-document-getElementsByTagName"><a href="#2-document-getElementsByTagName" class="headerlink" title="2. document.getElementsByTagName"></a>2. <code>document.getElementsByTagName</code></h3><p>返回一个包含所有给定标签名的元素的 <code>HTMLCollection</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;div&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-document-getElementsByClassName"><a href="#3-document-getElementsByClassName" class="headerlink" title="3. document.getElementsByClassName"></a>3. <code>document.getElementsByClassName</code></h3><p>返回一个包含所有给定类名的元素的 <code>HTMLCollection</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;myClass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-document-querySelector"><a href="#4-document-querySelector" class="headerlink" title="4. document.querySelector"></a>4. <code>document.querySelector</code></h3><p>返回文档中匹配指定 CSS 选择器的第一个元素。如果没有找到匹配项，返回 <code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.myClass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#myId&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div[name=&quot;myElement&quot;]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-document-querySelectorAll"><a href="#5-document-querySelectorAll" class="headerlink" title="5. document.querySelectorAll"></a>5. <code>document.querySelectorAll</code></h3><p>返回一个 <code>NodeList</code>，其中包含文档中所有符合指定 CSS 选择器的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.myClass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div.myClass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-document-forms"><a href="#6-document-forms" class="headerlink" title="6. document.forms"></a>6. <code>document.forms</code></h3><p>这是一个比较老的方法，用来获取文档中的表单元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="variable language_">document</span>.<span class="property">forms</span>[<span class="number">0</span>]; <span class="comment">// 获取第一个表单</span></span><br><span class="line"><span class="keyword">var</span> myForm = <span class="variable language_">document</span>.<span class="property">forms</span>[<span class="string">&#x27;myFormName&#x27;</span>]; <span class="comment">// 通过名称获取表单</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-document-getElementsByName"><a href="#7-document-getElementsByName" class="headerlink" title="7. document.getElementsByName"></a>7. <code>document.getElementsByName</code></h3><p>这个方法返回一个 <code>NodeList</code>，其中包含所有具有指定的 name 特性的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">&#x27;name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-使用-CSS-属性选择器"><a href="#8-使用-CSS-属性选择器" class="headerlink" title="8. 使用 CSS 属性选择器"></a>8. 使用 CSS 属性选择器</h3><p>你也可以使用 <code>querySelector</code> 和 <code>querySelectorAll</code> 方法配合属性选择器来选择具有特定属性的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input[type=&quot;checkbox&quot;]&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;input[type=&quot;text&quot;]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用建议："><a href="#使用建议：" class="headerlink" title="使用建议："></a>使用建议：</h3><ul>
+<li>如果你只需要选择一个元素，并且该元素具有 ID，那么 <code>getElementById</code> 是最快的选择。</li>
+<li>如果需要根据类名、标签名或者更复杂的 CSS 选择器选择多个元素，<code>querySelectorAll</code> 是非常强大的工具。</li>
+<li>对于需要兼容性考虑，所有上述方法除了较新的 <code>querySelector</code> 和 <code>querySelectorAll</code>，其他都有很好的兼容性。<code>querySelector</code> 和 <code>querySelectorAll</code> 主要不支持 IE8 及以下版本。</li>
+</ul>
+<p>这些方法都是原生 JavaScript 提供的，无需依赖任何库或框架即可在现代浏览器中使用。</p>
+<h1 id="Javascript的this绑定"><a href="#Javascript的this绑定" class="headerlink" title="Javascript的this绑定"></a>Javascript的this绑定</h1><blockquote>
+<p>在JavaScript中，<code>this</code> 关键字是非常核心的一个概念，它引用的是函数执行时的上下文对象。理解<code>this</code>如何绑定到不同的上下文是理解和掌握JavaScript非常重要的一部分。<code>this</code>的绑定规则可以通过以下几种方式确定：</p>
+</blockquote>
+<h2 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h2><p>当函数独立调用时（即不作为某个对象的方法或未被显式绑定到某个对象），<code>this</code> 默认绑定到全局对象。在非严格模式下，<code>this</code> 指向全局对象（浏览器中的<code>window</code>，Node.js中的<code>global</code>）；在严格模式下（函数或全局代码中使用<code>&#39;use strict&#39;;</code>），<code>this</code> 会被绑定到<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">show</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">show</span>(); <span class="comment">// 在非严格模式下，输出 window/global；在严格模式下，输出 undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h2><p>当函数作为对象的方法被调用时，<code>this</code> 隐式绑定到该对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Example&#x27;</span>,</span><br><span class="line">  <span class="attr">show</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">show</span>(); <span class="comment">// 输出 &#x27;Example&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果存在多层对象嵌套，<code>this</code> 将绑定到最近一层的对象上。</p>
+<h2 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h2><p>使用<code>call()</code>、<code>apply()</code> 或 <code>bind()</code> 方法可以显式地指定<code>this</code> 的绑定对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">show</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;Explicit Example&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line">show.<span class="title function_">call</span>(obj); <span class="comment">// 输出 &#x27;Explicit Example&#x27;</span></span><br><span class="line">show.<span class="title function_">apply</span>(obj); <span class="comment">// 输出 &#x27;Explicit Example&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> boundShow = show.<span class="title function_">bind</span>(obj);</span><br><span class="line"><span class="title function_">boundShow</span>(); <span class="comment">// 输出 &#x27;Explicit Example&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h2><p>当一个函数通过<code>new</code> 关键字被作为构造函数调用时，<code>this</code> 被绑定到新创建的对象上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;New Person&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// 输出 &#x27;New Person&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数绑定"><a href="#箭头函数绑定" class="headerlink" title="箭头函数绑定"></a>箭头函数绑定</h2><p>箭头函数不使用以上四种规则，而是捕获其所在上下文的<code>this</code> 值，作为自己的<code>this</code> 值，也称为词法绑定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Arrow&#x27;</span>,</span><br><span class="line">  <span class="attr">show</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">show</span>(); <span class="comment">// 输出 &#x27;Arrow&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在箭头函数中，<code>this</code> 绑定到外围函数的上下文中，即使是在<code>setTimeout</code>这样的异步函数中。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>JavaScript的<code>this</code> 绑定是动态的，除了箭头函数外，其绑定取决于函数调用的上下文。理解这些绑定规则对于编写可预测的JavaScript代码非常重要。</p>
+<h1 id="JS主线程有哪些"><a href="#JS主线程有哪些" class="headerlink" title="JS主线程有哪些"></a>JS主线程有哪些</h1><p>在JavaScript中，特别是在浏览器环境下，存在一个称为“主线程”的概念，通常也被称为“UI线程”。JavaScript 是单线程运行的，意味着在任一时刻只能执行一个任务。主线程负责执行代码、渲染界面、处理用户的交互操作等任务。这里主要解释的是JavaScript在浏览器中的运行环境：</p>
+<h3 id="JavaScript-主线程的职责"><a href="#JavaScript-主线程的职责" class="headerlink" title="JavaScript 主线程的职责"></a>JavaScript 主线程的职责</h3><ol>
+<li><p><strong>执行代码</strong>：</p>
+<ul>
+<li>JavaScript 主线程执行所有的JavaScript代码。无论是从<code>&lt;script&gt;</code>标签引入的代码，还是通过事件触发的函数，都在这个单一的线程上执行。</li>
+</ul>
+</li>
+<li><p><strong>UI 渲染</strong>：</p>
+<ul>
+<li>浏览器使用主线程来渲染页面。这包括HTML的解析、CSS的应用、DOM的操作以及最终的画面渲染。这也是为什么在执行重计算或大量DOM操作时，页面可能会感觉卡顿或冻结，因为这些操作会占用主线程的资源，影响到UI的更新。</li>
+</ul>
+</li>
+<li><p><strong>用户交互</strong>：</p>
+<ul>
+<li>主线程还处理来自用户的所有交互，如点击、滚动、键盘输入等。这意味着如果JavaScript代码执行耗时过长，它可以阻塞用户交互，导致不良的用户体验。</li>
+</ul>
+</li>
+</ol>
+<h3 id="与主线程交互的其他组件"><a href="#与主线程交互的其他组件" class="headerlink" title="与主线程交互的其他组件"></a>与主线程交互的其他组件</h3><p>尽管JavaScript是单线程执行的，但现代浏览器和Node.js环境提供了多种机制来处理异步事件和后台任务，以避免阻塞主线程，如：</p>
+<ol>
+<li><p><strong>Web Workers</strong>：</p>
+<ul>
+<li>提供一种在浏览器背景下运行脚本的方法，不影响主线程。Web Workers运行在与主线程完全独立的线程上，可以执行复杂计算或处理大量数据，不会导致界面卡顿。</li>
+</ul>
+</li>
+<li><p><strong>事件队列和事件循环</strong>：</p>
+<ul>
+<li>浏览器维护一个事件队列，所有异步事件，如网络请求、定时器触发、用户输入等，都会被排到这个队列中。主线程在执行完当前代码后，会查看这个队列，并处理队列中的事件。</li>
+</ul>
+</li>
+<li><p><strong>异步API</strong>：</p>
+<ul>
+<li>浏览器提供了许多异步API，如<code>setTimeout</code>、<code>setInterval</code>、<code>fetch</code>（网络请求）等，这些API的回调不会立即执行，而是在合适的时机被推入事件队列，待主线程空闲时执行。</li>
+</ul>
+</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于主线程的多重职责，作为开发者在编写JavaScript代码时，需要注意不要执行过于复杂或耗时的同步代码，这可能会阻塞主线程，影响到UI的渲染和用户的交互体验。在处理大量数据或复杂计算时，应考虑使用Web Workers或其他异步处理方法，以提高应用性能和响应性。</p>
+<h1 id="事件捕获、目标、冒泡"><a href="#事件捕获、目标、冒泡" class="headerlink" title="事件捕获、目标、冒泡"></a>事件捕获、目标、冒泡</h1><p>在Web开发中，事件冒泡是一种事件处理机制，其中从一个元素发起的事件会逐层向上传播到其父元素，直至根元素。有时候，我们可能需要阻止这种冒泡行为，以避免触发父元素上的事件处理函数。这可以通过JavaScript中的事件对象提供的方法来实现。</p>
+<p>以下是如何在不同情况下阻止事件冒泡的方法：</p>
+<h2 id="使用-event-stopPropagation"><a href="#使用-event-stopPropagation" class="headerlink" title="使用 event.stopPropagation()"></a>使用 <code>event.stopPropagation()</code></h2><p>这是阻止事件冒泡的标准方法。当在事件处理函数中调用此方法时，当前事件将不会进一步传播到父元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回-false"><a href="#返回-false" class="headerlink" title="返回 false"></a>返回 <code>false</code></h2><p>在使用jQuery时，你可以通过在事件处理函数中返回<code>false</code>来同时阻止事件冒泡和默认行为。在原生JavaScript中，这种方法只适用于通过HTML属性添加的事件处理器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 jQuery</span></span><br><span class="line">$(<span class="string">&#x27;#element&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 阻止冒泡并阻止默认行为</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在HTML元素中直接使用</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;doSomething(); return false;&quot;</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">doSomething</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-event-stopImmediatePropagation"><a href="#使用-event-stopImmediatePropagation" class="headerlink" title="使用 event.stopImmediatePropagation()"></a>使用 <code>event.stopImmediatePropagation()</code></h2><p>这个方法不仅阻止事件继续冒泡到更高的父元素，还阻止任何当前元素上的其他事件监听器被调用。这是一个比<code>stopPropagation()</code>更强大的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    event.<span class="title function_">stopImmediatePropagation</span>();</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li><strong>阻止链接默认打开新页面</strong>：阻止<code>&lt;a&gt;</code>标签的默认行为。</li>
+<li><strong>防止表单提交</strong>：阻止表单的自动提交行为。</li>
+<li><strong>组织事件传播到其他元素</strong>：如在弹出菜单中阻止点击事件传播到背景页面。</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>虽然阻止事件冒泡可以解决一些问题，但过度使用它可能会导致维护困难，因为这改变了事件的正常流动。合理使用这一特性，并确保理解其对整体交互逻辑的影响。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2024/04/12/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/">http://lavender321.github.com/2024/04/12/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/18/%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/" title="腾讯面经"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">腾讯面经</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/14/Java%E9%9D%A2%E8%AF%95/" title="Java面试"><img class="cover" src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java面试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/03/31/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="JavaScript设计模式"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-31</div><div class="title">JavaScript设计模式</div></div></a></div><div><a href="/2023/01/23/TypeScript%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" title="TypeScript面试题总结"><img class="cover" src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-23</div><div class="title">TypeScript面试题总结</div></div></a></div><div><a href="/2023/01/27/JavaScript%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="JavaScript数组常用方法总结"><img class="cover" src="https://s2.loli.net/2022/12/31/HYB9fKZPknOqSLz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-27</div><div class="title">JavaScript数组常用方法总结</div></div></a></div><div><a href="/2023/01/29/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" title="事件循环机制"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-29</div><div class="title">事件循环机制</div></div></a></div><div><a href="/2023/01/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ES6/" title="深入理解ES6"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-23</div><div class="title">深入理解ES6</div></div></a></div><div><a href="/2023/02/17/%E8%8F%9C%E9%B8%9F%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95U%C2%B7%E3%82%A7%C2%B7U/" title="菜鸟前端面试记录U·ェ·U"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">菜鸟前端面试记录U·ェ·U</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E6%9C%89%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">JavaScript有几种方式声明函数？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%94%9FJavascript%E8%8E%B7%E5%8F%96DOM%E8%8A%82%E7%82%B9%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">原生Javascript获取DOM节点有哪些方式？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementById"><span class="toc-number">2.1.</span> <span class="toc-text">document.getElementById</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementByTagName"><span class="toc-number">2.2.</span> <span class="toc-text">document.getElementByTagName</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1document-getElementByClassName"><span class="toc-number">2.3.</span> <span class="toc-text">1document.getElementByClassName</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-document-getElementById"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. document.getElementById</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-document-getElementsByTagName"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. document.getElementsByTagName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-document-getElementsByClassName"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. document.getElementsByClassName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-document-querySelector"><span class="toc-number">2.3.4.</span> <span class="toc-text">4. document.querySelector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-document-querySelectorAll"><span class="toc-number">2.3.5.</span> <span class="toc-text">5. document.querySelectorAll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-document-forms"><span class="toc-number">2.3.6.</span> <span class="toc-text">6. document.forms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-document-getElementsByName"><span class="toc-number">2.3.7.</span> <span class="toc-text">7. document.getElementsByName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%BD%BF%E7%94%A8-CSS-%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">2.3.8.</span> <span class="toc-text">8. 使用 CSS 属性选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BB%BA%E8%AE%AE%EF%BC%9A"><span class="toc-number">2.3.9.</span> <span class="toc-text">使用建议：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Javascript%E7%9A%84this%E7%BB%91%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">Javascript的this绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%BB%91%E5%AE%9A"><span class="toc-number">3.1.</span> <span class="toc-text">默认绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="toc-number">3.2.</span> <span class="toc-text">隐式绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="toc-number">3.3.</span> <span class="toc-text">显式绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new%E7%BB%91%E5%AE%9A"><span class="toc-number">3.4.</span> <span class="toc-text">new绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A"><span class="toc-number">3.5.</span> <span class="toc-text">箭头函数绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.6.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">4.</span> <span class="toc-text">JS主线程有哪些</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E4%B8%BB%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%81%8C%E8%B4%A3"><span class="toc-number">4.0.1.</span> <span class="toc-text">JavaScript 主线程的职责</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%BA%A4%E4%BA%92%E7%9A%84%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6"><span class="toc-number">4.0.2.</span> <span class="toc-text">与主线程交互的其他组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.0.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E3%80%81%E7%9B%AE%E6%A0%87%E3%80%81%E5%86%92%E6%B3%A1"><span class="toc-number">5.</span> <span class="toc-text">事件捕获、目标、冒泡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-event-stopPropagation"><span class="toc-number">5.1.</span> <span class="toc-text">使用 event.stopPropagation()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E-false"><span class="toc-number">5.2.</span> <span class="toc-text">返回 false</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-event-stopImmediatePropagation"><span class="toc-number">5.3.</span> <span class="toc-text">使用 event.stopImmediatePropagation()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.4.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">5.5.</span> <span class="toc-text">注意</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/18/58/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/09/18/58/" title="无题">无题</a><time datetime="2024-09-18T07:21:55.572Z" title="发表于 2024-09-18 15:21:55">2024-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vite相关面试题"/></a><div class="content"><a class="title" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题">vite相关面试题</a><time datetime="2024-08-31T10:37:40.000Z" title="发表于 2024-08-31 18:37:40">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小程序面试"/></a><div class="content"><a class="title" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试">小程序面试</a><time datetime="2024-08-31T07:30:26.000Z" title="发表于 2024-08-31 15:30:26">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025-前端面试总结"/></a><div class="content"><a class="title" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结">2025-前端面试总结</a><time datetime="2024-08-06T03:22:45.000Z" title="发表于 2024-08-06 11:22:45">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客"><img src="https://s2.loli.net/2023/01/29/yz4ZcjfxPlEMnUD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo创建博客"/></a><div class="content"><a class="title" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客">hexo创建博客</a><time datetime="2024-08-05T14:43:08.713Z" title="发表于 2024-08-05 22:43:08">2024-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

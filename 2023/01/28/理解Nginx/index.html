@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>理解Nginx | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nginx是什么？Nginx (engine x) 是一个轻量级、高性能的HTTP和反向代理服务器,同时也是一个通用代理服务器(TCP&#x2F;UDP&#x2F;IMAP&#x2F;POP3&#x2F;SMTP),最初由俄罗斯人Igor Sysoev编写。 简单的说：  Nginx是一个拥有高性能HTTP和反向代理服务器，其特点是占用内存少，并发能力强，并且在现实中，nginx的并发能力要比在同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解Nginx">
+<meta property="og:url" content="http://lavender321.github.com/2023/01/28/%E7%90%86%E8%A7%A3Nginx/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="Nginx是什么？Nginx (engine x) 是一个轻量级、高性能的HTTP和反向代理服务器,同时也是一个通用代理服务器(TCP&#x2F;UDP&#x2F;IMAP&#x2F;POP3&#x2F;SMTP),最初由俄罗斯人Igor Sysoev编写。 简单的说：  Nginx是一个拥有高性能HTTP和反向代理服务器，其特点是占用内存少，并发能力强，并且在现实中，nginx的并发能力要比在同">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2023-01-27T17:12:48.000Z">
+<meta property="article:modified_time" content="2024-08-05T14:43:08.728Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2023/01/28/%E7%90%86%E8%A7%A3Nginx/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '理解Nginx',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-05 22:43:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">理解Nginx</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-27T17:12:48.000Z" title="发表于 2023-01-28 01:12:48">2023-01-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-05T14:43:08.728Z" title="更新于 2024-08-05 22:43:08">2024-08-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="理解Nginx"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Nginx是什么？"><a href="#Nginx是什么？" class="headerlink" title="Nginx是什么？"></a>Nginx是什么？</h2><p><code>Nginx</code> (engine x) 是一个<strong>轻量级、高性能的HTTP</strong>和<strong>反向代理服务器</strong>,同时也是一个<strong>通用代理服务器</strong>(TCP&#x2F;UDP&#x2F;IMAP&#x2F;POP3&#x2F;SMTP),最初由俄罗斯人Igor Sysoev编写。</p>
+<p>简单的说：</p>
+<ul>
+<li><code>Nginx</code>是一个拥有高性能HTTP和反向代理服务器，其特点是<code>占用内存少</code>，<code>并发能力强</code>，并且在现实中，nginx的并发能力要比在同类型的网页服务器中表现要好</li>
+<li><code>Nginx</code>专为<code>性能优化</code>而开发，最重要的要求便是<code>性能</code>，且十分注重效率，有报告nginx能支持高达50000个并发连接数</li>
+</ul>
+<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><p>Nginx 是一个反向代理服务器，那么反向代理是什么呢？我们先看看什么叫做正向代理</p>
+<p><strong>正向代理</strong>：局域网中的电脑用户想要直接访问网络是不可行的，只能通过代理服务器（Server）来访问，这种代理服务就被称为正向代理。</p>
+<p>就好比我们俩在一块，直接对话即可，但如果我和你分隔两地，我们要想对话，必须借助一个通讯设备（如：电话）来沟通，那么这个通讯设备就是”代理服务器”，这种行为称为“正向代理”</p>
+<p>那么反向代理是什么呢？</p>
+<p><strong>反向代理</strong>：客户端无法感知代理，因为客户端访问网络不需要配置，只要把请求发送到反向代理服务器，由<strong>反向代理服务器去选择目标服务器</strong>获取数据，然后再返回到客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。</p>
+<p>在正向代理中，我向你打电话，你能看到向你打电话的电话号码，由电话号码知道是我给你打的，那么此时我用<code>虚拟电话</code>给你打过去，你看到的不再是我的手机号，而是<code>虚拟号码</code>,你便不知道是我给你打的，这种行为变叫做”反向代理”。</p>
+<p>在以上述的例子简单的说下：</p>
+<ul>
+<li>正向代理：我通过我的手机（proxy Server）去给你打电话，相当于<strong>我和我的手机</strong>是一个整体，与你的手机（Server）是分开的</li>
+<li>反向代理：我通过我的手机（proxy Server）通过软件转化为虚拟号码去给你打电话，此时相当于<strong>我的手机和你的手机</strong>是一个整体，和我是分开的</li>
+</ul>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>负载均衡</strong>：是高可用网络基础架构的关键组件，通常用于将工作<strong>负载分布到多个服务器</strong>来提高网站、应用、数据库或其他服务的性能和可靠性。</p>
+<p>如果没有负载均衡，客户端与服务端的操作通常是：<strong>客户端请求服务端，然后服务端去数据库查询数据，将返回的数据带给客户端</strong>：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b03812eb40b047be8052ee9288f6798e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="image.png"></p>
+<p>但随着客户端越来越多，数据，访问量飞速增长，这种情况显然无法满足，我们从上图发现，客户端的请求和相应都是通过服务端的，那么我们加大服务端的量，让多个服务端分担，是不是就能解决这个问题了呢？</p>
+<p>但此时对于客户端而言，他去访问这个地址就是固定的，才不会去管那个服务端有时间，你只要给我返回出数据就OK了，所以我们就需要一个“管理者“，将这些服务端找个老大过来，客户端直接找老大，再由老大分配谁处理谁的数据，从而减轻服务端的压力，而这个”老大“就是<strong>反向代理服务器</strong>，而端口号就是这些服务端的工号。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6c634ec69f54d5ab76644d8dd78b0c2~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="image.png"></p>
+<p>像这样，当有15个请求时，反向代理服务器会平均分配给服务端，也就是各处理5个，这个过程就称之为：<strong>负载均衡</strong></p>
+<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p>当客户端发起请求时，正常的情况是这样的：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f9e589ff2224234ad1413e4c4c58cce~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="image.png"></p>
+<p>就好比你去找客服，一般先是先说一大堆官方的话，你问什么，他都会这么说，那么这个就叫<strong>静态资源（可以理解为是html，css）</strong></p>
+<p>而回答具体的问题时，每个回答都是不同的，而这些不同的就叫做<strong>动态资源（会改变，可以理解为是变量）</strong></p>
+<p>在未分离的时候，可以理解为每个客服都要先说出官方的话，在打出具体的回答，这无异加大了客服的工作量，所以为了更好的有效利用客服的时间，我们把这些官方的话分离出来，找个机器人，让他代替客服去说，这样就减轻了客服的工作量。</p>
+<p>也就是说，我们将动态资源和静态资源分离出来，交给不同的服务器去解析，这样就加快了解析的速度，从而降低由单个服务器的压力</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a91e7a373df14e90891e6f4f62a629d7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="image.png"></p>
+<h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><p>关于 nginx 如何安装，这里就不做过多的介绍了，感兴趣的小伙伴看看这篇文章：<a href="https://link.juejin.cn/?target=https://blog.csdn.net/yujing1314/article/details/97267369" title="https://blog.csdn.net/yujing1314/article/details/97267369">【Linux】中如何安装nginx</a></p>
+<p>这里让我们看看一些常用的命令：</p>
+<ul>
+<li>查看版本：<code>./nginx -v</code></li>
+<li>启动：<code>./nginx</code></li>
+<li>关闭：<code>./nginx -s stop</code>(推荐) 或 <code>./nginx -s quit</code></li>
+<li>重新加载nginx配置：<code>./nginx -s reload</code></li>
+</ul>
+<h2 id="Nginx-的配置文件"><a href="#Nginx-的配置文件" class="headerlink" title="Nginx 的配置文件"></a>Nginx 的配置文件</h2><p>配置文件分为三个模块：</p>
+<ul>
+<li>全局块：从配置文件开始到events块之间，主要是设置一些<strong>影响nginx服务器整体运行的配置指令</strong>。（按道理说：并发处理服务的配置时，值越大，可支持的并发处理量越多，但此时会受到硬件、软件等设备等的制约）</li>
+<li>events块：影响<strong>nginx服务器与用户的网络连接</strong>，常用的设置包括是否开启对多workprocess下的网络连接进行序列化，是否允许同时接收多个网络连接等等</li>
+<li>http块：如反向代理和负载均衡都在此配置</li>
+</ul>
+<h2 id="location-的匹配规则"><a href="#location-的匹配规则" class="headerlink" title="location 的匹配规则"></a>location 的匹配规则</h2><p>共有四种方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location[ = | ~ | ~* | ^~ ] url &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>=</code> ：<code>精确匹配</code>，用于<strong>不含正则表达式</strong>的url前，要求字符串与url<strong>严格匹配</strong>，完全相等时，才能停止向下搜索并处理请求</li>
+<li><code>^~</code>：用于<strong>不含正则表达式</strong>的url前，要求ngin服务器找到表示<strong>url和字符串匹配度最高</strong>的location后，立即使用此location处理请求，而不再匹配</li>
+<li><code>~</code> ：<code>最佳匹配</code>，用于表示url<strong>包含正则表达式</strong>，并且<strong>区分</strong>大小写。</li>
+<li><code>~*</code>：与<code>~</code>一样，只是<strong>不区分</strong>大小写</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>如果 <code>url</code> 包含正则表达式，则不需要 <code>~</code> 作为开头表示</li>
+<li>nginx的匹配具有<code>优先顺序</code>，一旦匹配上就会立马退出，不再进行向下匹配</li>
+</ul>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>关于具体的配置可以参考：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7052952117425733663" title="https://juejin.cn/post/7052952117425733663">写给前端的nginx教程</a></p>
+<h3 id="其他好文"><a href="#其他好文" class="headerlink" title="其他好文"></a>其他好文</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7088304364078497800" title="https://juejin.cn/post/7088304364078497800">一篇让你完全够用TS的指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7068935394191998990" title="https://juejin.cn/post/7068935394191998990">🔥花一个小时，迅速了解ES6~ES12的全部特性</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7063657010885034020" title="https://juejin.cn/post/7063657010885034020">10分钟，打造一个专属于你的cli</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7077805900055969823" title="https://juejin.cn/post/7077805900055969823">通过开水果店，帮你全面了解package.json文件的作用</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7052204193968291870" title="https://juejin.cn/post/7052204193968291870">打造开箱即用的 react 移动端框架</a></li>
+</ul>
+<p>致此，有关Nginx相关的知识就已经完成了，相信对于前端而言已经足够了，喜欢的点个赞👍🏻支持下吧(●￣(ｴ)￣●)</p>
+<p>文章被收录于专栏：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d8225778b6543f697208f3a32484dec~tplv-k3u1fbpfcp-no-mark:160:160:160:120.awebp" alt="cover"></p>
+<p>前端八股文</p>
+<p>八股文包含： node、 cli、webpack、git、网络、浏览器、性能优化、等一些实用的插件等</p>
+<p>相关小册</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c802eb3fdc3a41a29229d496ebd0ef67~tplv-k3u1fbpfcp-no-mark:420:420:300:420.awebp" alt="「从前端到全栈」封面"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/288aed1ab1f044f08f541cfd12b5c221~tplv-k3u1fbpfcp-no-mark:420:420:300:420.awebp" alt="「NestJS 项目实战」封面"></p>
+<p><img src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/c794682f2184652c07e62d648e048460.svg"> 1k+</p>
+<p><img src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/3d482c7a948bac826e155953b2a28a9e.svg"> 收藏</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2023/01/28/%E7%90%86%E8%A7%A3Nginx/">http://lavender321.github.com/2023/01/28/%E7%90%86%E8%A7%A3Nginx/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Nginx/">Nginx</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/28/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81-%E5%89%8D%E7%AB%AF/" title="手撕代码-前端"><img class="cover" src="https://s2.loli.net/2022/12/31/6DMRKqvGUXHLpCB.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">手撕代码-前端</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/27/%E8%B7%A8%E5%9F%9F%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="跨域及其原理"><img class="cover" src="https://s2.loli.net/2023/01/29/S6oYudcehy8kbIg.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">跨域及其原理</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Nginx是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">正向代理和反向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">3.</span> <span class="toc-text">负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB"><span class="toc-number">4.</span> <span class="toc-text">动静分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Nginx"><span class="toc-number">5.</span> <span class="toc-text">安装 Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">Nginx 的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#location-%E7%9A%84%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="toc-number">7.</span> <span class="toc-text">location 的匹配规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-number">8.</span> <span class="toc-text">End</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%A5%BD%E6%96%87"><span class="toc-number">8.1.</span> <span class="toc-text">其他好文</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/18/58/" title="无题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/09/18/58/" title="无题">无题</a><time datetime="2024-09-18T07:21:55.572Z" title="发表于 2024-09-18 15:21:55">2024-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vite相关面试题"/></a><div class="content"><a class="title" href="/2024/08/31/vite%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/" title="vite相关面试题">vite相关面试题</a><time datetime="2024-08-31T10:37:40.000Z" title="发表于 2024-08-31 18:37:40">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小程序面试"/></a><div class="content"><a class="title" href="/2024/08/31/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9D%A2%E8%AF%95/" title="小程序面试">小程序面试</a><time datetime="2024-08-31T07:30:26.000Z" title="发表于 2024-08-31 15:30:26">2024-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025-前端面试总结"/></a><div class="content"><a class="title" href="/2024/08/06/2025-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="2025-前端面试总结">2025-前端面试总结</a><time datetime="2024-08-06T03:22:45.000Z" title="发表于 2024-08-06 11:22:45">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客"><img src="https://s2.loli.net/2023/01/29/yz4ZcjfxPlEMnUD.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo创建博客"/></a><div class="content"><a class="title" href="/2024/08/05/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="hexo创建博客">hexo创建博客</a><time datetime="2024-08-05T14:43:08.713Z" title="发表于 2024-08-05 22:43:08">2024-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
