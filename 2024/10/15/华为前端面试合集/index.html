@@ -1,0 +1,1041 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>华为前端面试合集 | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="c++在C++面试中，常见的问题通常会考察候选人的基础知识、面向对象编程（OOP）概念、STL的使用、内存管理、并发编程、以及算法与数据结构的实现能力。以下是一些常见的C++面试问题和解释： 基础知识 C++中指针和引用的区别？  指针是变量，存储的是内存地址，可以重新指向不同的对象，也可以为空。引用是一个别名，必须在声明时初始化，并且之后不能更改它指向的对象，不能为null。   深拷贝和浅拷贝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="华为前端面试合集">
+<meta property="og:url" content="http://lavender321.github.com/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="c++在C++面试中，常见的问题通常会考察候选人的基础知识、面向对象编程（OOP）概念、STL的使用、内存管理、并发编程、以及算法与数据结构的实现能力。以下是一些常见的C++面试问题和解释： 基础知识 C++中指针和引用的区别？  指针是变量，存储的是内存地址，可以重新指向不同的对象，也可以为空。引用是一个别名，必须在声明时初始化，并且之后不能更改它指向的对象，不能为null。   深拷贝和浅拷贝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg">
+<meta property="article:published_time" content="2024-10-15T08:35:34.000Z">
+<meta property="article:modified_time" content="2024-10-22T12:54:36.115Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '华为前端面试合集',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-22 20:54:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">华为前端面试合集</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-15T08:35:34.000Z" title="发表于 2024-10-15 16:35:34">2024-10-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-22T12:54:36.115Z" title="更新于 2024-10-22 20:54:36">2024-10-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="华为前端面试合集"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h1><p>在C++面试中，常见的问题通常会考察候选人的基础知识、面向对象编程（OOP）概念、STL的使用、内存管理、并发编程、以及算法与数据结构的实现能力。以下是一些常见的C++面试问题和解释：</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ol>
+<li><p><strong>C++中指针和引用的区别？</strong></p>
+<ul>
+<li>指针是变量，存储的是内存地址，可以重新指向不同的对象，也可以为空。引用是一个别名，必须在声明时初始化，并且之后不能更改它指向的对象，不能为null。</li>
+</ul>
+</li>
+<li><p><strong>深拷贝和浅拷贝的区别是什么？</strong></p>
+<ul>
+<li>浅拷贝：只复制对象的地址或基本数据类型，多个对象共享同一份资源。</li>
+<li>深拷贝：除了复制地址或基本数据类型外，还会复制指向的资源，创建一份新的资源，使得每个对象都有独立的资源。</li>
+</ul>
+</li>
+<li><p><strong>虚函数和纯虚函数的区别？</strong></p>
+<ul>
+<li>虚函数：基类声明为<code>virtual</code>，可以在派生类中重写，但基类仍然可以提供实现。</li>
+<li>纯虚函数：基类中没有实现，必须在派生类中实现，基类含有纯虚函数时，类成为抽象类，不能实例化。</li>
+</ul>
+</li>
+<li><p><strong>什么是多态？如何实现？</strong></p>
+<ul>
+<li>多态允许通过基类指针或引用来调用派生类的函数。C++中的多态有两种类型：<ul>
+<li><strong>编译时多态</strong>：通过函数重载和运算符重载实现。</li>
+<li><strong>运行时多态</strong>：通过虚函数和继承关系实现。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>为什么需要析构函数是虚函数？</strong></p>
+<ul>
+<li>当通过基类指针删除派生类对象时，如果析构函数不是虚函数，可能只会调用基类的析构函数，而不会调用派生类的析构函数，导致内存泄漏。</li>
+</ul>
+</li>
+</ol>
+<h2 id="STL（Standard-Template-Library）"><a href="#STL（Standard-Template-Library）" class="headerlink" title="STL（Standard Template Library）"></a>STL（Standard Template Library）</h2><ol start="6">
+<li><p><strong>STL容器的种类及使用场景？</strong></p>
+<ul>
+<li><strong>序列容器</strong>：<code>vector</code>, <code>deque</code>, <code>list</code>，用于存储有序集合。</li>
+<li><strong>关联容器</strong>：<code>set</code>, <code>map</code>, <code>multiset</code>, <code>multimap</code>，用于存储关联键值对，支持高效的查找。</li>
+<li><strong>无序关联容器</strong>：<code>unordered_set</code>, <code>unordered_map</code>，类似于哈希表，提供常量时间的查找。</li>
+</ul>
+</li>
+<li><p><strong>如何选择合适的STL容器？</strong></p>
+<ul>
+<li>如果需要动态数组，使用<code>vector</code>。</li>
+<li>如果频繁插入和删除操作，使用<code>list</code>或<code>deque</code>。</li>
+<li>如果需要键值对并且需要排序，使用<code>map</code>；如果不需要排序，使用<code>unordered_map</code>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><ol start="8">
+<li><p><strong>智能指针（Smart Pointer）的类型及区别？</strong></p>
+<ul>
+<li>**<code>std::unique_ptr</code>**：独占所有权，不能共享，不能复制。</li>
+<li>**<code>std::shared_ptr</code>**：可以共享所有权，引用计数管理资源的生命周期。</li>
+<li>**<code>std::weak_ptr</code>**：配合<code>shared_ptr</code>使用，弱引用，不增加引用计数，防止循环引用。</li>
+</ul>
+</li>
+<li><p><strong>什么是内存泄漏？如何避免？</strong></p>
+<ul>
+<li>内存泄漏是指程序在动态分配内存后未释放，导致内存资源不可用。避免的方法包括使用智能指针和确保每个<code>new</code>都有对应的<code>delete</code>，或者使用<code>RAII</code>（资源获取即初始化）原则。</li>
+</ul>
+</li>
+</ol>
+<h2 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h2><ol start="10">
+<li><p><strong>如何在C++中实现多线程？</strong></p>
+<ul>
+<li>使用C++11提供的<code>std::thread</code>类。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">threadFunc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello from thread!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::thread <span class="title">t</span><span class="params">(threadFunc)</span></span>;</span><br><span class="line">    t.<span class="built_in">join</span>(); <span class="comment">// 等待线程结束</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>如何解决线程安全问题？</strong></p>
+<ul>
+<li>使用互斥锁（<code>std::mutex</code>）来保护共享数据。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::mutex mtx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::lock_guard&lt;std::mutex&gt; <span class="title">guard</span><span class="params">(mtx)</span></span>; <span class="comment">// 自动锁定和解锁</span></span><br><span class="line">    <span class="comment">// 访问共享数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>条件变量（Condition Variable）的用途？</strong></p>
+<ul>
+<li>条件变量用于线程间同步，允许一个线程等待另一个线程发出信号。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">std::condition_variable cv;</span><br><span class="line">std::mutex mtx;</span><br><span class="line"><span class="type">bool</span> ready = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">waitForSignal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">    cv.<span class="built_in">wait</span>(lock, []&#123; <span class="keyword">return</span> ready; &#125;);</span><br><span class="line">    <span class="comment">// 当ready为true时执行后续操作</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sendSignal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::lock_guard&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">    ready = <span class="literal">true</span>;</span><br><span class="line">    cv.<span class="built_in">notify_one</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="算法和数据结构"><a href="#算法和数据结构" class="headerlink" title="算法和数据结构"></a>算法和数据结构</h2><ol start="13">
+<li><p><strong>如何实现单例模式（Singleton）？</strong></p>
+<ul>
+<li>单例模式确保一个类只有一个实例，并提供一个全局访问点。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">Singleton</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">Singleton</span>(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    Singleton&amp; <span class="keyword">operator</span>=(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> Singleton&amp; <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">static</span> Singleton instance;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>常见排序算法的实现（如快排、归并排序）？</strong></p>
+<ul>
+<li><strong>快速排序（Quick Sort）</strong>：基于分治法，通过选取一个基准点，将数组分为两部分，递归地排序。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> low, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> pivot = arr[high];</span><br><span class="line">    <span class="type">int</span> i = low - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = low; j &lt; high; ++j) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            std::<span class="built_in">swap</span>(arr[i], arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    std::<span class="built_in">swap</span>(arr[i + <span class="number">1</span>], arr[high]);</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">quickSort</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> low, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">        <span class="type">int</span> pi = <span class="built_in">partition</span>(arr, low, high);</span><br><span class="line">        <span class="built_in">quickSort</span>(arr, low, pi - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">quickSort</span>(arr, pi + <span class="number">1</span>, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h2 id="进阶问题"><a href="#进阶问题" class="headerlink" title="进阶问题"></a>进阶问题</h2><ol start="15">
+<li><p><strong>模板元编程是什么？</strong></p>
+<ul>
+<li>模板元编程（Template Metaprogramming，TMP）是一种编写可以在编译时执行计算的C++代码的技巧，常用于编译时优化和代码生成。</li>
+</ul>
+</li>
+<li><p><strong>C++11&#x2F;14&#x2F;17的新特性？</strong></p>
+<ul>
+<li><strong>C++11</strong>：智能指针、lambda表达式、<code>auto</code>关键字、范围<code>for</code>循环、<code>std::thread</code>多线程库、<code>nullptr</code>。</li>
+<li><strong>C++14</strong>：泛型lambda、<code>decltype(auto)</code>、<code>std::make_unique</code>。</li>
+<li><strong>C++17</strong>：结构化绑定、<code>if constexpr</code>、并行STL算法。</li>
+</ul>
+</li>
+</ol>
+<p>1.前端如何实现截图?<br>2.当OPS达到峰值时,该如何处理?<br>3.js 超过 Number 最大值的数怎么处理?<br>4.使用同一个链接，如何实现 PC 打开是 web 应用、手机打<br>开是一个 H5 应用?<br>5.如何保证用户的使用体验<br>6.如何解决页面请求接口大规模并发问题<br>7.设计一套全站请求耗时统计工具<br>8.大文件上传了解多少<br>9.H5 如何解决移动端适配问题<br>10.站点一键换肤的实现方式有哪些?<br>11.如何实现网页加载进度条?<br>12.常见图片懒加载方式有哪些?<br>13.cookie 构成部分有哪些<br>14.扫码登录实现方式<br>15.DNS 协议了解多少<br>16.函数式编程了解多少?<br>17.前端水印了解多少?<br>18.什么是领域模型<br>19.一直在 window 上面挂东西是否有什么风险<br>20.深度 SEO 优化的方式有哪些，从技术层面来说<br>21.小程序为什么会有两个线程<br>22.web 应用中如何对静态资源加载失败的场景做降级处理23.html中前缀为 data- 开头的元素属性是什么?<br>24.移动端如何实现上拉加载，下拉刷新?<br>25.如何判断dom元素是否在可视区域</p>
+<p>28.如果不使用脚手架，如果用 webpack 构建一个自己的react 应用<br>29.用 nodejs 实现一个命令行工具，统计输入目录下面指定代码的行数<br>30.package.json 里面 sideEffects 属性的作用是啥31.script 标签上有那些属性，分别作用是啥?<br>32.为什么 SPA应用都会提供一个 hash 路由，好处是什么?<br>33.React如何进行路由变化监听<br>34.单点登录是是什么，具体流程是什么<br>35.web 网页如何禁止别人移除水印<br>36.用户访问页面白屏了，原因是啥，如何排查?<br>37.[代码实现1JS 中如何实现大对象深度对比<br>38.如何理解数据驱动视图，有哪些核心要素?<br>39.vue-cli都做了哪些事儿，有哪些功能?<br>40.JS 执行 100 万个任务，如何保证浏览器不卡顿?<br>41.JS 放在 head 里和放在 body 里有什么区别?<br>42.Eslint 代码检查的过程是啥?<br>43.虚拟混动加载原理是什么，用JS 代码简单实现一个虚拟滚动加加载。</p>
+<p>44.[Reactlreact-router和原生路由区别</p>
+<p>45.html的行内元素和块级元素的区别</p>
+<p>46.介绍一下 requestldleCallback api</p>
+<p>47.documentFragmentapi是什么，有哪些使用场景?</p>
+<p>48.git pull 和 git fetch 有啥区别?</p>
+<p>49.前端如何做 页面主题色切换</p>
+<h1 id="得物"><a href="#得物" class="headerlink" title="得物"></a>得物</h1><h2 id="多端兼容，有哪些方式？"><a href="#多端兼容，有哪些方式？" class="headerlink" title="多端兼容，有哪些方式？"></a>多端兼容，有哪些方式？</h2><p><strong>前端的多端兼容</strong>，主要解决的是一个应用需要在多种平台（如Web、iOS、Android、小程序等）上运行的问题。为了减少多端开发的成本和复杂度，目前有多种技术和策略来实现<strong>多端兼容</strong>。以下是主要的方式：</p>
+<h3 id="1-响应式设计（Responsive-Design）"><a href="#1-响应式设计（Responsive-Design）" class="headerlink" title="1. 响应式设计（Responsive Design）"></a>1. <strong>响应式设计（Responsive Design）</strong></h3><p>   <strong>适用场景</strong>：主要针对不同尺寸和分辨率的设备，如PC端和移动端。  </p>
+<ul>
+<li><p><strong>核心技术</strong>：</p>
+<ul>
+<li><strong>媒体查询</strong>（Media Query）：根据屏幕宽度加载不同的CSS样式。</li>
+<li><strong>弹性布局</strong>（Flexbox）和 <strong>Grid布局</strong>：处理页面的自动适配。</li>
+<li><strong>视口单位</strong>（vh、vw）：动态控制尺寸。</li>
+<li><strong>图片优化</strong>：根据屏幕大小加载不同分辨率的图片（<code>srcset</code>）。</li>
+</ul>
+</li>
+<li><p><strong>优点</strong>：简单实现不同尺寸屏幕的适配，易于维护。  </p>
+</li>
+<li><p><strong>缺点</strong>：对于需要高度个性化界面或复杂交互逻辑的应用，Web适配可能不够。</p>
+</li>
+</ul>
+<h3 id="2-跨平台框架"><a href="#2-跨平台框架" class="headerlink" title="2. 跨平台框架"></a>2. <strong>跨平台框架</strong></h3><p>   <strong>适用场景</strong>：需要兼容移动端和Web端，且希望代码重用率高。  </p>
+<h4 id="1-React-Native-React-Web"><a href="#1-React-Native-React-Web" class="headerlink" title="(1) React Native + React Web"></a>(1) <strong>React Native + React Web</strong></h4><ul>
+<li><strong>技术原理</strong>：使用React代码，同时支持Web和移动端，通过<code>react-native-web</code>适配不同平台。</li>
+<li><strong>特点</strong>：  <ul>
+<li>使用一套组件，跨Web、iOS、Android开发。</li>
+<li>部分逻辑和UI代码复用，但需要根据平台做部分定制。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Flutter"><a href="#2-Flutter" class="headerlink" title="(2) Flutter"></a>(2) <strong>Flutter</strong></h4><ul>
+<li><strong>技术原理</strong>：Google推出的UI框架，通过同一套Dart代码生成iOS、Android和Web应用。</li>
+<li><strong>特点</strong>：  <ul>
+<li>完全一致的UI和性能体验。</li>
+<li>Web支持还在不断完善中。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Taro"><a href="#3-Taro" class="headerlink" title="(3) Taro"></a>(3) <strong>Taro</strong></h4><ul>
+<li><strong>技术原理</strong>：基于React的多端开发框架，支持<strong>小程序</strong>（微信、支付宝等）、H5 和 原生APP。</li>
+<li><strong>特点</strong>：<ul>
+<li>一次开发，多端运行。</li>
+<li>适用于有小程序和H5需求的场景。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-Hybrid-混合开发"><a href="#3-Hybrid-混合开发" class="headerlink" title="3. Hybrid 混合开发"></a>3. <strong>Hybrid 混合开发</strong></h3><p>   <strong>适用场景</strong>：已有Web项目，需要快速扩展到移动端。  </p>
+<h4 id="1-Cordova-x2F-PhoneGap"><a href="#1-Cordova-x2F-PhoneGap" class="headerlink" title="(1) Cordova &#x2F; PhoneGap"></a>(1) <strong>Cordova &#x2F; PhoneGap</strong></h4><ul>
+<li><strong>技术原理</strong>：将HTML、CSS、JavaScript封装在一个WebView中，打包成移动APP。</li>
+<li><strong>特点</strong>：开发简单，但性能较差。</li>
+</ul>
+<h4 id="2-Ionic"><a href="#2-Ionic" class="headerlink" title="(2) Ionic"></a>(2) <strong>Ionic</strong></h4><ul>
+<li><strong>技术原理</strong>：基于Web技术（Angular&#x2F;React），通过WebView运行在移动设备上。</li>
+<li><strong>特点</strong>：更好的UI组件和体验，但依然存在性能瓶颈。</li>
+</ul>
+<h3 id="4-小程序框架的多端适配"><a href="#4-小程序框架的多端适配" class="headerlink" title="4. 小程序框架的多端适配"></a>4. <strong>小程序框架的多端适配</strong></h3><p>   <strong>适用场景</strong>：需要兼容多个小程序平台（如微信、支付宝、抖音）。  </p>
+<ul>
+<li><strong>uni-app</strong>：一套代码，支持微信、支付宝、百度、QQ、字节跳动等小程序。</li>
+<li><strong>快应用</strong>：针对国产手机生态（如华为、小米）的小程序技术。</li>
+</ul>
+<h3 id="5-PWA（Progressive-Web-App）"><a href="#5-PWA（Progressive-Web-App）" class="headerlink" title="5. PWA（Progressive Web App）"></a>5. <strong>PWA（Progressive Web App）</strong></h3><p>   <strong>适用场景</strong>：希望Web应用具备接近Native应用的体验。</p>
+<ul>
+<li><strong>技术原理</strong>：通过Service Worker、Web App Manifest等技术，让Web应用支持离线缓存、通知推送等功能。</li>
+<li><strong>优点</strong>：无需下载，跨平台能力强。</li>
+<li><strong>缺点</strong>：部分设备和浏览器支持不完全。</li>
+</ul>
+<h3 id="6-API层的兼容与适配"><a href="#6-API层的兼容与适配" class="headerlink" title="6. API层的兼容与适配"></a>6. <strong>API层的兼容与适配</strong></h3><p>   <strong>适用场景</strong>：前端多端开发时，需要和后端通信逻辑统一。  </p>
+<ul>
+<li><strong>GraphQL</strong>：通过灵活的查询，减少多端开发时的数据冗余。</li>
+<li><strong>REST API</strong>：通过版本管理或设备标识符实现针对不同终端的定制化数据。</li>
+</ul>
+<h3 id="7-组件库和样式层的适配"><a href="#7-组件库和样式层的适配" class="headerlink" title="7. 组件库和样式层的适配"></a>7. <strong>组件库和样式层的适配</strong></h3><p>   <strong>适用场景</strong>：希望UI组件在多个平台保持一致性。  </p>
+<ul>
+<li><strong>Ant Design &#x2F; Ant Design Mobile</strong>：同一设计规范的组件库，分别用于Web和移动端。</li>
+<li><strong>WeUI</strong>：微信团队出品的小程序和H5组件库。</li>
+</ul>
+<h3 id="8-自动化构建与编译工具"><a href="#8-自动化构建与编译工具" class="headerlink" title="8. 自动化构建与编译工具"></a>8. <strong>自动化构建与编译工具</strong></h3><p>   <strong>适用场景</strong>：根据平台不同进行代码的动态编译和打包。  </p>
+<ul>
+<li><strong>Webpack</strong>：通过配置多入口，支持针对不同平台输出不同版本的代码。</li>
+<li><strong>Vite</strong>：更快的构建工具，支持多端开发优化。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>   根据项目需求，可以选择不同的多端兼容方式：</p>
+<ul>
+<li><strong>简单适配</strong>：响应式设计（PC和移动端的Web兼容）。</li>
+<li><strong>高代码重用率</strong>：React Native、Flutter、Taro。</li>
+<li><strong>Web为主、移动端补充</strong>：Hybrid开发（Cordova、Ionic）。</li>
+<li><strong>小程序生态兼容</strong>：uni-app、Taro。</li>
+<li><strong>提升Web体验</strong>：PWA。</li>
+</ul>
+<p>   选择合适的方案需要综合考虑<strong>性能、开发成本、维护难度</strong>以及未来的扩展性。如果你的项目需要支持多个平台，推荐优先选择跨平台框架（如Taro或Flutter），以提高开发效率。</p>
+<h2 id="px转vm，是如何实现的？基础的视口宽度如何获取"><a href="#px转vm，是如何实现的？基础的视口宽度如何获取" class="headerlink" title="px转vm，是如何实现的？基础的视口宽度如何获取."></a>px转vm，是如何实现的？基础的视口宽度如何获取.</h2><h3 id="px-转换为-vw-是如何实现的？"><a href="#px-转换为-vw-是如何实现的？" class="headerlink" title="px 转换为 vw 是如何实现的？"></a><strong>px 转换为 vw 是如何实现的？</strong></h3><p>在 <strong>前端开发</strong>中，将 <code>px</code> 单位转换为 <code>vw</code> 是实现<strong>响应式设计</strong>的重要步骤。<code>vw</code> 是基于视口宽度的相对单位，可以让元素根据屏幕宽度自动调整大小。</p>
+<ul>
+<li><strong>px（像素）</strong>：表示具体的固定长度。</li>
+<li><strong>vw（视口宽度）</strong>：表示<strong>视口宽度的百分比</strong>，即 <code>1vw = 视口宽度的 1%</code>。</li>
+</ul>
+<h4 id="转换公式："><a href="#转换公式：" class="headerlink" title="转换公式："></a><strong>转换公式</strong>：</h4><p>假设我们希望将一个 <code>px</code> 值转为 <code>vw</code>，视口宽度为 <code>baseWidth</code>（如：375px、750px 等）。转换的公式为：</p>
+<p>$$<br>vw &#x3D; \frac{px\ 值}{视口宽度} \times 100<br>$$</p>
+<ul>
+<li>举例：如果设计稿的宽度是 375px，我们要将 100px 转换为 <code>vw</code>。<br>$$<br>100px \to \frac{100}{375} \times 100 &#x3D; 26.67vw<br>$$</li>
+</ul>
+<h3 id="如何获取基础视口宽度？"><a href="#如何获取基础视口宽度？" class="headerlink" title="如何获取基础视口宽度？"></a><strong>如何获取基础视口宽度？</strong></h3><p>前端开发中，<strong>基础视口宽度</strong>是指当前页面的浏览器视口（Viewport）的宽度，一般通过 JavaScript 获取。</p>
+<h4 id="JavaScript-获取视口宽度的方法："><a href="#JavaScript-获取视口宽度的方法：" class="headerlink" title="JavaScript 获取视口宽度的方法："></a><strong>JavaScript 获取视口宽度的方法</strong>：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> viewportWidth = <span class="variable language_">window</span>.<span class="property">innerWidth</span>; <span class="comment">// 获取当前视口宽度（单位：px）</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`视口宽度: <span class="subst">$&#123;viewportWidth&#125;</span>px`</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>window.innerWidth</code>**：浏览器窗口的宽度（包括滚动条）。</li>
+<li>**<code>document.documentElement.clientWidth</code>**：HTML 根元素的宽度，不包含滚动条。</li>
+</ul>
+<h4 id="在-CSS-中动态设置视口宽度："><a href="#在-CSS-中动态设置视口宽度：" class="headerlink" title="在 CSS 中动态设置视口宽度："></a><strong>在 CSS 中动态设置视口宽度</strong>：</h4><p>如果需要在 CSS 中以 <code>vw</code> 进行动态设置，可以通过 JavaScript 修改 <code>html</code> 标签的样式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> baseWidth = <span class="number">375</span>; <span class="comment">// 设计稿的宽度</span></span><br><span class="line"><span class="keyword">const</span> viewportWidth = <span class="variable language_">window</span>.<span class="property">innerWidth</span>; <span class="comment">// 当前视口宽度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算缩放比例，并设置到HTML根元素</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">style</span>.<span class="property">fontSize</span> = (viewportWidth / baseWidth) * <span class="number">100</span> + <span class="string">&#x27;px&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样，可以使用 <code>rem</code> 单位来进行自适应。例如，在 CSS 中：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 1rem 将等于设计稿中 100px */</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="实际项目中的应用：px-到-vw-的自动转换"><a href="#实际项目中的应用：px-到-vw-的自动转换" class="headerlink" title="实际项目中的应用：px 到 vw 的自动转换"></a><strong>实际项目中的应用：px 到 vw 的自动转换</strong></h3><p>在项目中，尤其是使用 <strong>PostCSS</strong> 或类似工具时，可以配置自动将 <code>px</code> 转换为 <code>vw</code>。</p>
+<h4 id="PostCSS-配置示例："><a href="#PostCSS-配置示例：" class="headerlink" title="PostCSS 配置示例："></a><strong>PostCSS 配置示例</strong>：</h4><p>在 <code>postcss.config.js</code> 中配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;postcss-px-to-viewport&#x27;</span>: &#123;</span><br><span class="line">      <span class="attr">viewportWidth</span>: <span class="number">375</span>, <span class="comment">// 设计稿的宽度</span></span><br><span class="line">      <span class="attr">viewportUnit</span>: <span class="string">&#x27;vw&#x27;</span>, <span class="comment">// 使用vw作为单位</span></span><br><span class="line">      <span class="attr">minPixelValue</span>: <span class="number">1</span>, <span class="comment">// 小于1px的值不转换</span></span><br><span class="line">      <span class="attr">mediaQuery</span>: <span class="literal">false</span>, <span class="comment">// 允许在媒体查询中转换</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a><strong>适用场景</strong>：</h4><ul>
+<li><strong>移动端开发</strong>：一般使用设计稿宽度为 375px 或 750px。</li>
+<li><strong>PC 端开发</strong>：设计稿宽度常为 1440px 或 1920px。</li>
+</ul>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a><strong>总结</strong></h3><ol>
+<li><p><strong>px 到 vw 的公式</strong>：<br>$vw &#x3D; \frac{px\ 值}{设计稿宽度} \times 100$。</p>
+</li>
+<li><p><strong>获取基础视口宽度</strong>：使用 <code>window.innerWidth</code> 或 <code>document.documentElement.clientWidth</code>。</p>
+</li>
+<li><p><strong>动态设置字体大小或缩放比例</strong>：可以通过 JavaScript 将根元素的 <code>font-size</code> 设置为基于视口的比例。</p>
+</li>
+<li><p><strong>工具支持</strong>：在构建工具中使用 <code>postcss-px-to-viewport</code> 等插件可以自动完成 px 到 vw 的转换。</p>
+</li>
+</ol>
+<h2 id="rem使用场景"><a href="#rem使用场景" class="headerlink" title="rem使用场景"></a>rem使用场景</h2><h3 id="rem-的使用场景和优势"><a href="#rem-的使用场景和优势" class="headerlink" title="rem 的使用场景和优势"></a><strong><code>rem</code> 的使用场景和优势</strong></h3><p><code>rem</code>（<strong>Root EM</strong>）是一种相对单位，表示相对于 <strong>HTML 根元素</strong>的字体大小。相比 <code>px</code> 和 <code>em</code>，<code>rem</code> 提供了更好的<strong>响应式布局</strong>和<strong>可维护性</strong>，广泛用于前端开发中的多种场景。</p>
+<h4 id="1-响应式设计"><a href="#1-响应式设计" class="headerlink" title="1. 响应式设计"></a><strong>1. 响应式设计</strong></h4><p><code>rem</code> 常用于响应式布局中，因为它可以通过<strong>调整根元素的字体大小</strong>来统一改变整个页面的比例，从而实现自适应效果。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>; <span class="comment">/* 1rem = 10px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.6rem</span>; <span class="comment">/* 16px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">30rem</span>; <span class="comment">/* 300px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在移动端开发时，<strong>动态调整根元素的 <code>font-size</code></strong> 可以让整个页面的内容根据视口宽度进行缩放。</p>
+<h4 id="动态调整-rem："><a href="#动态调整-rem：" class="headerlink" title="动态调整 rem："></a>动态调整 <code>rem</code>：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> baseWidth = <span class="number">375</span>; <span class="comment">// 设计稿宽度</span></span><br><span class="line"><span class="keyword">const</span> scale = <span class="variable language_">window</span>.<span class="property">innerWidth</span> / baseWidth; </span><br><span class="line"><span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">style</span>.<span class="property">fontSize</span> = <span class="string">`<span class="subst">$&#123;scale * <span class="number">10</span>&#125;</span>px`</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>优势</strong>：通过调整根元素的字体大小，整个页面的布局可以随视口变化进行缩放，避免了手动计算每个元素的尺寸。</p>
+</blockquote>
+<h4 id="2-字体大小的统一控制"><a href="#2-字体大小的统一控制" class="headerlink" title="2. 字体大小的统一控制"></a><strong>2. 字体大小的统一控制</strong></h4><p>使用 <code>rem</code> 进行字体大小控制时，可以确保在不同设备上保持一致性，并且通过<strong>一次调整</strong>根元素的大小来影响整个页面的文字。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>; <span class="comment">/* 24px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1rem</span>; <span class="comment">/* 12px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>适用于需要<strong>大面积文字排版</strong>的场景，如博客、资讯类网站，方便字体在不同设备间的一致性管理。</p>
+<h4 id="3-组件库开发中的尺寸标准化"><a href="#3-组件库开发中的尺寸标准化" class="headerlink" title="3. 组件库开发中的尺寸标准化"></a><strong>3. 组件库开发中的尺寸标准化</strong></h4><p>在<strong>组件库开发</strong>中，使用 <code>rem</code> 可以避免组件的样式与用户页面的全局样式发生冲突。开发者通过设置组件的 <code>rem</code> 单位，可以确保组件的大小<strong>可控且灵活适应</strong>不同页面的根元素字体设置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.8rem</span> <span class="number">1.2rem</span>; <span class="comment">/* 8px 12px */</span></span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1rem</span>; <span class="comment">/* 10px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在组件库开发时，<code>rem</code> 确保组件可以在不同项目中保持一致的尺寸比例，同时让使用者通过改变 <code>html</code> 根元素的大小调整组件的整体大小。</p>
+<h4 id="4-替代-px-避免手动计算"><a href="#4-替代-px-避免手动计算" class="headerlink" title="4. 替代 px 避免手动计算"></a><strong>4. 替代 <code>px</code> 避免手动计算</strong></h4><p>在开发<strong>跨平台</strong>或<strong>多屏适配</strong>项目时，手动计算 <code>px</code> 对应的尺寸会增加工作量。使用 <code>rem</code> 结合 PostCSS 等工具可以<strong>自动将设计稿中的 px 转换为 rem</strong>，减少重复工作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;postcss-px-to-rem&#x27;</span>: &#123;</span><br><span class="line">      <span class="attr">rootValue</span>: <span class="number">16</span>, <span class="comment">// 1rem = 16px</span></span><br><span class="line">      <span class="attr">unitPrecision</span>: <span class="number">5</span>, <span class="comment">// 保留5位小数</span></span><br><span class="line">      <span class="attr">propList</span>: [<span class="string">&#x27;*&#x27;</span>], <span class="comment">// 所有属性都进行转换</span></span><br><span class="line">      <span class="attr">minPixelValue</span>: <span class="number">1</span> <span class="comment">// 小于1px的值不转换</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>用于设计稿转换，减少开发时的繁琐计算，并确保不同尺寸屏幕上的布局比例一致。</p>
+<h4 id="5-SEO-和无障碍支持"><a href="#5-SEO-和无障碍支持" class="headerlink" title="5. SEO 和无障碍支持"></a><strong>5. SEO 和无障碍支持</strong></h4><p>使用 <code>rem</code> 替代 <code>px</code> 进行字体设置，有助于提升<strong>用户体验</strong>，特别是对于需要<strong>无障碍支持</strong>的网站。当用户通过浏览器设置字体缩放比例时，使用 <code>rem</code> 的页面会自动响应调整，而 <code>px</code> 不会。</p>
+<ul>
+<li><strong>示例</strong>：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">100%</span>; <span class="comment">/* 用户可以调整的基础字体大小 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1rem</span>; <span class="comment">/* 相当于浏览器默认字体大小 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+用于需要支持<strong>高可访问性（Accessibility）</strong>的网站，如政府、教育、医疗类站点，确保用户通过系统和浏览器调整字体大小时页面能正常显示。</li>
+</ul>
+<h4 id="媒体查询中的灵活使用"><a href="#媒体查询中的灵活使用" class="headerlink" title="媒体查询中的灵活使用"></a>媒体查询中的灵活使用</h4><p><code>rem</code> 也可以用于<strong>媒体查询</strong>中，通过调整根元素大小来实现页面布局的自适应，而不是对每个元素进行单独处理。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">12px</span>; <span class="comment">/* 1rem = 12px */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>; <span class="comment">/* 1rem = 16px */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在响应式布局中，使用 <code>rem</code> 作为基础单位，确保不同屏幕尺寸下页面的比例和布局风格一致。</p>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p><code>rem</code> 的使用适用于<strong>响应式设计、字体大小控制、组件开发、多屏适配和无障碍支持</strong>等场景。相比 <code>px</code> 和 <code>em</code>，<code>rem</code> 更加灵活且易于维护。在开发中，结合动态根元素设置和工具链（如 PostCSS），可以显著提升开发效率，并确保良好的用户体验。</p>
+<h2 id="css样式优先级？！important是如何实现的"><a href="#css样式优先级？！important是如何实现的" class="headerlink" title="css样式优先级？！important是如何实现的"></a>css样式优先级？！important是如何实现的</h2><h3 id="CSS-样式优先级规则"><a href="#CSS-样式优先级规则" class="headerlink" title="CSS 样式优先级规则"></a>CSS 样式优先级规则</h3><p>CSS 优先级由<strong>四个层级</strong>决定：</p>
+<ol>
+<li><strong>行内样式</strong>（Inline styles）</li>
+<li><strong>ID 选择器</strong>（<code>#id</code>）</li>
+<li><strong>类选择器</strong>、伪类（<code>:hover</code>）、属性选择器（<code>[type=&quot;text&quot;]</code>）</li>
+<li><strong>标签选择器</strong>、伪元素（<code>::before</code>、<code>::after</code>）  </li>
+<li><strong>通配符</strong>（<code>*</code>）、继承的样式、浏览器默认样式</li>
+</ol>
+<h3 id="优先级权重的计算："><a href="#优先级权重的计算：" class="headerlink" title="优先级权重的计算："></a><strong>优先级权重的计算</strong>：</h3><p>每个选择器的优先级用<strong>四位数</strong>来表示：<br><strong>(内联样式, ID, 类&#x2F;伪类, 标签&#x2F;伪元素)</strong>  </p>
+<ul>
+<li><strong>内联样式</strong>：<code>1000</code></li>
+<li><strong>ID 选择器</strong>：<code>0100</code></li>
+<li><strong>类选择器 &#x2F; 伪类 &#x2F; 属性选择器</strong>：<code>0010</code></li>
+<li><strong>标签选择器 &#x2F; 伪元素</strong>：<code>0001</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 优先级为 0010 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级为 0100 */</span></span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级为 0001 */</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果同一个元素应用了 <code>#main</code>、<code>.container</code> 和 <code>div</code> 选择器，最终会<strong>显示蓝色</strong>，因为 ID 选择器的优先级更高。</li>
+</ul>
+<h3 id="继承和层叠（Cascading-Order）"><a href="#继承和层叠（Cascading-Order）" class="headerlink" title="继承和层叠（Cascading Order）"></a>继承和层叠（Cascading Order）</h3><ul>
+<li><strong>继承</strong>：一些属性（如 <code>color</code> 和 <code>font-family</code>）会从父元素继承，如果没有明确定义，则使用继承的样式。</li>
+<li><strong>层叠</strong>：当优先级相同时，靠<strong>后定义</strong>的规则会生效。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red; <span class="comment">/* 先定义 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green; <span class="comment">/* 后定义，生效 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-important-关键字"><a href="#使用-important-关键字" class="headerlink" title="使用 !important 关键字"></a>使用 <code>!important</code> 关键字</h3><p><code>!important</code> 用于<strong>强制覆盖</strong>其他样式，无论其优先级如何。它会直接提升该声明的优先级，<strong>优先于</strong>内联样式和其他规则。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red <span class="meta">!important</span>; <span class="comment">/* 强制生效 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>尽管 <code>#main</code> 的 ID 选择器优先级更高，但由于 <code>.container</code> 使用了 <code>!important</code>，所以最终颜色会显示为<strong>红色</strong>。</p>
+<h3 id="important-的实现机制："><a href="#important-的实现机制：" class="headerlink" title="!important 的实现机制："></a><code>!important</code> 的实现机制：</h3><ol>
+<li>当 CSS 解析器遇到 <code>!important</code>，会将该声明的<strong>优先级提升至最高</strong>。</li>
+<li>即使有多个 <code>!important</code> 声明，CSS 仍会比较选择器的优先级来决定最终生效的样式。</li>
+</ol>
+<h3 id="多个-important-规则的冲突："><a href="#多个-important-规则的冲突：" class="headerlink" title="多个 !important 规则的冲突："></a><strong>多个 <code>!important</code> 规则的冲突</strong>：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于两个属性都使用了 <code>!important</code>，此时比较选择器的优先级。<br>最终 <code>#main</code> 的规则会生效，颜色为<strong>蓝色</strong>。</p>
+<h3 id="如何正确使用-important"><a href="#如何正确使用-important" class="headerlink" title="如何正确使用 !important"></a>如何正确使用 <code>!important</code></h3><p>虽然 <code>!important</code> 可以解决样式冲突，但不建议频繁使用，因为：</p>
+<ul>
+<li><strong>降低代码的可维护性</strong>：后续样式难以覆盖或更改。</li>
+<li><strong>破坏样式的层叠逻辑</strong>：容易导致样式混乱。</li>
+</ul>
+<h3 id="推荐的使用场景"><a href="#推荐的使用场景" class="headerlink" title="推荐的使用场景"></a>推荐的使用场景</h3><ol>
+<li><strong>紧急修复样式</strong>：需要快速调整某个样式的优先级。</li>
+<li><strong>第三方样式覆盖</strong>：如 UI 库自带的样式需要被自定义样式覆盖时。</li>
+<li><strong>内嵌广告或动态内容</strong>：避免被外部样式影响。</li>
+</ol>
+<h3 id="如何避免过度使用-important"><a href="#如何避免过度使用-important" class="headerlink" title="如何避免过度使用 !important"></a>如何避免过度使用 <code>!important</code></h3><ul>
+<li><strong>提高选择器的优先级</strong>：使用更精确的选择器替代 <code>!important</code>。</li>
+<li><strong>模块化 CSS</strong>：如使用 BEM 规范，将样式逻辑清晰分离。</li>
+<li><strong>调整 CSS 规则顺序</strong>：确保后定义的样式优先生效。</li>
+</ul>
+<h3 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h3><h4 id="CSS-优先级计算顺序："><a href="#CSS-优先级计算顺序：" class="headerlink" title="CSS 优先级计算顺序："></a>CSS 优先级计算顺序：</h4><ol>
+<li>内联样式 <code>style=&quot;&quot;</code>（1000）。</li>
+<li>ID 选择器（0100）。</li>
+<li>类选择器 &#x2F; 伪类 &#x2F; 属性选择器（0010）。</li>
+<li>标签选择器 &#x2F; 伪元素（0001）。</li>
+</ol>
+<h4 id="important-的作用："><a href="#important-的作用：" class="headerlink" title="!important 的作用："></a><strong><code>!important</code> 的作用</strong>：</h4><ul>
+<li>强制覆盖其他样式，无视优先级规则。</li>
+<li>当多个 <code>!important</code> 存在时，选择器优先级仍会决定最终样式。</li>
+</ul>
+<p>虽然 <code>!important</code> 是一个有力的工具，但应谨慎使用，尽量通过<strong>合理的样式结构和优先级管理</strong>来避免样式冲突。</p>
+<h2 id="媒体查询是否会改变样式优先级？"><a href="#媒体查询是否会改变样式优先级？" class="headerlink" title="媒体查询是否会改变样式优先级？"></a>媒体查询是否会改变样式优先级？</h2><p>严格来说，<strong>媒体查询（Media Queries）不会改变 CSS 样式的优先级</strong>。媒体查询只是对 <strong>特定条件下的样式</strong>进行定义，比如根据设备宽度、屏幕分辨率等，<strong>仅当条件满足时</strong>这些样式才会被应用。但其<strong>优先级依旧遵循标准 CSS 选择器的优先级规则</strong>，即不会因为在媒体查询中定义而自动提升或降低其权重。</p>
+<ul>
+<li><strong>媒体查询本身不会改变选择器的优先级</strong>。CSS 选择器的优先级依然按照标准规则计算。</li>
+<li><strong>层叠顺序</strong>（Cascade Order）：当多个选择器优先级相同时，最后定义的规则会覆盖前面的规则。</li>
+<li>**<code>!important</code>**：可以在媒体查询内部或外部使用，强制提升某个样式的优先级。</li>
+<li>媒体查询主要用于在<strong>特定条件下覆盖样式</strong>，而不是提升或降低样式的优先级。</li>
+</ul>
+<blockquote>
+<p><strong>最佳实践</strong>：尽量通过选择器的合理设计和层叠顺序控制样式覆盖，避免频繁使用 <code>!important</code>，以提高代码的可维护性和可预测性。</p>
+</blockquote>
+<h2 id="sessionStorage能够在多个标签页共享数据吗？"><a href="#sessionStorage能够在多个标签页共享数据吗？" class="headerlink" title="sessionStorage能够在多个标签页共享数据吗？"></a>sessionStorage能够在多个标签页共享数据吗？</h2><p>不会</p>
+<h2 id="为什么要写React-hooks，不直接写函数？"><a href="#为什么要写React-hooks，不直接写函数？" class="headerlink" title="为什么要写React hooks，不直接写函数？"></a>为什么要写React hooks，不直接写函数？</h2><p>React 引入 <strong>Hooks</strong> 是为了更好地解决组件开发中的一些<strong>复杂性</strong>和<strong>限制</strong>。虽然 React 组件本质上就是函数，但 Hooks 为函数组件提供了更强大的功能，比如<strong>状态管理、生命周期控制</strong>等。在 Hooks 出现之前，这些功能只能在<strong>类组件</strong>中实现。</p>
+<p>下面是详细的原因和 Hooks 的优势，以及为什么直接使用普通函数不够。</p>
+<h3 id="函数组件的局限性（Hooks-出现前的问题）"><a href="#函数组件的局限性（Hooks-出现前的问题）" class="headerlink" title="函数组件的局限性（Hooks 出现前的问题）"></a>函数组件的局限性（Hooks 出现前的问题）</h3><h4 id="1-1-没有状态管理的能力"><a href="#1-1-没有状态管理的能力" class="headerlink" title="1.1 没有状态管理的能力"></a>1.1 没有状态管理的能力</h4><ul>
+<li>在 React Hooks 出现前，<strong>函数组件</strong>是<strong>无状态的</strong>。所有带有状态（<code>state</code>）的逻辑必须用 <strong>类组件</strong> 来实现。</li>
+<li>这导致开发者在写 React 组件时不得不在<strong>函数组件</strong>和<strong>类组件</strong>之间来回切换，代码风格不统一，增加了维护成本。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">increment</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    count += <span class="number">1</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(count); <span class="comment">// 页面不会重新渲染</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;increment&#125;</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，虽然 <code>count</code> 可以递增，但因为没有 <strong>state</strong>，React 不知道什么时候要重新渲染页面。</p>
+<h4 id="1-2-复杂组件逻辑难以拆分和复用"><a href="#1-2-复杂组件逻辑难以拆分和复用" class="headerlink" title="1.2 复杂组件逻辑难以拆分和复用"></a>1.2 复杂组件逻辑难以拆分和复用</h4><p>使用类组件时，状态逻辑通常集中在 <strong>生命周期方法（如 <code>componentDidMount</code>、<code>componentDidUpdate</code>）</strong> 中。随着逻辑的复杂化，这些方法会变得<strong>臃肿且难以维护</strong>。</p>
+<h4 id="示例：类组件的状态逻辑容易混乱"><a href="#示例：类组件的状态逻辑容易混乱" class="headerlink" title="示例：类组件的状态逻辑容易混乱"></a>示例：类组件的状态逻辑容易混乱</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Counter</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 数据请求逻辑</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">componentDidUpdate</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 依赖状态的逻辑更新</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 视图层逻辑</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当多个逻辑需要在生命周期函数中处理时，代码会变得难以维护，逻辑容易<strong>纠缠</strong>在一起，不方便复用。</p>
+<h3 id="Hooks-的解决方案和优势"><a href="#Hooks-的解决方案和优势" class="headerlink" title="Hooks 的解决方案和优势"></a>Hooks 的解决方案和优势</h3><h4 id="Hooks-让函数组件拥有状态（useState）"><a href="#Hooks-让函数组件拥有状态（useState）" class="headerlink" title="Hooks 让函数组件拥有状态（useState）"></a>Hooks 让函数组件拥有状态（useState）</h4><p><code>useState</code> 是 React 的一个 <strong>Hook</strong>，它为函数组件提供了<strong>状态管理能力</strong>，从而不需要类组件也能管理状态。</p>
+<h5 id="使用-useState-管理状态"><a href="#使用-useState-管理状态" class="headerlink" title="使用 useState 管理状态"></a>使用 <code>useState</code> 管理状态</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 使用 useState 管理状态</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</span></span><br><span class="line"><span class="language-xml">      Clicked &#123;count&#125; times</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>优势</strong>：</p>
+<ul>
+<li><strong>简洁明了</strong>：不需要类组件，直接在函数中管理状态。</li>
+<li><strong>即时更新</strong>：<code>setCount</code> 调用后页面自动重新渲染。</li>
+</ul>
+<h4 id="逻辑拆分和复用（useEffect-和自定义-Hook）"><a href="#逻辑拆分和复用（useEffect-和自定义-Hook）" class="headerlink" title="逻辑拆分和复用（useEffect 和自定义 Hook）"></a>逻辑拆分和复用（useEffect 和自定义 Hook）</h4><p>通过 <strong><code>useEffect</code><strong>，可以将副作用逻辑（如数据请求、DOM 操作）清晰地拆分。并且，开发者可以将状态逻辑抽取为</strong>自定义 Hooks</strong>，在多个组件之间共享。</p>
+<h5 id="使用-useEffect-处理副作用"><a href="#使用-useEffect-处理副作用" class="headerlink" title="使用 useEffect 处理副作用"></a>使用 <code>useEffect</code> 处理副作用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState, useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用 useEffect 处理副作用</span></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Count is <span class="subst">$&#123;count&#125;</span>`</span>);</span><br><span class="line">  &#125;, [count]); <span class="comment">// 只有 count 变化时才执行</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</span></span><br><span class="line"><span class="language-xml">      Clicked &#123;count&#125; times</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>优势</strong>：</p>
+<ul>
+<li><strong>代码更易读、更简洁</strong>：将逻辑分散到不同的 <code>useEffect</code> 中，而不是集中在生命周期方法中。</li>
+<li><strong>灵活复用</strong>：可以抽离为<strong>自定义 Hooks</strong>，实现逻辑复用。</li>
+</ul>
+<h5 id="自定义-Hook-实现逻辑复用"><a href="#自定义-Hook-实现逻辑复用" class="headerlink" title="自定义 Hook 实现逻辑复用"></a>自定义 Hook 实现逻辑复用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">useCounter</span>(<span class="params">initialValue = <span class="number">0</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(initialValue);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">increment</span> = (<span class="params"></span>) =&gt; <span class="title function_">setCount</span>(count + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> [count, increment];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, increment] = <span class="title function_">useCounter</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;increment&#125;</span>&gt;</span>Clicked &#123;count&#125; times<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="避免类组件的复杂性（简化生命周期管）"><a href="#避免类组件的复杂性（简化生命周期管）" class="headerlink" title="避免类组件的复杂性（简化生命周期管）"></a>避免类组件的复杂性（简化生命周期管）</h4><p>在类组件中，<strong>不同逻辑混杂在生命周期方法</strong>里。而 Hooks 则通过 <code>useEffect</code> 将不同逻辑清晰地拆分出来，避免了复杂的生命周期管理。</p>
+<ul>
+<li><strong>类组件问题</strong>：多个逻辑集中在 <code>componentDidMount</code> 和 <code>componentDidUpdate</code> 中。</li>
+<li><strong>Hooks 解决方案</strong>：每个 <code>useEffect</code> 针对特定逻辑，不同逻辑不会互相干扰。</li>
+</ul>
+<h4 id="为什么不直接使用普通函数，而需要-Hooks？"><a href="#为什么不直接使用普通函数，而需要-Hooks？" class="headerlink" title="为什么不直接使用普通函数，而需要 Hooks？"></a>为什么不直接使用普通函数，而需要 Hooks？</h4><p>虽然 React 组件看起来就是<strong>函数</strong>，但普通的 JavaScript 函数<strong>无法保存状态或处理副作用</strong>。React 需要一种机制来跟踪函数组件的状态和副作用，这就是 <strong>Hooks</strong> 的核心作用。</p>
+<ul>
+<li><strong>Hooks 是 React 内部机制的一部分</strong>：<ul>
+<li>React 会在每次渲染时跟踪 <code>useState</code>、<code>useEffect</code> 等 Hook 的调用顺序。</li>
+<li>普通函数不能达到这种效果，因为它们没有与 React 的<strong>状态管理和渲染流程</strong>相结合的能力。</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结：为什么-React-使用-Hooks？"><a href="#总结：为什么-React-使用-Hooks？" class="headerlink" title="总结：为什么 React 使用 Hooks？"></a>总结：为什么 React 使用 Hooks？</h3><ul>
+<li><strong>函数组件也需要状态管理能力</strong>：<code>useState</code> 让函数组件像类组件一样管理状态。</li>
+<li><strong>更简洁的逻辑拆分</strong>：<code>useEffect</code> 和自定义 Hooks 让副作用逻辑清晰且易于复用。</li>
+<li><strong>减少类组件的复杂性</strong>：无需再处理复杂的生命周期函数和状态逻辑。</li>
+<li><strong>提高代码的可维护性和一致性</strong>：避免在类组件和函数组件之间切换，统一开发风格。</li>
+</ul>
+<p>React Hooks <strong>并不是普通的函数</strong>，而是<strong>与 React 渲染机制紧密结合的工具</strong>。它们解决了函数组件无法管理状态和副作用的缺陷，使得开发更加高效和清晰。</p>
+<h2 id="React-hooks中useRef是什么？怎么用？应用Dom，保存一个引用值，方便自行处理副作用"><a href="#React-hooks中useRef是什么？怎么用？应用Dom，保存一个引用值，方便自行处理副作用" class="headerlink" title="React hooks中useRef是什么？怎么用？应用Dom，保存一个引用值，方便自行处理副作用"></a>React hooks中useRef是什么？怎么用？应用Dom，保存一个引用值，方便自行处理副作用</h2><h3 id="useRef-在-React-Hooks-中是什么？怎么用？"><a href="#useRef-在-React-Hooks-中是什么？怎么用？" class="headerlink" title="useRef 在 React Hooks 中是什么？怎么用？"></a><strong><code>useRef</code> 在 React Hooks 中是什么？怎么用？</strong></h3><p><code>useRef</code> 是 React 提供的一个 Hook，主要用于<strong>创建一个可变的引用对象</strong>。它可以<strong>在组件的整个生命周期内存储某个值</strong>，并且不会因组件的重新渲染而丢失。</p>
+<p><code>useRef</code> 的两个核心应用场景：</p>
+<ol>
+<li><strong>访问和操作 DOM 元素</strong>（如获取元素的引用）。</li>
+<li><strong>存储可变数据</strong>（如保存状态的引用而不触发重新渲染）。</li>
+</ol>
+<hr>
+<h2 id="1-useRef-的语法"><a href="#1-useRef-的语法" class="headerlink" title="1. useRef 的语法"></a><strong>1. <code>useRef</code> 的语法</strong></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myRef = <span class="title function_">useRef</span>(initialValue);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>myRef</code>**：这是一个包含 <code>.current</code> 属性的对象。</li>
+<li>**<code>.current</code>**：初始值为 <code>initialValue</code>，可以随时更改。修改 <code>.current</code> <strong>不会触发组件的重新渲染</strong>。</li>
+</ul>
+<hr>
+<h2 id="2-场景一：获取-DOM-元素的引用"><a href="#2-场景一：获取-DOM-元素的引用" class="headerlink" title="2. 场景一：获取 DOM 元素的引用"></a><strong>2. 场景一：获取 DOM 元素的引用</strong></h2><p>在 React 中，通常不建议直接操作 DOM，但有些场景（如<strong>表单输入框聚焦、滚动控制</strong>）需要手动访问 DOM 元素。<code>useRef</code> 可以用来存储某个 DOM 元素的引用。</p>
+<h3 id="示例：控制输入框的聚焦"><a href="#示例：控制输入框的聚焦" class="headerlink" title="示例：控制输入框的聚焦"></a><strong>示例：控制输入框的聚焦</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useRef &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">InputFocus</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = <span class="title function_">useRef</span>(<span class="literal">null</span>); <span class="comment">// 创建一个引用</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleFocus</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    inputRef.<span class="property">current</span>.<span class="title function_">focus</span>(); <span class="comment">// 使用引用手动获取焦点</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;点击按钮自动聚焦&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;handleFocus&#125;</span>&gt;</span>聚焦输入框<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">InputFocus</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a><strong>解释</strong>：</h4><ul>
+<li><code>inputRef</code> 是一个对象，其 <code>.current</code> 属性指向 <code>&lt;input&gt;</code> 元素。</li>
+<li>调用 <code>inputRef.current.focus()</code> 手动聚焦输入框，而无需重新渲染组件。</li>
+</ul>
+<hr>
+<h2 id="3-场景二：保存一个可变值的引用"><a href="#3-场景二：保存一个可变值的引用" class="headerlink" title="3. 场景二：保存一个可变值的引用"></a><strong>3. 场景二：保存一个可变值的引用</strong></h2><p>在 React 中，每次组件重新渲染时，普通变量会被重新初始化。但使用 <code>useRef</code> 可以在渲染之间<strong>保存一个可变值</strong>，即使组件重新渲染，<code>useRef</code> 中存储的值也不会丢失。</p>
+<h3 id="示例：保存计时器的引用"><a href="#示例：保存计时器的引用" class="headerlink" title="示例：保存计时器的引用"></a><strong>示例：保存计时器的引用</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useRef, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Timer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> timerRef = <span class="title function_">useRef</span>(<span class="literal">null</span>); <span class="comment">// 存储计时器的引用</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">startTimer</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (!timerRef.<span class="property">current</span>) &#123;</span><br><span class="line">      timerRef.<span class="property">current</span> = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">setCount</span>(<span class="function">(<span class="params">prev</span>) =&gt;</span> prev + <span class="number">1</span>);</span><br><span class="line">      &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">stopTimer</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(timerRef.<span class="property">current</span>);</span><br><span class="line">    timerRef.<span class="property">current</span> = <span class="literal">null</span>; <span class="comment">// 清空计时器引用</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>计数：&#123;count&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;startTimer&#125;</span>&gt;</span>开始计时<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;stopTimer&#125;</span>&gt;</span>停止计时<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Timer</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释：-1"><a href="#解释：-1" class="headerlink" title="解释："></a><strong>解释</strong>：</h4><ul>
+<li><strong>计时器的引用</strong>保存在 <code>timerRef</code> 中，不会因组件重新渲染而丢失。</li>
+<li>这样我们可以确保组件在每次点击按钮时，不会创建多个计时器实例。</li>
+</ul>
+<hr>
+<h2 id="4-场景三：避免不必要的副作用"><a href="#4-场景三：避免不必要的副作用" class="headerlink" title="4. 场景三：避免不必要的副作用"></a><strong>4. 场景三：避免不必要的副作用</strong></h2><p>有时，我们希望保存上一次的值来对比当前的值，或者跟踪某个状态的变化。<code>useRef</code> 是一个非常方便的方式来保存这种<strong>引用值</strong>，而不触发重新渲染。</p>
+<h3 id="示例：保存前一个状态值"><a href="#示例：保存前一个状态值" class="headerlink" title="示例：保存前一个状态值"></a><strong>示例：保存前一个状态值</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useRef, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">PreviousStateExample</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> prevCountRef = <span class="title function_">useRef</span>(); <span class="comment">// 保存前一个状态值</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    prevCountRef.<span class="property">current</span> = count; <span class="comment">// 在每次渲染后保存当前值</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> prevCount = prevCountRef.<span class="property">current</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>当前计数：&#123;count&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>上一次计数：&#123;prevCount&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;增加计数<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">PreviousStateExample</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释：-2"><a href="#解释：-2" class="headerlink" title="解释："></a><strong>解释</strong>：</h4><ul>
+<li><code>prevCountRef</code> 存储了<strong>上一次的计数值</strong>，它不会因为组件的重新渲染而重置。</li>
+<li>每次组件重新渲染时，<code>useEffect</code> 会更新 <code>prevCountRef.current</code> 的值。</li>
+</ul>
+<hr>
+<h2 id="5-useRef-vs-useState-区别"><a href="#5-useRef-vs-useState-区别" class="headerlink" title="5. useRef vs. useState 区别"></a><strong>5. <code>useRef</code> vs. <code>useState</code> 区别</strong></h2><table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong><code>useRef</code></strong></th>
+<th><strong><code>useState</code></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否触发重新渲染</td>
+<td>不会触发重新渲染</td>
+<td>修改状态时会触发重新渲染</td>
+</tr>
+<tr>
+<td>存储的数据</td>
+<td>可变引用（如 DOM 元素、计时器）</td>
+<td>状态变量（与 UI 渲染绑定）</td>
+</tr>
+<tr>
+<td>常见使用场景</td>
+<td>操作 DOM、存储计时器、保存上次值</td>
+<td>管理 UI 状态（如计数、表单数据）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="6-总结：useRef-的典型应用场景"><a href="#6-总结：useRef-的典型应用场景" class="headerlink" title="6. 总结：useRef 的典型应用场景"></a><strong>6. 总结：<code>useRef</code> 的典型应用场景</strong></h2><ol>
+<li><strong>操作 DOM 元素</strong>：如手动聚焦、滚动位置控制等。</li>
+<li><strong>存储可变引用值</strong>：如计时器 ID，避免组件重复创建副作用。</li>
+<li><strong>保存上一次的状态值</strong>：避免多次渲染时状态的丢失或混乱。</li>
+</ol>
+<p><code>useRef</code> 是一个强大的工具，主要用于需要在渲染之间<strong>保持数据的一致性</strong>且不需要触发组件更新的场景。它与 <code>useState</code> 搭配使用，可以使 React 组件更加简洁、高效。</p>
+<h2 id="在useEffect的第二个参数中添加useRef对象，修改对象的current属性会执行吗？"><a href="#在useEffect的第二个参数中添加useRef对象，修改对象的current属性会执行吗？" class="headerlink" title="在useEffect的第二个参数中添加useRef对象，修改对象的current属性会执行吗？"></a>在useEffect的第二个参数中添加useRef对象，修改对象的current属性会执行吗？</h2><h3 id="在-useEffect-的第二个参数中添加-useRef-对象，修改其-current-属性是否会触发副作用？"><a href="#在-useEffect-的第二个参数中添加-useRef-对象，修改其-current-属性是否会触发副作用？" class="headerlink" title="在 useEffect 的第二个参数中添加 useRef 对象，修改其 current 属性是否会触发副作用？"></a><strong>在 <code>useEffect</code> 的第二个参数中添加 <code>useRef</code> 对象，修改其 <code>current</code> 属性是否会触发副作用？</strong></h3><h4 id="简短答案："><a href="#简短答案：" class="headerlink" title="简短答案："></a><strong>简短答案：</strong></h4><p>不会，因为 <strong><code>useRef</code> 的引用对象不会触发组件的重新渲染</strong>，也不会影响 <code>useEffect</code> 的依赖更新。即使你修改了 <code>ref.current</code> 的值，React 不会认为这是一个依赖变化，因此不会重新执行 <code>useEffect</code>。</p>
+<h2 id="详细解释"><a href="#详细解释" class="headerlink" title="详细解释"></a><strong>详细解释</strong></h2><h3 id="1-为什么-useRef-的修改不会触发重新渲染或执行副作用？"><a href="#1-为什么-useRef-的修改不会触发重新渲染或执行副作用？" class="headerlink" title="1. 为什么 useRef 的修改不会触发重新渲染或执行副作用？"></a>1. <strong>为什么 <code>useRef</code> 的修改不会触发重新渲染或执行副作用？</strong></h3><ul>
+<li><strong><code>useRef</code> 的 <code>.current</code> 属性</strong>是一个<strong>可变的引用</strong>，它的值在组件生命周期内保持不变，但修改 <code>.current</code> 不会触发组件的重新渲染。</li>
+<li><strong><code>useEffect</code></strong> 的第二个参数是一个依赖数组，当数组中的某个依赖发生变化时，<code>useEffect</code> 的副作用函数才会被重新执行。但 <strong><code>useRef</code> 本质上是一个引用对象</strong>，即使它的 <code>.current</code> 属性发生变化，其<strong>引用地址不变</strong>，所以 React 认为依赖没有变化。</li>
+</ul>
+<h3 id="2-示例：尝试在-useEffect-的依赖中使用-useRef"><a href="#2-示例：尝试在-useEffect-的依赖中使用-useRef" class="headerlink" title="2. 示例：尝试在 useEffect 的依赖中使用 useRef"></a>2. <strong>示例：尝试在 <code>useEffect</code> 的依赖中使用 <code>useRef</code></strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useRef, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Example</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> myRef = <span class="title function_">useRef</span>(<span class="number">0</span>); <span class="comment">// 创建一个 ref 对象</span></span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;useEffect 执行了:&#x27;</span>, myRef.<span class="property">current</span>);</span><br><span class="line">  &#125;, [myRef]); <span class="comment">// 尝试将 myRef 作为依赖</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">incrementRef</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    myRef.<span class="property">current</span> += <span class="number">1</span>; <span class="comment">// 修改 ref 的 current 值</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myRef.current:&#x27;</span>, myRef.<span class="property">current</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Count: &#123;count&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;增加 Count<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;incrementRef&#125;</span>&gt;</span>增加 Ref<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Example</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="预期结果："><a href="#预期结果：" class="headerlink" title="预期结果："></a><strong>预期结果</strong>：</h4><ol>
+<li>当你点击 <strong>“增加 Ref”</strong> 按钮时，<code>myRef.current</code> 的值会递增。</li>
+<li><strong>但是</strong>，尽管 <code>myRef.current</code> 的值变化了，<code>useEffect</code> 不会重新执行，因为 <code>myRef</code> 的引用没有变。</li>
+</ol>
+<h4 id="控制台输出："><a href="#控制台输出：" class="headerlink" title="控制台输出："></a><strong>控制台输出</strong>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect 执行了: 0</span><br><span class="line">myRef.current: 1</span><br><span class="line">myRef.current: 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong>：即使 <code>myRef.current</code> 的值更新了，React 认为 <code>myRef</code> 引用对象没有变，因此不会重新执行 <code>useEffect</code>。</p>
+<h3 id="3-如何触发-useEffect-执行？"><a href="#3-如何触发-useEffect-执行？" class="headerlink" title="3. 如何触发 useEffect 执行？"></a>3. <strong>如何触发 <code>useEffect</code> 执行？</strong></h3><p>如果你希望当 <code>ref.current</code> 的值发生变化时触发 <code>useEffect</code>，你可以将 **<code>ref.current</code> 的值保存到 <code>useState</code>**，因为 <code>useState</code> 会触发重新渲染。</p>
+<h4 id="改进示例：使用-useState-触发更新"><a href="#改进示例：使用-useState-触发更新" class="headerlink" title="改进示例：使用 useState 触发更新"></a><strong>改进示例：使用 <code>useState</code> 触发更新</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useEffect, useRef, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Example</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> myRef = <span class="title function_">useRef</span>(<span class="number">0</span>); <span class="comment">// 创建 ref 对象</span></span><br><span class="line">  <span class="keyword">const</span> [refValue, setRefValue] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 使用 state 保存 ref 值</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;useEffect 执行了:&#x27;</span>, refValue);</span><br><span class="line">  &#125;, [refValue]); <span class="comment">// 当 refValue 变化时重新执行 useEffect</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">incrementRef</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    myRef.<span class="property">current</span> += <span class="number">1</span>; <span class="comment">// 修改 ref 的 current 值</span></span><br><span class="line">    <span class="title function_">setRefValue</span>(myRef.<span class="property">current</span>); <span class="comment">// 将 ref 的值同步到 state 中</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Ref Value: &#123;refValue&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;incrementRef&#125;</span>&gt;</span>增加 Ref<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Example</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出："><a href="#输出：" class="headerlink" title="输出："></a><strong>输出</strong>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useEffect 执行了: 1</span><br><span class="line">useEffect 执行了: 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong>：通过将 <code>myRef.current</code> 的值同步到 <code>state</code>，我们确保了 <code>useEffect</code> 会在值变化时执行。</p>
+<h3 id="4-总结：useRef-在-useEffect-依赖中的行为"><a href="#4-总结：useRef-在-useEffect-依赖中的行为" class="headerlink" title="4. 总结：useRef 在 useEffect 依赖中的行为"></a>4. <strong>总结：<code>useRef</code> 在 <code>useEffect</code> 依赖中的行为</strong></h3><ul>
+<li><strong>直接将 <code>useRef</code> 对象作为依赖</strong>不会触发 <code>useEffect</code> 重新执行，因为 <code>useRef</code> 引用地址不变。</li>
+<li><strong>修改 <code>ref.current</code> 不会导致组件重新渲染</strong>，也不会触发依赖更新。</li>
+<li><strong>解决方法</strong>：如果你需要在 <code>ref.current</code> 的值变化时触发副作用，建议将其<strong>同步到 <code>useState</code> 中</strong>。</li>
+</ul>
+<h2 id="flex属性"><a href="#flex属性" class="headerlink" title="flex属性"></a>flex属性</h2><h3 id="Flexbox-的属性详解"><a href="#Flexbox-的属性详解" class="headerlink" title="Flexbox 的属性详解"></a><strong>Flexbox 的属性详解</strong></h3><p><code>Flexbox</code> 是 CSS 中的一种布局模型，专门用于创建<strong>灵活、响应式的布局</strong>。它包含两个主要角色：</p>
+<ol>
+<li><strong>容器</strong>（父元素）：通过设定 <code>display: flex;</code> 激活 Flex 布局。</li>
+<li><strong>子项</strong>（直接子元素）：在 Flex 容器内的项目受布局规则影响。</li>
+</ol>
+<hr>
+<h2 id="1-Flex-容器的属性（父元素属性）"><a href="#1-Flex-容器的属性（父元素属性）" class="headerlink" title="1. Flex 容器的属性（父元素属性）"></a><strong>1. Flex 容器的属性（父元素属性）</strong></h2><p>这些属性用于设置<strong>Flex 容器</strong>的布局规则，影响其内部<strong>子项</strong>的排列方式。</p>
+<h3 id="1-1-display"><a href="#1-1-display" class="headerlink" title="1.1 display"></a><strong>1.1 display</strong></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex; <span class="comment">/* 激活 Flex 布局 */</span></span><br><span class="line">  <span class="attribute">display</span>: inline-flex; <span class="comment">/* 创建行内级 Flex 布局 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>flex</code>：块级 Flex 容器。</li>
+<li><code>inline-flex</code>：行内级 Flex 容器。</li>
+</ul>
+<hr>
+<h3 id="1-2-flex-direction"><a href="#1-2-flex-direction" class="headerlink" title="1.2 flex-direction"></a><strong>1.2 flex-direction</strong></h3><p>用于定义<strong>子项排列的主轴方向</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row; <span class="comment">/* 默认值，主轴为水平方向（从左到右） */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: row-reverse; <span class="comment">/* 主轴为水平方向（从右到左） */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column; <span class="comment">/* 主轴为垂直方向（从上到下） */</span></span><br><span class="line">  <span class="attribute">flex-direction</span>: column-reverse; <span class="comment">/* 主轴为垂直方向（从下到上） */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-3-justify-content"><a href="#1-3-justify-content" class="headerlink" title="1.3 justify-content"></a><strong>1.3 justify-content</strong></h3><p>用于设置<strong>子项在主轴上的对齐方式</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start; <span class="comment">/* 默认值，从主轴的起点对齐 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: flex-end; <span class="comment">/* 从主轴的终点对齐 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: center; <span class="comment">/* 子项居中对齐 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: space-between; <span class="comment">/* 子项之间平均分布，第一个和最后一个子项贴合两端 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: space-around; <span class="comment">/* 子项平均分布，两端有间距 */</span></span><br><span class="line">  <span class="attribute">justify-content</span>: space-evenly; <span class="comment">/* 子项平均分布，间距相等 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-4-align-items"><a href="#1-4-align-items" class="headerlink" title="1.4 align-items"></a><strong>1.4 align-items</strong></h3><p>用于设置<strong>子项在交叉轴上的对齐方式</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: stretch; <span class="comment">/* 默认值，子项拉伸以适应容器 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: flex-start; <span class="comment">/* 子项在交叉轴起点对齐 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: flex-end; <span class="comment">/* 子项在交叉轴终点对齐 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: center; <span class="comment">/* 子项在交叉轴居中对齐 */</span></span><br><span class="line">  <span class="attribute">align-items</span>: baseline; <span class="comment">/* 子项的文本基线对齐 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-5-align-content"><a href="#1-5-align-content" class="headerlink" title="1.5 align-content"></a><strong>1.5 align-content</strong></h3><p>用于<strong>多行内容</strong>在交叉轴上的对齐方式，仅在有多行时生效。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start; <span class="comment">/* 各行在交叉轴起点对齐 */</span></span><br><span class="line">  <span class="attribute">align-content</span>: flex-end; <span class="comment">/* 各行在交叉轴终点对齐 */</span></span><br><span class="line">  <span class="attribute">align-content</span>: center; <span class="comment">/* 各行在交叉轴居中对齐 */</span></span><br><span class="line">  <span class="attribute">align-content</span>: space-between; <span class="comment">/* 各行平均分布，两端贴合 */</span></span><br><span class="line">  <span class="attribute">align-content</span>: space-around; <span class="comment">/* 各行平均分布，两端有间距 */</span></span><br><span class="line">  <span class="attribute">align-content</span>: stretch; <span class="comment">/* 各行拉伸填满容器 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-6-flex-wrap"><a href="#1-6-flex-wrap" class="headerlink" title="1.6 flex-wrap"></a><strong>1.6 flex-wrap</strong></h3><p>用于<strong>控制子项是否换行</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap; <span class="comment">/* 默认值，不换行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap; <span class="comment">/* 子项换行，溢出部分另起一行 */</span></span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap-reverse; <span class="comment">/* 子项换行，但新行排在上面 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-7-gap-x2F-row-gap-x2F-column-gap"><a href="#1-7-gap-x2F-row-gap-x2F-column-gap" class="headerlink" title="1.7 gap &#x2F; row-gap &#x2F; column-gap"></a><strong>1.7 gap &#x2F; row-gap &#x2F; column-gap</strong></h3><p>用于<strong>设置子项之间的间距</strong>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">10px</span>; <span class="comment">/* 行和列之间的统一间距 */</span></span><br><span class="line">  <span class="attribute">row-gap</span>: <span class="number">10px</span>; <span class="comment">/* 设置行间距 */</span></span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">20px</span>; <span class="comment">/* 设置列间距 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-Flex-子项的属性（子元素属性）"><a href="#2-Flex-子项的属性（子元素属性）" class="headerlink" title="2. Flex 子项的属性（子元素属性）"></a><strong>2. Flex 子项的属性（子元素属性）</strong></h2><p>这些属性应用于 <strong>Flex 容器内的子项</strong>，用于控制它们的大小、排列和伸缩。</p>
+<hr>
+<h3 id="2-1-order"><a href="#2-1-order" class="headerlink" title="2.1 order"></a><strong>2.1 order</strong></h3><p>用于控制<strong>子项的排列顺序</strong>。数值越小，排列越靠前。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: <span class="number">1</span>; <span class="comment">/* 默认值为 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-2-flex-grow"><a href="#2-2-flex-grow" class="headerlink" title="2.2 flex-grow"></a><strong>2.2 flex-grow</strong></h3><p>用于定义<strong>子项在主轴方向上的扩展比例</strong>。当容器有剩余空间时，<code>flex-grow</code> 决定子项占用剩余空间的比例。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: <span class="number">1</span>; <span class="comment">/* 子项会根据剩余空间进行扩展 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果所有子项的 <code>flex-grow</code> 都为 <code>1</code>，它们将<strong>平分剩余空间</strong>。</li>
+<li>如果一个子项的 <code>flex-grow</code> 为 <code>2</code>，而其他子项为 <code>1</code>，那么该子项将占据双倍的剩余空间。</li>
+</ul>
+<hr>
+<h3 id="2-3-flex-shrink"><a href="#2-3-flex-shrink" class="headerlink" title="2.3 flex-shrink"></a><strong>2.3 flex-shrink</strong></h3><p>用于定义<strong>子项在主轴方向上的收缩比例</strong>。当容器空间不足时，<code>flex-shrink</code> 决定子项如何缩小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: <span class="number">1</span>; <span class="comment">/* 默认值为 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果 <code>flex-shrink</code> 为 <code>0</code>，则子项不会收缩。</li>
+</ul>
+<hr>
+<h3 id="2-4-flex-basis"><a href="#2-4-flex-basis" class="headerlink" title="2.4 flex-basis"></a><strong>2.4 flex-basis</strong></h3><p>用于定义<strong>子项的初始尺寸</strong>，即它在伸缩前的大小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: <span class="number">100px</span>; <span class="comment">/* 子项的初始大小为 100px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>flex-basis</code> 优先级高于 <code>width</code> 或 <code>height</code>。</li>
+</ul>
+<hr>
+<h3 id="2-5-flex（简写属性）"><a href="#2-5-flex（简写属性）" class="headerlink" title="2.5 flex（简写属性）"></a><strong>2.5 flex（简写属性）</strong></h3><p><code>flex</code> 是 <code>flex-grow</code>、<code>flex-shrink</code> 和 <code>flex-basis</code> 的简写。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">100px</span>; <span class="comment">/* 等同于：</span></span><br><span class="line"><span class="comment">                     flex-grow: 1;</span></span><br><span class="line"><span class="comment">                     flex-shrink: 1;</span></span><br><span class="line"><span class="comment">                     flex-basis: 100px;</span></span><br><span class="line"><span class="comment">                   */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>常见简写</strong>：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 等同于 flex: 1 1 0%; */</span></span><br><span class="line"><span class="attribute">flex</span>: none; <span class="comment">/* 等同于 flex: 0 0 auto; */</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="2-6-align-self"><a href="#2-6-align-self" class="headerlink" title="2.6 align-self"></a><strong>2.6 align-self</strong></h3><p>用于<strong>单独设置某个子项在交叉轴上的对齐方式</strong>，它会覆盖父容器的 <code>align-items</code> 设置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: flex-start; <span class="comment">/* 该子项在交叉轴起点对齐 */</span></span><br><span class="line">  <span class="attribute">align-self</span>: flex-end; <span class="comment">/* 该子项在交叉轴终点对齐 */</span></span><br><span class="line">  <span class="attribute">align-self</span>: center; <span class="comment">/* 该子项在交叉轴居中对齐 */</span></span><br><span class="line">  <span class="attribute">align-self</span>: stretch; <span class="comment">/* 该子项在交叉轴拉伸 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a><strong>3. 总结</strong></h2><table>
+<thead>
+<tr>
+<th><strong>父元素属性（容器）</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>display</code></td>
+<td>激活 Flex 布局</td>
+</tr>
+<tr>
+<td><code>flex-direction</code></td>
+<td>设置主轴方向</td>
+</tr>
+<tr>
+<td><code>justify-content</code></td>
+<td>控制主轴上的对齐方式</td>
+</tr>
+<tr>
+<td><code>align-items</code></td>
+<td>控制交叉轴上的对齐方式</td>
+</tr>
+<tr>
+<td><code>align-content</code></td>
+<td>控制多行内容的对齐方式</td>
+</tr>
+<tr>
+<td><code>flex-wrap</code></td>
+<td>是否允许子项换行</td>
+</tr>
+<tr>
+<td><code>gap</code> &#x2F; <code>row-gap</code> &#x2F; <code>column-gap</code></td>
+<td>设置子项之间的间距</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>子元素属性（子项）</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>order</code></td>
+<td>控制子项的排列顺序</td>
+</tr>
+<tr>
+<td><code>flex-grow</code></td>
+<td>控制子项的扩展比例</td>
+</tr>
+<tr>
+<td><code>flex-shrink</code></td>
+<td>控制子项的收缩比例</td>
+</tr>
+<tr>
+<td><code>flex-basis</code></td>
+<td>设置子项的初始大小</td>
+</tr>
+<tr>
+<td><code>flex</code></td>
+<td>简写属性，用于同时设置扩展、收缩和初始大小</td>
+</tr>
+<tr>
+<td><code>align-self</code></td>
+<td>设置单个子项在交叉轴上的对齐方式</td>
+</tr>
+</tbody></table>
+<p>Flexbox 让布局更灵活和高效，适用于<strong>一维布局</strong>（如水平或垂直排列）。在复杂布局场景下（如网格布局），可以与 <strong>CSS Grid</strong> 结合使用，获得更强大的布局能力。</p>
+<h2 id="vite和webpack"><a href="#vite和webpack" class="headerlink" title="vite和webpack"></a>vite和webpack</h2><h3 id="Vite-与-Webpack-的区别，以及为什么-Vite-更快"><a href="#Vite-与-Webpack-的区别，以及为什么-Vite-更快" class="headerlink" title="Vite 与 Webpack 的区别，以及为什么 Vite 更快"></a><strong>Vite 与 Webpack 的区别，以及为什么 Vite 更快</strong></h3><p>Vite 和 Webpack 都是现代前端开发中的构建工具，但它们的<strong>架构设计</strong>和<strong>工作方式</strong>有显著差异。Vite 解决了 Webpack 在开发时的性能瓶颈，并提供了更快的开发体验。下面详细讲解它们的主要区别以及 Vite 快速的原因。</p>
+<hr>
+<h2 id="1-Vite-与-Webpack-的主要区别"><a href="#1-Vite-与-Webpack-的主要区别" class="headerlink" title="1. Vite 与 Webpack 的主要区别"></a><strong>1. Vite 与 Webpack 的主要区别</strong></h2><table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>Vite</strong></th>
+<th><strong>Webpack</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>构建方式</strong></td>
+<td><strong>即时按需加载（ESM 模式）</strong></td>
+<td><strong>打包构建（Bundle-based）</strong></td>
+</tr>
+<tr>
+<td><strong>开发服务器启动</strong></td>
+<td><strong>极快</strong>（无需打包，直接启动）</td>
+<td><strong>较慢</strong>（必须打包所有资源后才能启动）</td>
+</tr>
+<tr>
+<td><strong>热更新（HMR）</strong></td>
+<td><strong>模块级别更新</strong>，更新更快</td>
+<td>整体模块更新，<strong>更新粒度较大</strong></td>
+</tr>
+<tr>
+<td><strong>配置复杂度</strong></td>
+<td><strong>简单</strong>，内置很多默认配置</td>
+<td><strong>复杂</strong>，需要详细配置</td>
+</tr>
+<tr>
+<td><strong>支持现代浏览器</strong></td>
+<td>基于 <strong>原生 ESM 支持</strong></td>
+<td>需要使用 polyfill 等兼容性代码</td>
+</tr>
+<tr>
+<td><strong>首次打包速度</strong></td>
+<td><strong>快</strong>（开发模式无打包）</td>
+<td><strong>慢</strong>，打包所有模块</td>
+</tr>
+<tr>
+<td><strong>生产构建</strong></td>
+<td>使用 <strong>Rollup</strong> 进行优化打包</td>
+<td>使用自身的打包逻辑</td>
+</tr>
+<tr>
+<td><strong>生态和插件</strong></td>
+<td>生态系统快速发展，插件可复用（Rollup 插件）</td>
+<td>丰富且成熟的生态</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-Vite-为什么比-Webpack-快"><a href="#2-Vite-为什么比-Webpack-快" class="headerlink" title="2. Vite 为什么比 Webpack 快"></a><strong>2. Vite 为什么比 Webpack 快</strong></h2><h3 id="2-1-架构设计不同"><a href="#2-1-架构设计不同" class="headerlink" title="2.1 架构设计不同"></a><strong>2.1 架构设计不同</strong></h3><ul>
+<li><p><strong>Webpack</strong>：在启动开发服务器前，需要<strong>打包所有资源</strong>（JavaScript、CSS、图片等），然后通过一个大的 Bundle 文件在浏览器中运行。这在项目复杂度增加时会显著变慢。</p>
+</li>
+<li><p><strong>Vite</strong>：Vite 依赖<strong>浏览器原生的 ESM（ES Modules）支持</strong>，在开发模式中<strong>按需加载文件</strong>。它不需要打包，浏览器会直接请求模块文件并解析依赖。</p>
+</li>
+</ul>
+<h3 id="2-2-直接使用-ESM-模块"><a href="#2-2-直接使用-ESM-模块" class="headerlink" title="2.2 直接使用 ESM 模块"></a><strong>2.2 直接使用 ESM 模块</strong></h3><ul>
+<li><strong>Vite</strong> 的开发模式不会进行传统的打包，而是利用浏览器的 <strong>ESM</strong> 支持，直接将每个模块文件作为一个独立请求加载。浏览器只会请求<strong>实际需要的模块</strong>，避免了大文件的打包。</li>
+</ul>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a><strong>示例</strong>：</h4><p>在 Vite 中，浏览器会直接加载：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; someFunction &#125; from &#x27;./module.js&#x27;;</span><br></pre></td></tr></table></figure>
+<p>而 Webpack 会将所有依赖打包为一个 Bundle。</p>
+<h3 id="2-3-更快的开发服务器启动"><a href="#2-3-更快的开发服务器启动" class="headerlink" title="2.3 更快的开发服务器启动"></a><strong>2.3 更快的开发服务器启动</strong></h3><ul>
+<li><p><strong>Webpack</strong>：启动开发服务器前需要先完成所有文件的打包。随着项目规模增大，<strong>首次打包的时间</strong>可能会显著增加。</p>
+</li>
+<li><p><strong>Vite</strong>：启动时不打包整个项目，而是直接响应浏览器的模块请求。这让 Vite 的开发服务器可以<strong>瞬间启动</strong>，即使在大型项目中也能显著提高启动速度。</p>
+</li>
+</ul>
+<h3 id="2-4-模块级热更新（HMR）"><a href="#2-4-模块级热更新（HMR）" class="headerlink" title="2.4 模块级热更新（HMR）"></a><strong>2.4 模块级热更新（HMR）</strong></h3><ul>
+<li><p><strong>Webpack</strong>：HMR（Hot Module Replacement，热模块替换）机制会重新打包部分文件，然后更新浏览器。这在大型项目中仍可能导致延迟。</p>
+</li>
+<li><p><strong>Vite</strong>：HMR 更快，因为它直接替换受影响的 <strong>ESM 模块</strong>，而不是重新打包整个模块依赖树。</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-为什么-Vite-的架构更适合现代开发？"><a href="#3-为什么-Vite-的架构更适合现代开发？" class="headerlink" title="3. 为什么 Vite 的架构更适合现代开发？"></a><strong>3. 为什么 Vite 的架构更适合现代开发？</strong></h2><h3 id="3-1-现代浏览器的原生支持"><a href="#3-1-现代浏览器的原生支持" class="headerlink" title="3.1 现代浏览器的原生支持"></a><strong>3.1 现代浏览器的原生支持</strong></h3><p>Vite 的开发模式依赖于现代浏览器的 <strong>ES Modules</strong>（原生模块支持）。这意味着：</p>
+<ul>
+<li><strong>无需额外的打包和编译</strong>，浏览器能直接理解 JavaScript 模块。</li>
+<li>不需要处理像 Webpack 那样复杂的模块解析和打包逻辑。</li>
+</ul>
+<h3 id="3-2-面向渐进式的模块加载"><a href="#3-2-面向渐进式的模块加载" class="headerlink" title="3.2 面向渐进式的模块加载"></a><strong>3.2 面向渐进式的模块加载</strong></h3><p>Vite 的 ESM 模块加载是<strong>渐进式的</strong>，即：</p>
+<ul>
+<li>只有在浏览器请求某个模块时，Vite 才会编译并返回该模块。</li>
+<li>未被请求的模块不会被预先编译和加载，避免了不必要的工作。</li>
+</ul>
+<hr>
+<h2 id="4-Vite-的生产构建与-Webpack-的对比"><a href="#4-Vite-的生产构建与-Webpack-的对比" class="headerlink" title="4. Vite 的生产构建与 Webpack 的对比"></a><strong>4. Vite 的生产构建与 Webpack 的对比</strong></h2><ul>
+<li><strong>Vite</strong> 在开发模式中避免了打包，但在生产模式下，它使用 <strong>Rollup</strong> 进行打包优化，确保输出的代码<strong>体积小且性能高</strong>。</li>
+<li><strong>Webpack</strong> 则在生产构建中继续使用自己的打包逻辑，并通过 <strong>Tree Shaking</strong>、代码分割等优化手段减小包体积。</li>
+</ul>
+<hr>
+<h2 id="5-哪些项目适合使用-Vite？"><a href="#5-哪些项目适合使用-Vite？" class="headerlink" title="5. 哪些项目适合使用 Vite？"></a><strong>5. 哪些项目适合使用 Vite？</strong></h2><ul>
+<li><strong>中小型项目或个人项目</strong>：Vite 的极速启动和简洁配置非常适合。</li>
+<li><strong>Vue、React 等框架的现代项目</strong>：Vite 有非常好的官方支持，且能与这些框架无缝结合。</li>
+<li><strong>需要高频热更新的开发场景</strong>：Vite 的模块级 HMR 能提供更流畅的开发体验。</li>
+</ul>
+<hr>
+<h2 id="6-总结：Vite-为什么更快？"><a href="#6-总结：Vite-为什么更快？" class="headerlink" title="6. 总结：Vite 为什么更快？"></a><strong>6. 总结：Vite 为什么更快？</strong></h2><ol>
+<li><strong>即时按需加载</strong>：Vite 不需要在开发模式下打包整个项目，依赖浏览器的 ESM 支持，按需加载模块。</li>
+<li><strong>更快的启动速度</strong>：Vite 直接启动开发服务器，无需预先打包所有模块。</li>
+<li><strong>模块级 HMR</strong>：Vite 的 HMR 更新粒度更小，更加高效。</li>
+<li><strong>简单的配置</strong>：Vite 默认配置良好，减少了复杂的配置需求。</li>
+</ol>
+<p>Vite 的架构设计使其成为<strong>现代前端开发的理想选择</strong>，特别适合需要<strong>快速开发、频繁热更新</strong>的项目。相比之下，Webpack 仍然适合<strong>大型复杂项目</strong>的构建，但 Vite 正逐渐成为新一代构建工具的主流选择。</p>
+<h2 id="防止cookie被篡改"><a href="#防止cookie被篡改" class="headerlink" title="防止cookie被篡改"></a>防止cookie被篡改</h2><h3 id="如何防止-Cookie-被篡改"><a href="#如何防止-Cookie-被篡改" class="headerlink" title="如何防止 Cookie 被篡改"></a><strong>如何防止 Cookie 被篡改</strong></h3><p>由于 <strong>Cookie</strong> 存储在客户端（用户的浏览器），它<strong>有被篡改的风险</strong>。如果攻击者可以篡改 Cookie 中的数据，比如会话标识或用户角色信息，就可能导致严重的安全问题。为了防止 Cookie 被篡改，我们可以结合<strong>多种安全策略</strong>来保护数据的完整性和安全性。</p>
+<hr>
+<h2 id="1-使用-HTTP-only-属性"><a href="#1-使用-HTTP-only-属性" class="headerlink" title="1. 使用 HTTP-only 属性"></a><strong>1. 使用 HTTP-only 属性</strong></h2><ul>
+<li><strong>防止 JavaScript 访问 Cookie</strong>，减少 XSS（跨站脚本攻击）的风险。</li>
+</ul>
+<h3 id="示例：设置-HTTP-only-Cookie"><a href="#示例：设置-HTTP-only-Cookie" class="headerlink" title="示例：设置 HTTP-only Cookie"></a><strong>示例：设置 HTTP-only Cookie</strong></h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>session_id=abc123; HttpOnly</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>解释</strong>：<ul>
+<li><strong>HttpOnly</strong> 属性设置后，Cookie 无法通过 <code>document.cookie</code> 在客户端读取或修改，只能通过 HTTP 请求头自动发送。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-使用-Secure-属性"><a href="#2-使用-Secure-属性" class="headerlink" title="2. 使用 Secure 属性"></a><strong>2. 使用 Secure 属性</strong></h2><ul>
+<li><strong>强制 Cookie 只能通过 HTTPS 传输</strong>，防止数据在传输过程中被窃取或篡改。</li>
+</ul>
+<h3 id="示例：设置-Secure-Cookie"><a href="#示例：设置-Secure-Cookie" class="headerlink" title="示例：设置 Secure Cookie"></a><strong>示例：设置 Secure Cookie</strong></h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>session_id=abc123; Secure</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>解释</strong>：<ul>
+<li><code>Secure</code> 属性要求 Cookie 只能通过 <strong>HTTPS 连接</strong>传输，避免中间人攻击（MITM）时 Cookie 被劫持或修改。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-使用-SameSite-属性"><a href="#3-使用-SameSite-属性" class="headerlink" title="3. 使用 SameSite 属性"></a><strong>3. 使用 SameSite 属性</strong></h2><ul>
+<li>防止 CSRF（跨站请求伪造）攻击，通过限制第三方网站发送 Cookie 的能力。</li>
+</ul>
+<h3 id="示例：设置-SameSite-Cookie"><a href="#示例：设置-SameSite-Cookie" class="headerlink" title="示例：设置 SameSite Cookie"></a><strong>示例：设置 SameSite Cookie</strong></h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>session_id=abc123; SameSite=Strict</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>SameSite</strong> 取值：<ul>
+<li><strong>Strict</strong>：完全阻止第三方网站发送 Cookie。</li>
+<li><strong>Lax</strong>：只在部分情况下（如 GET 请求）发送 Cookie。</li>
+<li><strong>None</strong>：允许跨站发送，但必须搭配 <code>Secure</code>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-使用加密和签名"><a href="#4-使用加密和签名" class="headerlink" title="4. 使用加密和签名"></a><strong>4. 使用加密和签名</strong></h2><ul>
+<li><strong>加密</strong>：将敏感信息加密后存入 Cookie，只有服务器能解密查看。</li>
+<li><strong>签名</strong>：为 Cookie 添加<strong>签名</strong>，防止数据被篡改。</li>
+</ul>
+<h3 id="示例：使用-HMAC-签名防篡改"><a href="#示例：使用-HMAC-签名防篡改" class="headerlink" title="示例：使用 HMAC 签名防篡改"></a><strong>示例：使用 HMAC 签名防篡改</strong></h3><ol>
+<li><p><strong>服务器端生成 Cookie</strong>（使用 HMAC 算法签名）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> crypto = <span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> secret = <span class="string">&#x27;your-secret-key&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> value = <span class="string">&#x27;user_id=123&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 HMAC 生成签名</span></span><br><span class="line"><span class="keyword">const</span> signature = crypto</span><br><span class="line">  .<span class="title function_">createHmac</span>(<span class="string">&#x27;sha256&#x27;</span>, secret)</span><br><span class="line">  .<span class="title function_">update</span>(value)</span><br><span class="line">  .<span class="title function_">digest</span>(<span class="string">&#x27;hex&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cookie = <span class="string">`<span class="subst">$&#123;value&#125;</span>; signature=<span class="subst">$&#123;signature&#125;</span>`</span>;</span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Set-Cookie&#x27;</span>, cookie);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>服务器端验证 Cookie</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [value, signature] = req.<span class="property">cookies</span>.<span class="property">session_id</span>.<span class="title function_">split</span>(<span class="string">&#x27;; signature=&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证签名是否匹配</span></span><br><span class="line"><span class="keyword">const</span> validSignature = crypto</span><br><span class="line">  .<span class="title function_">createHmac</span>(<span class="string">&#x27;sha256&#x27;</span>, secret)</span><br><span class="line">  .<span class="title function_">update</span>(value)</span><br><span class="line">  .<span class="title function_">digest</span>(<span class="string">&#x27;hex&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (signature !== validSignature) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;Cookie 被篡改&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><strong>解释</strong>：<ul>
+<li>服务器在生成 Cookie 时使用 <strong>HMAC 签名</strong>，客户端无法伪造或篡改。</li>
+<li>服务器在读取 Cookie 时验证签名，发现不匹配就拒绝请求。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-设置短生命周期的-Cookie"><a href="#5-设置短生命周期的-Cookie" class="headerlink" title="5. 设置短生命周期的 Cookie"></a><strong>5. 设置短生命周期的 Cookie</strong></h2><ul>
+<li>将 Cookie 的 <strong><code>max-age</code> 或 <code>expires</code> 设置为较短时间</strong>，即使被窃取也能减少其有效时间。</li>
+</ul>
+<h3 id="示例：设置短生命周期"><a href="#示例：设置短生命周期" class="headerlink" title="示例：设置短生命周期"></a><strong>示例：设置短生命周期</strong></h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>session_id=abc123; Max-Age=600</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>解释</strong>：<code>Max-Age=600</code> 表示该 Cookie 仅在 10 分钟内有效。</li>
+</ul>
+<hr>
+<h2 id="6-验证服务器端会话数据"><a href="#6-验证服务器端会话数据" class="headerlink" title="6. 验证服务器端会话数据"></a><strong>6. 验证服务器端会话数据</strong></h2><ul>
+<li>在服务器端为每个会话维护必要的状态信息，而不是完全依赖客户端的 Cookie。</li>
+</ul>
+<h3 id="示例：服务端会话验证"><a href="#示例：服务端会话验证" class="headerlink" title="示例：服务端会话验证"></a><strong>示例：服务端会话验证</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> sessionId = req.<span class="property">cookies</span>.<span class="property">session_id</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 验证 session_id 是否存在于服务器会话存储中</span></span><br><span class="line">  <span class="keyword">if</span> (!sessionStore[sessionId]) &#123;</span><br><span class="line">    res.<span class="title function_">status</span>(<span class="number">401</span>).<span class="title function_">send</span>(<span class="string">&#x27;无效的会话&#x27;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">next</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>解释</strong>：即使攻击者伪造了一个 Cookie，服务器也会通过会话存储验证它的合法性。</li>
+</ul>
+<hr>
+<h2 id="7-总结：防止-Cookie-篡改的最佳实践"><a href="#7-总结：防止-Cookie-篡改的最佳实践" class="headerlink" title="7. 总结：防止 Cookie 篡改的最佳实践"></a><strong>7. 总结：防止 Cookie 篡改的最佳实践</strong></h2><ol>
+<li><strong>HttpOnly</strong>：防止 JavaScript 操作 Cookie，避免 XSS 攻击。</li>
+<li><strong>Secure</strong>：只允许通过 HTTPS 传输 Cookie，防止中间人攻击。</li>
+<li><strong>SameSite</strong>：限制第三方站点使用 Cookie，避免 CSRF 攻击。</li>
+<li><strong>加密与签名</strong>：为 Cookie 数据加密或添加 HMAC 签名，防止篡改。</li>
+<li><strong>短生命周期</strong>：设置合理的过期时间，降低 Cookie 被滥用的风险。</li>
+<li><strong>服务端验证会话</strong>：不要完全依赖客户端 Cookie，需在服务端验证会话数据。</li>
+</ol>
+<p>通过以上策略的组合，你可以显著提高 Cookie 的安全性，防止其被恶意篡改和滥用。</p>
+<h2 id="async和await的原理"><a href="#async和await的原理" class="headerlink" title="async和await的原理"></a>async和await的原理</h2><h3 id="async-x2F-await-的原理详解"><a href="#async-x2F-await-的原理详解" class="headerlink" title="async &#x2F; await 的原理详解"></a><strong><code>async</code> &#x2F; <code>await</code> 的原理详解</strong></h3><p><code>async</code> &#x2F; <code>await</code> 是基于 <strong>Promise</strong> 的语法糖，主要用于简化 <strong>异步代码的书写和管理</strong>。它的本质是利用 <strong>Promise</strong> 进行异步操作，并通过 <code>await</code> 将异步代码转为<strong>同步的书写形式</strong>，从而提高代码的可读性和可维护性。</p>
+<p>下面我们从 <strong>工作原理</strong>、<strong>事件循环机制</strong> 和 <strong>代码执行流程</strong> 来分析 <code>async</code> &#x2F; <code>await</code> 的实现原理。</p>
+<hr>
+<h2 id="1-async-x2F-await-的基本概念"><a href="#1-async-x2F-await-的基本概念" class="headerlink" title="1. async &#x2F; await 的基本概念"></a><strong>1. <code>async</code> &#x2F; <code>await</code> 的基本概念</strong></h2><ul>
+<li><strong><code>async</code><strong>：用于定义一个</strong>异步函数</strong>，其返回值会被自动转换为 <strong>Promise</strong>。</li>
+<li><strong><code>await</code><strong>：只能在 <code>async</code> 函数中使用，它会</strong>暂停函数的执行</strong>，直到 <code>await</code> 的 Promise <strong>解析完成（resolve）</strong>，然后继续执行。</li>
+</ul>
+<h3 id="示例：基本用法"><a href="#示例：基本用法" class="headerlink" title="示例：基本用法"></a><strong>示例：基本用法</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchData</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据已获取：&#x27;</span>, data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetchData</span>();</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释：-3"><a href="#解释：-3" class="headerlink" title="解释："></a><strong>解释</strong>：</h4><ol>
+<li><code>await fetch()</code> 会暂停 <code>fetchData</code> 函数的执行，直到 <strong>fetch</strong> 返回的 Promise 被解析。</li>
+<li>一旦 Promise 被 <strong>resolve</strong>，<code>data</code> 会接收到结果，函数继续执行。</li>
+</ol>
+<hr>
+<h2 id="2-async-x2F-await-的底层原理"><a href="#2-async-x2F-await-的底层原理" class="headerlink" title="2. async &#x2F; await 的底层原理"></a><strong>2. <code>async</code> &#x2F; <code>await</code> 的底层原理</strong></h2><p><code>async</code> &#x2F; <code>await</code> 的底层是基于 <strong>Promise 和生成器（Generator）</strong> 实现的。它将复杂的<strong>异步逻辑拆分为同步的结构</strong>，但并不阻塞 JavaScript 的 <strong>事件循环（Event Loop）</strong>。</p>
+<h3 id="底层原理：基于-Promise-的语法糖"><a href="#底层原理：基于-Promise-的语法糖" class="headerlink" title="底层原理：基于 Promise 的语法糖"></a><strong>底层原理：基于 Promise 的语法糖</strong></h3><ol>
+<li><strong><code>async</code> 函数</strong>会自动将返回值包装成一个 <strong>Promise</strong>。</li>
+<li><strong><code>await</code></strong> 会暂停当前异步函数的执行，等待 Promise 被<strong>resolve</strong> 或 <strong>reject</strong>。</li>
+<li><strong>事件循环机制</strong>确保在 <strong>Promise</strong> 完成后，函数的剩余部分会在<strong>微任务队列（Microtask Queue）</strong>中执行。</li>
+</ol>
+<h3 id="模拟实现：async-x2F-await-的原理"><a href="#模拟实现：async-x2F-await-的原理" class="headerlink" title="模拟实现：async &#x2F; await 的原理"></a><strong>模拟实现：async &#x2F; await 的原理</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">asyncFunction</span>(<span class="params">generatorFn</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> generator = <span class="title function_">generatorFn</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">handleResult</span>(<span class="params">result</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (result.<span class="property">done</span>) <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(result.<span class="property">value</span>); <span class="comment">// 完成时返回结果</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(result.<span class="property">value</span>).<span class="title function_">then</span>(</span><br><span class="line">      <span class="function"><span class="params">res</span> =&gt;</span> <span class="title function_">handleResult</span>(generator.<span class="title function_">next</span>(res)), <span class="comment">// 递归执行</span></span><br><span class="line">      <span class="function"><span class="params">err</span> =&gt;</span> <span class="title function_">handleResult</span>(generator.<span class="keyword">throw</span>(err)) <span class="comment">// 处理异常</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">handleResult</span>(generator.<span class="title function_">next</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">asyncFunction</span>(<span class="keyword">function</span>* () &#123;</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">yield</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;数据：&#x27;</span>, data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释：-4"><a href="#解释：-4" class="headerlink" title="解释："></a><strong>解释：</strong></h4><ul>
+<li>上面的代码模拟了 <strong><code>async</code> &#x2F; <code>await</code></strong> 的实现原理。</li>
+<li>使用 <strong>Generator</strong> 函数来暂停和恢复执行，并通过 <strong>Promise</strong> 进行异步操作。</li>
+</ul>
+<hr>
+<h2 id="3-事件循环与-await-的执行顺序"><a href="#3-事件循环与-await-的执行顺序" class="headerlink" title="3. 事件循环与 await 的执行顺序"></a><strong>3. 事件循环与 <code>await</code> 的执行顺序</strong></h2><p><code>await</code> 会将异步操作放入 <strong>微任务队列（Microtask Queue）</strong>，并在当前<strong>同步任务执行完毕后</strong>立刻执行微任务。这是因为 <strong>JavaScript 是单线程的</strong>，<code>await</code> 只能在同步任务完成后继续执行。</p>
+<h3 id="示例：await-执行顺序"><a href="#示例：await-执行顺序" class="headerlink" title="示例：await 执行顺序"></a><strong>示例：<code>await</code> 执行顺序</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Start&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">asyncFunc</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Inside asyncFunc&#x27;</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;After await&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">asyncFunc</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;End&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="执行顺序："><a href="#执行顺序：" class="headerlink" title="执行顺序："></a><strong>执行顺序</strong>：</h4><ol>
+<li><strong><code>console.log(&#39;Start&#39;)</code></strong> 立即执行。</li>
+<li><strong><code>asyncFunc()</code></strong> 调用，打印 **<code>Inside asyncFunc</code>**。</li>
+<li><code>await Promise.resolve()</code> 将 <strong>微任务</strong>加入<strong>微任务队列</strong>。</li>
+<li><strong><code>console.log(&#39;End&#39;)</code></strong> 立即执行（同步任务）。</li>
+<li>执行 <strong>微任务</strong>，打印 **<code>After await</code>**。</li>
+</ol>
+<h4 id="输出：-1"><a href="#输出：-1" class="headerlink" title="输出："></a><strong>输出</strong>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start</span><br><span class="line">Inside asyncFunc</span><br><span class="line">End</span><br><span class="line">After await</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-错误处理机制"><a href="#4-错误处理机制" class="headerlink" title="4. 错误处理机制"></a><strong>4. 错误处理机制</strong></h2><p>在 <code>async</code> 函数中，错误可以使用 <strong><code>try...catch</code></strong> 捕获，就像同步代码一样。</p>
+<h3 id="示例：错误处理"><a href="#示例：错误处理" class="headerlink" title="示例：错误处理"></a><strong>示例：错误处理</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchData</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.invalid-url.com&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;发生错误：&#x27;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetchData</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果 <code>fetch</code> 或 <code>response.json()</code> 抛出错误，<code>catch</code> 会捕获并处理错误。</li>
+</ul>
+<h2 id="5-async-x2F-await-的优缺点"><a href="#5-async-x2F-await-的优缺点" class="headerlink" title="5. async &#x2F; await 的优缺点"></a><strong>5. <code>async</code> &#x2F; <code>await</code> 的优缺点</strong></h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a><strong>优点</strong></h3><ol>
+<li><strong>代码结构清晰</strong>：避免了回调地狱，使异步逻辑看起来像同步代码。</li>
+<li><strong>错误处理简单</strong>：支持 <code>try...catch</code>，使得错误处理更加直观。</li>
+<li><strong>提升可读性</strong>：代码更易于理解和维护。</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><strong>缺点</strong></h3><ol>
+<li><strong>依赖于 Promise</strong>：本质上还是基于 Promise，只是语法简化。</li>
+<li><strong>阻塞异步代码</strong>：<code>await</code> 会暂停当前 <code>async</code> 函数的执行，如果滥用可能会导致性能问题。</li>
+</ol>
+<h2 id="6-总结：async-x2F-await-的原理"><a href="#6-总结：async-x2F-await-的原理" class="headerlink" title="6. 总结：async &#x2F; await 的原理"></a><strong>6. 总结：async &#x2F; await 的原理</strong></h2><ul>
+<li><strong><code>async</code> &#x2F; <code>await</code></strong> 是 <strong>Promise</strong> 的语法糖，简化了异步操作的书写方式。</li>
+<li><strong><code>async</code> 函数</strong>会自动返回一个 <strong>Promise</strong>，使得代码更易于管理。</li>
+<li><strong><code>await</code></strong> 会暂停当前函数的执行，等待 <strong>Promise</strong> 完成，然后恢复执行。</li>
+<li>它与 <strong>事件循环（Event Loop）</strong> 配合，使得代码不会阻塞主线程。</li>
+</ul>
+<p>通过 <code>async</code> &#x2F; <code>await</code>，JavaScript 的异步代码变得更具<strong>可读性和可维护性</strong>，这是现代 JavaScript 中处理异步逻辑的推荐方式。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/">http://lavender321.github.com/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">小米</div></div></a></div><div class="next-post pull-right"><a href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数字</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text">c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STL%EF%BC%88Standard-Template-Library%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">STL（Standard Template Library）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">并发编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.</span> <span class="toc-text">算法和数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">进阶问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%97%E7%89%A9"><span class="toc-number">2.</span> <span class="toc-text">得物</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%AB%AF%E5%85%BC%E5%AE%B9%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">多端兼容，有哪些方式？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%EF%BC%88Responsive-Design%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">1. 响应式设计（Responsive Design）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%86%E6%9E%B6"><span class="toc-number">2.1.2.</span> <span class="toc-text">2. 跨平台框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-React-Native-React-Web"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">(1) React Native + React Web</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Flutter"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">(2) Flutter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Taro"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">(3) Taro</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Hybrid-%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91"><span class="toc-number">2.1.3.</span> <span class="toc-text">3. Hybrid 混合开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Cordova-x2F-PhoneGap"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">(1) Cordova &#x2F; PhoneGap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Ionic"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">(2) Ionic</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E7%9A%84%E5%A4%9A%E7%AB%AF%E9%80%82%E9%85%8D"><span class="toc-number">2.1.4.</span> <span class="toc-text">4. 小程序框架的多端适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PWA%EF%BC%88Progressive-Web-App%EF%BC%89"><span class="toc-number">2.1.5.</span> <span class="toc-text">5. PWA（Progressive Web App）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-API%E5%B1%82%E7%9A%84%E5%85%BC%E5%AE%B9%E4%B8%8E%E9%80%82%E9%85%8D"><span class="toc-number">2.1.6.</span> <span class="toc-text">6. API层的兼容与适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%BB%84%E4%BB%B6%E5%BA%93%E5%92%8C%E6%A0%B7%E5%BC%8F%E5%B1%82%E7%9A%84%E9%80%82%E9%85%8D"><span class="toc-number">2.1.7.</span> <span class="toc-text">7. 组件库和样式层的适配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7"><span class="toc-number">2.1.8.</span> <span class="toc-text">8. 自动化构建与编译工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.1.9.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#px%E8%BD%ACvm%EF%BC%8C%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F%E5%9F%BA%E7%A1%80%E7%9A%84%E8%A7%86%E5%8F%A3%E5%AE%BD%E5%BA%A6%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96"><span class="toc-number">2.2.</span> <span class="toc-text">px转vm，是如何实现的？基础的视口宽度如何获取.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#px-%E8%BD%AC%E6%8D%A2%E4%B8%BA-vw-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">px 转换为 vw 是如何实现的？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E5%85%AC%E5%BC%8F%EF%BC%9A"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">转换公式：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%9F%BA%E7%A1%80%E8%A7%86%E5%8F%A3%E5%AE%BD%E5%BA%A6%EF%BC%9F"><span class="toc-number">2.2.2.</span> <span class="toc-text">如何获取基础视口宽度？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript-%E8%8E%B7%E5%8F%96%E8%A7%86%E5%8F%A3%E5%AE%BD%E5%BA%A6%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">JavaScript 获取视口宽度的方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-CSS-%E4%B8%AD%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%A7%86%E5%8F%A3%E5%AE%BD%E5%BA%A6%EF%BC%9A"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">在 CSS 中动态设置视口宽度：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9Apx-%E5%88%B0-vw-%E7%9A%84%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.2.3.</span> <span class="toc-text">实际项目中的应用：px 到 vw 的自动转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PostCSS-%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">PostCSS 配置示例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">适用场景：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">2.2.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rem%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.3.</span> <span class="toc-text">rem使用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rem-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E5%92%8C%E4%BC%98%E5%8A%BF"><span class="toc-number">2.3.1.</span> <span class="toc-text">rem 的使用场景和优势</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">1. 响应式设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4-rem%EF%BC%9A"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">动态调整 rem：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E7%9A%84%E7%BB%9F%E4%B8%80%E6%8E%A7%E5%88%B6"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">2. 字体大小的统一控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BB%84%E4%BB%B6%E5%BA%93%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%B0%BA%E5%AF%B8%E6%A0%87%E5%87%86%E5%8C%96"><span class="toc-number">2.3.1.4.</span> <span class="toc-text">3. 组件库开发中的尺寸标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9B%BF%E4%BB%A3-px-%E9%81%BF%E5%85%8D%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.1.5.</span> <span class="toc-text">4. 替代 px 避免手动计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-SEO-%E5%92%8C%E6%97%A0%E9%9A%9C%E7%A2%8D%E6%94%AF%E6%8C%81"><span class="toc-number">2.3.1.6.</span> <span class="toc-text">5. SEO 和无障碍支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%AD%E7%9A%84%E7%81%B5%E6%B4%BB%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.1.7.</span> <span class="toc-text">媒体查询中的灵活使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">2.3.1.8.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9F%EF%BC%81important%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="toc-number">2.4.</span> <span class="toc-text">css样式优先级？！important是如何实现的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%E8%A7%84%E5%88%99"><span class="toc-number">2.4.1.</span> <span class="toc-text">CSS 样式优先级规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E6%9D%83%E9%87%8D%E7%9A%84%E8%AE%A1%E7%AE%97%EF%BC%9A"><span class="toc-number">2.4.2.</span> <span class="toc-text">优先级权重的计算：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E5%B1%82%E5%8F%A0%EF%BC%88Cascading-Order%EF%BC%89"><span class="toc-number">2.4.3.</span> <span class="toc-text">继承和层叠（Cascading Order）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-important-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.4.4.</span> <span class="toc-text">使用 !important 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#important-%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6%EF%BC%9A"><span class="toc-number">2.4.5.</span> <span class="toc-text">!important 的实现机制：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA-important-%E8%A7%84%E5%88%99%E7%9A%84%E5%86%B2%E7%AA%81%EF%BC%9A"><span class="toc-number">2.4.6.</span> <span class="toc-text">多个 !important 规则的冲突：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8-important"><span class="toc-number">2.4.7.</span> <span class="toc-text">如何正确使用 !important</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.4.8.</span> <span class="toc-text">推荐的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E8%BF%87%E5%BA%A6%E4%BD%BF%E7%94%A8-important"><span class="toc-number">2.4.9.</span> <span class="toc-text">如何避免过度使用 !important</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">2.4.10.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-%E4%BC%98%E5%85%88%E7%BA%A7%E8%AE%A1%E7%AE%97%E9%A1%BA%E5%BA%8F%EF%BC%9A"><span class="toc-number">2.4.10.1.</span> <span class="toc-text">CSS 优先级计算顺序：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#important-%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="toc-number">2.4.10.2.</span> <span class="toc-text">!important 的作用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E6%98%AF%E5%90%A6%E4%BC%9A%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9F"><span class="toc-number">2.5.</span> <span class="toc-text">媒体查询是否会改变样式优先级？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E5%90%97%EF%BC%9F"><span class="toc-number">2.6.</span> <span class="toc-text">sessionStorage能够在多个标签页共享数据吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99React-hooks%EF%BC%8C%E4%B8%8D%E7%9B%B4%E6%8E%A5%E5%86%99%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-number">2.7.</span> <span class="toc-text">为什么要写React hooks，不直接写函数？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7%EF%BC%88Hooks-%E5%87%BA%E7%8E%B0%E5%89%8D%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-number">2.7.1.</span> <span class="toc-text">函数组件的局限性（Hooks 出现前的问题）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%B2%A1%E6%9C%89%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E7%9A%84%E8%83%BD%E5%8A%9B"><span class="toc-number">2.7.1.1.</span> <span class="toc-text">1.1 没有状态管理的能力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E5%A4%8D%E6%9D%82%E7%BB%84%E4%BB%B6%E9%80%BB%E8%BE%91%E9%9A%BE%E4%BB%A5%E6%8B%86%E5%88%86%E5%92%8C%E5%A4%8D%E7%94%A8"><span class="toc-number">2.7.1.2.</span> <span class="toc-text">1.2 复杂组件逻辑难以拆分和复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81%E9%80%BB%E8%BE%91%E5%AE%B9%E6%98%93%E6%B7%B7%E4%B9%B1"><span class="toc-number">2.7.1.3.</span> <span class="toc-text">示例：类组件的状态逻辑容易混乱</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hooks-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%92%8C%E4%BC%98%E5%8A%BF"><span class="toc-number">2.7.2.</span> <span class="toc-text">Hooks 的解决方案和优势</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hooks-%E8%AE%A9%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E6%8B%A5%E6%9C%89%E7%8A%B6%E6%80%81%EF%BC%88useState%EF%BC%89"><span class="toc-number">2.7.2.1.</span> <span class="toc-text">Hooks 让函数组件拥有状态（useState）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-useState-%E7%AE%A1%E7%90%86%E7%8A%B6%E6%80%81"><span class="toc-number">2.7.2.1.1.</span> <span class="toc-text">使用 useState 管理状态</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%8B%86%E5%88%86%E5%92%8C%E5%A4%8D%E7%94%A8%EF%BC%88useEffect-%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89-Hook%EF%BC%89"><span class="toc-number">2.7.2.2.</span> <span class="toc-text">逻辑拆分和复用（useEffect 和自定义 Hook）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-useEffect-%E5%A4%84%E7%90%86%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-number">2.7.2.2.1.</span> <span class="toc-text">使用 useEffect 处理副作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-Hook-%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91%E5%A4%8D%E7%94%A8"><span class="toc-number">2.7.2.2.2.</span> <span class="toc-text">自定义 Hook 实现逻辑复用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%9A%84%E5%A4%8D%E6%9D%82%E6%80%A7%EF%BC%88%E7%AE%80%E5%8C%96%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%EF%BC%89"><span class="toc-number">2.7.2.3.</span> <span class="toc-text">避免类组件的复杂性（简化生命周期管）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%EF%BC%8C%E8%80%8C%E9%9C%80%E8%A6%81-Hooks%EF%BC%9F"><span class="toc-number">2.7.2.4.</span> <span class="toc-text">为什么不直接使用普通函数，而需要 Hooks？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88-React-%E4%BD%BF%E7%94%A8-Hooks%EF%BC%9F"><span class="toc-number">2.7.3.</span> <span class="toc-text">总结：为什么 React 使用 Hooks？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-hooks%E4%B8%ADuseRef%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F%E5%BA%94%E7%94%A8Dom%EF%BC%8C%E4%BF%9D%E5%AD%98%E4%B8%80%E4%B8%AA%E5%BC%95%E7%94%A8%E5%80%BC%EF%BC%8C%E6%96%B9%E4%BE%BF%E8%87%AA%E8%A1%8C%E5%A4%84%E7%90%86%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-number">2.8.</span> <span class="toc-text">React hooks中useRef是什么？怎么用？应用Dom，保存一个引用值，方便自行处理副作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useRef-%E5%9C%A8-React-Hooks-%E4%B8%AD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-number">2.8.1.</span> <span class="toc-text">useRef 在 React Hooks 中是什么？怎么用？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-useRef-%E7%9A%84%E8%AF%AD%E6%B3%95"><span class="toc-number">2.9.</span> <span class="toc-text">1. useRef 的语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%BA%E6%99%AF%E4%B8%80%EF%BC%9A%E8%8E%B7%E5%8F%96-DOM-%E5%85%83%E7%B4%A0%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-number">2.10.</span> <span class="toc-text">2. 场景一：获取 DOM 元素的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%8E%A7%E5%88%B6%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E8%81%9A%E7%84%A6"><span class="toc-number">2.10.1.</span> <span class="toc-text">示例：控制输入框的聚焦</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-number">2.10.1.1.</span> <span class="toc-text">解释：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9C%BA%E6%99%AF%E4%BA%8C%EF%BC%9A%E4%BF%9D%E5%AD%98%E4%B8%80%E4%B8%AA%E5%8F%AF%E5%8F%98%E5%80%BC%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-number">2.11.</span> <span class="toc-text">3. 场景二：保存一个可变值的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BF%9D%E5%AD%98%E8%AE%A1%E6%97%B6%E5%99%A8%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-number">2.11.1.</span> <span class="toc-text">示例：保存计时器的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A-1"><span class="toc-number">2.11.1.1.</span> <span class="toc-text">解释：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9C%BA%E6%99%AF%E4%B8%89%EF%BC%9A%E9%81%BF%E5%85%8D%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8"><span class="toc-number">2.12.</span> <span class="toc-text">4. 场景三：避免不必要的副作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BF%9D%E5%AD%98%E5%89%8D%E4%B8%80%E4%B8%AA%E7%8A%B6%E6%80%81%E5%80%BC"><span class="toc-number">2.12.1.</span> <span class="toc-text">示例：保存前一个状态值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A-2"><span class="toc-number">2.12.1.1.</span> <span class="toc-text">解释：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-useRef-vs-useState-%E5%8C%BA%E5%88%AB"><span class="toc-number">2.13.</span> <span class="toc-text">5. useRef vs. useState 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93%EF%BC%9AuseRef-%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.14.</span> <span class="toc-text">6. 总结：useRef 的典型应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8useEffect%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B8%AD%E6%B7%BB%E5%8A%A0useRef%E5%AF%B9%E8%B1%A1%EF%BC%8C%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1%E7%9A%84current%E5%B1%9E%E6%80%A7%E4%BC%9A%E6%89%A7%E8%A1%8C%E5%90%97%EF%BC%9F"><span class="toc-number">2.15.</span> <span class="toc-text">在useEffect的第二个参数中添加useRef对象，修改对象的current属性会执行吗？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-useEffect-%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E4%B8%AD%E6%B7%BB%E5%8A%A0-useRef-%E5%AF%B9%E8%B1%A1%EF%BC%8C%E4%BF%AE%E6%94%B9%E5%85%B6-current-%E5%B1%9E%E6%80%A7%E6%98%AF%E5%90%A6%E4%BC%9A%E8%A7%A6%E5%8F%91%E5%89%AF%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">2.15.1.</span> <span class="toc-text">在 useEffect 的第二个参数中添加 useRef 对象，修改其 current 属性是否会触发副作用？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E7%9F%AD%E7%AD%94%E6%A1%88%EF%BC%9A"><span class="toc-number">2.15.1.1.</span> <span class="toc-text">简短答案：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A"><span class="toc-number">2.16.</span> <span class="toc-text">详细解释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88-useRef-%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8D%E4%BC%9A%E8%A7%A6%E5%8F%91%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93%E6%88%96%E6%89%A7%E8%A1%8C%E5%89%AF%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">2.16.1.</span> <span class="toc-text">1. 为什么 useRef 的修改不会触发重新渲染或执行副作用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%B0%9D%E8%AF%95%E5%9C%A8-useEffect-%E7%9A%84%E4%BE%9D%E8%B5%96%E4%B8%AD%E4%BD%BF%E7%94%A8-useRef"><span class="toc-number">2.16.2.</span> <span class="toc-text">2. 示例：尝试在 useEffect 的依赖中使用 useRef</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%9C%9F%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">2.16.2.1.</span> <span class="toc-text">预期结果：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="toc-number">2.16.2.2.</span> <span class="toc-text">控制台输出：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E8%A7%A6%E5%8F%91-useEffect-%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="toc-number">2.16.3.</span> <span class="toc-text">3. 如何触发 useEffect 执行？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%B9%E8%BF%9B%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8-useState-%E8%A7%A6%E5%8F%91%E6%9B%B4%E6%96%B0"><span class="toc-number">2.16.3.1.</span> <span class="toc-text">改进示例：使用 useState 触发更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="toc-number">2.16.3.2.</span> <span class="toc-text">输出：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%80%BB%E7%BB%93%EF%BC%9AuseRef-%E5%9C%A8-useEffect-%E4%BE%9D%E8%B5%96%E4%B8%AD%E7%9A%84%E8%A1%8C%E4%B8%BA"><span class="toc-number">2.16.4.</span> <span class="toc-text">4. 总结：useRef 在 useEffect 依赖中的行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B1%9E%E6%80%A7"><span class="toc-number">2.17.</span> <span class="toc-text">flex属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flexbox-%E7%9A%84%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.17.1.</span> <span class="toc-text">Flexbox 的属性详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Flex-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%88%E7%88%B6%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7%EF%BC%89"><span class="toc-number">2.18.</span> <span class="toc-text">1. Flex 容器的属性（父元素属性）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-display"><span class="toc-number">2.18.1.</span> <span class="toc-text">1.1 display</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-flex-direction"><span class="toc-number">2.18.2.</span> <span class="toc-text">1.2 flex-direction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-justify-content"><span class="toc-number">2.18.3.</span> <span class="toc-text">1.3 justify-content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-align-items"><span class="toc-number">2.18.4.</span> <span class="toc-text">1.4 align-items</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-align-content"><span class="toc-number">2.18.5.</span> <span class="toc-text">1.5 align-content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-flex-wrap"><span class="toc-number">2.18.6.</span> <span class="toc-text">1.6 flex-wrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-gap-x2F-row-gap-x2F-column-gap"><span class="toc-number">2.18.7.</span> <span class="toc-text">1.7 gap &#x2F; row-gap &#x2F; column-gap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Flex-%E5%AD%90%E9%A1%B9%E7%9A%84%E5%B1%9E%E6%80%A7%EF%BC%88%E5%AD%90%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7%EF%BC%89"><span class="toc-number">2.19.</span> <span class="toc-text">2. Flex 子项的属性（子元素属性）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-order"><span class="toc-number">2.19.1.</span> <span class="toc-text">2.1 order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-flex-grow"><span class="toc-number">2.19.2.</span> <span class="toc-text">2.2 flex-grow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-flex-shrink"><span class="toc-number">2.19.3.</span> <span class="toc-text">2.3 flex-shrink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-flex-basis"><span class="toc-number">2.19.4.</span> <span class="toc-text">2.4 flex-basis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-flex%EF%BC%88%E7%AE%80%E5%86%99%E5%B1%9E%E6%80%A7%EF%BC%89"><span class="toc-number">2.19.5.</span> <span class="toc-text">2.5 flex（简写属性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-align-self"><span class="toc-number">2.19.6.</span> <span class="toc-text">2.6 align-self</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-number">2.20.</span> <span class="toc-text">3. 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vite%E5%92%8Cwebpack"><span class="toc-number">2.21.</span> <span class="toc-text">vite和webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vite-%E4%B8%8E-Webpack-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%BA%E4%BB%80%E4%B9%88-Vite-%E6%9B%B4%E5%BF%AB"><span class="toc-number">2.21.1.</span> <span class="toc-text">Vite 与 Webpack 的区别，以及为什么 Vite 更快</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Vite-%E4%B8%8E-Webpack-%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"><span class="toc-number">2.22.</span> <span class="toc-text">1. Vite 与 Webpack 的主要区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Vite-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%94-Webpack-%E5%BF%AB"><span class="toc-number">2.23.</span> <span class="toc-text">2. Vite 为什么比 Webpack 快</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8D%E5%90%8C"><span class="toc-number">2.23.1.</span> <span class="toc-text">2.1 架构设计不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-ESM-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.23.2.</span> <span class="toc-text">2.2 直接使用 ESM 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">2.23.2.1.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9B%B4%E5%BF%AB%E7%9A%84%E5%BC%80%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8"><span class="toc-number">2.23.3.</span> <span class="toc-text">2.3 更快的开发服务器启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%A8%A1%E5%9D%97%E7%BA%A7%E7%83%AD%E6%9B%B4%E6%96%B0%EF%BC%88HMR%EF%BC%89"><span class="toc-number">2.23.4.</span> <span class="toc-text">2.4 模块级热更新（HMR）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88-Vite-%E7%9A%84%E6%9E%B6%E6%9E%84%E6%9B%B4%E9%80%82%E5%90%88%E7%8E%B0%E4%BB%A3%E5%BC%80%E5%8F%91%EF%BC%9F"><span class="toc-number">2.24.</span> <span class="toc-text">3. 为什么 Vite 的架构更适合现代开发？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%8E%9F%E7%94%9F%E6%94%AF%E6%8C%81"><span class="toc-number">2.24.1.</span> <span class="toc-text">3.1 现代浏览器的原生支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%9D%A2%E5%90%91%E6%B8%90%E8%BF%9B%E5%BC%8F%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.24.2.</span> <span class="toc-text">3.2 面向渐进式的模块加载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Vite-%E7%9A%84%E7%94%9F%E4%BA%A7%E6%9E%84%E5%BB%BA%E4%B8%8E-Webpack-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">2.25.</span> <span class="toc-text">4. Vite 的生产构建与 Webpack 的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%93%AA%E4%BA%9B%E9%A1%B9%E7%9B%AE%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8-Vite%EF%BC%9F"><span class="toc-number">2.26.</span> <span class="toc-text">5. 哪些项目适合使用 Vite？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93%EF%BC%9AVite-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9B%B4%E5%BF%AB%EF%BC%9F"><span class="toc-number">2.27.</span> <span class="toc-text">6. 总结：Vite 为什么更快？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2cookie%E8%A2%AB%E7%AF%A1%E6%94%B9"><span class="toc-number">2.28.</span> <span class="toc-text">防止cookie被篡改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2-Cookie-%E8%A2%AB%E7%AF%A1%E6%94%B9"><span class="toc-number">2.28.1.</span> <span class="toc-text">如何防止 Cookie 被篡改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-HTTP-only-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.29.</span> <span class="toc-text">1. 使用 HTTP-only 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AE%BE%E7%BD%AE-HTTP-only-Cookie"><span class="toc-number">2.29.1.</span> <span class="toc-text">示例：设置 HTTP-only Cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-Secure-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.30.</span> <span class="toc-text">2. 使用 Secure 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AE%BE%E7%BD%AE-Secure-Cookie"><span class="toc-number">2.30.1.</span> <span class="toc-text">示例：设置 Secure Cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8-SameSite-%E5%B1%9E%E6%80%A7"><span class="toc-number">2.31.</span> <span class="toc-text">3. 使用 SameSite 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AE%BE%E7%BD%AE-SameSite-Cookie"><span class="toc-number">2.31.1.</span> <span class="toc-text">示例：设置 SameSite Cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%BF%E7%94%A8%E5%8A%A0%E5%AF%86%E5%92%8C%E7%AD%BE%E5%90%8D"><span class="toc-number">2.32.</span> <span class="toc-text">4. 使用加密和签名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8-HMAC-%E7%AD%BE%E5%90%8D%E9%98%B2%E7%AF%A1%E6%94%B9"><span class="toc-number">2.32.1.</span> <span class="toc-text">示例：使用 HMAC 签名防篡改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AE%BE%E7%BD%AE%E7%9F%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84-Cookie"><span class="toc-number">2.33.</span> <span class="toc-text">5. 设置短生命周期的 Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AE%BE%E7%BD%AE%E7%9F%AD%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">2.33.1.</span> <span class="toc-text">示例：设置短生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E4%BC%9A%E8%AF%9D%E6%95%B0%E6%8D%AE"><span class="toc-number">2.34.</span> <span class="toc-text">6. 验证服务器端会话数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%BC%9A%E8%AF%9D%E9%AA%8C%E8%AF%81"><span class="toc-number">2.34.1.</span> <span class="toc-text">示例：服务端会话验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%80%BB%E7%BB%93%EF%BC%9A%E9%98%B2%E6%AD%A2-Cookie-%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">2.35.</span> <span class="toc-text">7. 总结：防止 Cookie 篡改的最佳实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async%E5%92%8Cawait%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.36.</span> <span class="toc-text">async和await的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#async-x2F-await-%E7%9A%84%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.36.1.</span> <span class="toc-text">async &#x2F; await 的原理详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-async-x2F-await-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.37.</span> <span class="toc-text">1. async &#x2F; await 的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">2.37.1.</span> <span class="toc-text">示例：基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A-3"><span class="toc-number">2.37.1.1.</span> <span class="toc-text">解释：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-async-x2F-await-%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">2.38.</span> <span class="toc-text">2. async &#x2F; await 的底层原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9A%E5%9F%BA%E4%BA%8E-Promise-%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="toc-number">2.38.1.</span> <span class="toc-text">底层原理：基于 Promise 的语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0%EF%BC%9Aasync-x2F-await-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.38.2.</span> <span class="toc-text">模拟实现：async &#x2F; await 的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A-4"><span class="toc-number">2.38.2.1.</span> <span class="toc-text">解释：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B8%8E-await-%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">2.39.</span> <span class="toc-text">3. 事件循环与 await 的执行顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9Aawait-%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">2.39.1.</span> <span class="toc-text">示例：await 执行顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%9A"><span class="toc-number">2.39.1.1.</span> <span class="toc-text">执行顺序：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%EF%BC%9A-1"><span class="toc-number">2.39.1.2.</span> <span class="toc-text">输出：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">2.40.</span> <span class="toc-text">4. 错误处理机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">2.40.1.</span> <span class="toc-text">示例：错误处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-async-x2F-await-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">2.41.</span> <span class="toc-text">5. async &#x2F; await 的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">2.41.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.41.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93%EF%BC%9Aasync-x2F-await-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.42.</span> <span class="toc-text">6. 总结：async &#x2F; await 的原理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/10/22/%E9%93%B6%E8%A1%8C/" title="银行"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="银行"/></a><div class="content"><a class="title" href="/2024/10/22/%E9%93%B6%E8%A1%8C/" title="银行">银行</a><time datetime="2024-10-22T02:15:44.000Z" title="发表于 2024-10-22 10:15:44">2024-10-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/16/nodejs%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="nodejs面试笔记"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nodejs面试笔记"/></a><div class="content"><a class="title" href="/2024/10/16/nodejs%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="nodejs面试笔记">nodejs面试笔记</a><time datetime="2024-10-16T02:23:20.000Z" title="发表于 2024-10-16 10:23:20">2024-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小米"/></a><div class="content"><a class="title" href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米">小米</a><time datetime="2024-10-16T02:12:12.000Z" title="发表于 2024-10-16 10:12:12">2024-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="华为前端面试合集"/></a><div class="content"><a class="title" href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集">华为前端面试合集</a><time datetime="2024-10-15T08:35:34.000Z" title="发表于 2024-10-15 16:35:34">2024-10-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字"/></a><div class="content"><a class="title" href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字">数字</a><time datetime="2024-10-14T08:44:56.000Z" title="发表于 2024-10-14 16:44:56">2024-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

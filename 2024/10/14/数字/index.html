@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>数字 | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="自我介绍 2.介绍一下实习项目背景 3.websocket在项目中起到的作用，如何用antv做的动态图 4.讲一下http和https的区别，以及加密过程 5.讲一下http1和http1.1以及http2的区别 6.讲一下协商缓存和强缓存 7.讲一下localstoreage和sessionstorage和cookie 8.讲一下事件循环机制 9.讲一下promise 10.用过哪些promis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字">
+<meta property="og:url" content="http://lavender321.github.com/2024/10/14/%E6%95%B0%E5%AD%97/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="自我介绍 2.介绍一下实习项目背景 3.websocket在项目中起到的作用，如何用antv做的动态图 4.讲一下http和https的区别，以及加密过程 5.讲一下http1和http1.1以及http2的区别 6.讲一下协商缓存和强缓存 7.讲一下localstoreage和sessionstorage和cookie 8.讲一下事件循环机制 9.讲一下promise 10.用过哪些promis">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg">
+<meta property="article:published_time" content="2024-10-14T08:44:56.000Z">
+<meta property="article:modified_time" content="2024-10-16T02:13:35.019Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2024/10/14/%E6%95%B0%E5%AD%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数字',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-16 10:13:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数字</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-14T08:44:56.000Z" title="发表于 2024-10-14 16:44:56">2024-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-16T02:13:35.019Z" title="更新于 2024-10-16 10:13:35">2024-10-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数字"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>自我介绍</p>
+<p>2.介绍一下实习项目背景</p>
+<p>3.websocket在项目中起到的作用，如何用antv做的动态图</p>
+<p>4.讲一下http和https的区别，以及加密过程</p>
+<p>5.讲一下http1和http1.1以及http2的区别</p>
+<p>6.讲一下协商缓存和强缓存</p>
+<p>7.讲一下localstoreage和sessionstorage和cookie</p>
+<p>8.讲一下事件循环机制</p>
+<p>9.讲一下promise</p>
+<p>10.用过哪些promise（all,race）,面试官拓展了一个处理并发的promise方法</p>
+<p>11.事件循环</p>
+<p>说一下数组的方法</p>
+<p>13.数组去重有哪些思路（set，fliter+indexof,reduce）</p>
+<p>14.用reduce实现数组求和以及扁平化</p>
+<p>16.判断数据类型的方法</p>
+<p>17.原型链有了解吗（实现链式调用）</p>
+<p>说一下vue2和vue3响应式的区别</p>
+<p>19.为什么有proxy，vue2还要用object.defineProperty（没了解过）</p>
+<p>20.说一下react的钩子</p>
+<p>21.你觉得hooks可以写在条件语句里吗，为什么</p>
+<p>22.react组件间通信方式</p>
+<p>23.react全局管理工具除了redux（mobx和reroil）</p>
+<p>24.介绍一下另一个项目</p>
+<p>25.如何实现大文件上传的</p>
+<p>26.反问</p>
+<p>axios封装主要做了哪些工作，业务层面如何对错误进行处理（非请求拦截器）</p>
+<p>try catch会捕获到异步操作的错误吗</p>
+<p>promise.all如何进行并发请求控制</p>
+<p>ES6新增的东西</p>
+<p>知道哪些Vue的指令</p>
+<p>如何设置动态组件</p>
+<p>如果不用插槽，：is可以实现吗</p>
+<p>前后端如何沟通保证不出问题</p>
+<p>路由权限验证究竟怎么做的</p>
+<p>mock具体细节</p>
+<p>结构赋值的题目demo&#x3D;{name:null}, const {a, name} &#x3D; demo, 问name的值</p>
+<p>为什么使用pinia</p>
+<p>父子组件传值的方法</p>
+<p>祖孙组件传值的方法</p>
+<p>有经常去vue官网看吗</p>
+<p>一些新技术从哪学习</p>
+<p>为什么学习前端</p>
+<p>base郑州是吗，答：都可以，服从调剂</p>
+<p>Vue2, Vue2.7, Vue3区别</p>
+<p>有关注什么新技术</p>
+<p>对于学习前端的规划</p>
+<p>v-bind用过吗，什么原理</p>
+<p>知道哪些vue的指令</p>
+<p>vue2中v-for v-if</p>
+<p>为什么选择前端？</p>
+<p>学习前端渠道？</p>
+<p>新手引导组件是怎么做的？</p>
+<p>(续)怎么去动态计算高亮区域以及指引的位置？</p>
+<p>(续)要是高亮区域在左上角或是右上角怎么处理？</p>
+<p>(续)如何去做到这个位置的自适应？</p>
+<p>(续)有考虑过这个组件后续还能优化的点吗？</p>
+<p>H5答题模块是怎么去设计的？</p>
+<p>(续)列举几个服务端发送的题目JSON字段？</p>
+<p>图片体积压缩格式转换是怎么做的？</p>
+<p>(续)有没有考虑过使用plugin？</p>
+<p>首屏优化指标怎么分析的？</p>
+<p>(续)介绍一下首屏优化的关键指标？</p>
+<p>Ts类型覆盖率提高到90%这是如何统计的？</p>
+<p>介绍一下响应状态码？301、302是什么？</p>
+<p>(续)强缓存与协商缓存？相关的响应头字段和值？</p>
+<p>(续)304都和这两个有关吗？</p>
+<p>常见的网络攻击xxs、csrf有了解吗？</p>
+<p>数组都有哪些方法？</p>
+<p>(续)unshift和pop有什么区别？</p>
+<p>(续)splice和slice有什么区别？</p>
+<p>节流和防抖？口述怎么写？应用场景？</p>
+<p>说一下垂直居中？</p>
+<p>隐藏一个元素的几种方法？</p>
+<p>介绍一下事件循环？</p>
+<p>宏任务里面有一个微任务和宏任务，微任务里面还有一个微任务，执行顺序？</p>
+<p>promise.all和promise.race有什么区别？</p>
+<p>(续)有没有什么办法可以让promise不管成功还是失败，都并行结束？</p>
+<p>鼠标移入盒子的时候，如何让他宽高增大一倍？</p>
+<p>仅仅只有一个div，里面不能加东西，如何添加省略号(…)?</p>
+<p>(续)那怎么让页面展示三个盒子呢？</p>
+<p>(续)那七个、八个甚至更多呢？</p>
+<p>JQuery和Vue有什么区别？</p>
+<p>(续)为什么需要虚拟DOM？</p>
+<p>(续)为什么性能会更好？</p>
+<p>最近有在学习什么分享一下？</p>
+<p>2.路由怎么实现的，react-router cacherouter是干嘛的，hash router和history router的区别<br>3.useffect怎么实现副作用的，怎么在卸载前取消订阅<br>4.script阻塞怎么解决，具体讲讲defer和async的区别<br>5.react为什么需要hooks<br>6.react class组件和函数组件的区别<br>7.react fiber是干嘛的<br>8.react redux是怎么更新ui的，除了react-redux其他store有了解吗？<br>9.antd config.privider<br>10.实现水平垂直居中的方案<br>11.less如何实现第1-8个元素不同的颜色<br>12.this了解多少，箭头函数的this为什么在定义时就已经确定<br>13.js事件循环<br>14.h5多线程，多线程有什么限制<br>15.babel怎么实现向后兼容的<br>16.git多人开发时，临时存储方案<br>17.ts泛型是什么？什么时候用到</p>
+<p>array转tree,<br>着重问项目,包括几千次请求前端如何优化以及有没有更好的方案<br>2.webpack的原理(compiler-&gt;entry-run-compilation(plugin)-&gt;emit-done,然后大概说了一下之前写过一个mini的webpack,流程可能有缺漏)<br>3.有看过umi的原理吗(这个真忘了)<br>4.umi4你对他有进行过什么优化吗?mfsu的优化原理(联邦,当时答了这个和他的扫描机制.漏了一个预构建的流程)<br>5.问了在antdv关于fix的bug,这个地方是怎么定位问题并且解决的(dom attr的断点然后看callback)<br>6.遇到过什么线上bug吗,你们是怎么排查并且恢复的<br>7.CICD的流程<br>8.针对我monorepo的库提出一些疑问,然后问了我关于package版本管理和monorepo中关于图形学的部分,例如3d 2d转化的原理以及在矩形操作中我对其中一些方法的优化<br>9.项目我是如何进行管理的，如何组织代码结构和产品上线流程<br>10.webpack5对比webpack4有什么优化<br>11.反问(数字马力具体的项目和大概的方向)</p>
+<p>vue2和vue3的区别<br>vue2响应式原理<br>基本数据类型<br>数组方法，哪些改变，哪些不变<br>删除数组的方法<br>var，let，const区别<br>块级作用域<br>两道题，查询字符串转对象和转参数<br>反问问了前端已死怎么看</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2024/10/14/%E6%95%B0%E5%AD%97/">http://lavender321.github.com/2024/10/14/%E6%95%B0%E5%AD%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">华为前端面试合集</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/18/58/" title=""><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/10/22/%E9%93%B6%E8%A1%8C/" title="银行"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="银行"/></a><div class="content"><a class="title" href="/2024/10/22/%E9%93%B6%E8%A1%8C/" title="银行">银行</a><time datetime="2024-10-22T02:15:44.000Z" title="发表于 2024-10-22 10:15:44">2024-10-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/16/nodejs%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="nodejs面试笔记"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nodejs面试笔记"/></a><div class="content"><a class="title" href="/2024/10/16/nodejs%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="nodejs面试笔记">nodejs面试笔记</a><time datetime="2024-10-16T02:23:20.000Z" title="发表于 2024-10-16 10:23:20">2024-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小米"/></a><div class="content"><a class="title" href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米">小米</a><time datetime="2024-10-16T02:12:12.000Z" title="发表于 2024-10-16 10:12:12">2024-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="华为前端面试合集"/></a><div class="content"><a class="title" href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集">华为前端面试合集</a><time datetime="2024-10-15T08:35:34.000Z" title="发表于 2024-10-15 16:35:34">2024-10-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字"/></a><div class="content"><a class="title" href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字">数字</a><time datetime="2024-10-14T08:44:56.000Z" title="发表于 2024-10-14 16:44:56">2024-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

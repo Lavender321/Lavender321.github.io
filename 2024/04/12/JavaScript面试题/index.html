@@ -1,0 +1,995 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>JavaScript面试题 | Lavender's blog</title><meta name="author" content="流泪猫猫头"><meta name="copyright" content="流泪猫猫头"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="浏览器常见的进程都有哪些浏览器作为一种复杂的应用程序，涉及多个进程的协同工作以提供高效、安全的用户体验。现代浏览器（如 Chrome、Firefox、Edge 等）采用多进程架构，将不同的功能模块分离到不同的进程中运行，从而提高稳定性、安全性和性能。以下是浏览器中常见的几种进程： 浏览器主进程（Browser Process） 作用：浏览器的核心控制进程，负责管理浏览器的各个窗口和标签页，协调和调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面试题">
+<meta property="og:url" content="http://lavender321.github.com/2024/04/12/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="Lavender&#39;s blog">
+<meta property="og:description" content="浏览器常见的进程都有哪些浏览器作为一种复杂的应用程序，涉及多个进程的协同工作以提供高效、安全的用户体验。现代浏览器（如 Chrome、Firefox、Edge 等）采用多进程架构，将不同的功能模块分离到不同的进程中运行，从而提高稳定性、安全性和性能。以下是浏览器中常见的几种进程： 浏览器主进程（Browser Process） 作用：浏览器的核心控制进程，负责管理浏览器的各个窗口和标签页，协调和调">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png">
+<meta property="article:published_time" content="2024-04-12T09:29:07.000Z">
+<meta property="article:modified_time" content="2024-10-19T02:50:54.822Z">
+<meta property="article:author" content="流泪猫猫头">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png"><link rel="shortcut icon" href="https://s2.loli.net/2022/10/08/k5M7H1NdmnZgtlY.png"><link rel="canonical" href="http://lavender321.github.com/2024/04/12/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 流泪猫猫头","link":"链接: ","source":"来源: Lavender's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaScript面试题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-19 10:50:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Lavender's blog"><span class="site-name">Lavender's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaScript面试题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-12T09:29:07.000Z" title="发表于 2024-04-12 17:29:07">2024-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-19T02:50:54.822Z" title="更新于 2024-10-19 10:50:54">2024-10-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JavaScript面试题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="浏览器常见的进程都有哪些"><a href="#浏览器常见的进程都有哪些" class="headerlink" title="浏览器常见的进程都有哪些"></a>浏览器常见的进程都有哪些</h1><p>浏览器作为一种复杂的应用程序，涉及多个进程的协同工作以提供高效、安全的用户体验。现代浏览器（如 Chrome、Firefox、Edge 等）采用<strong>多进程架构</strong>，将不同的功能模块分离到不同的进程中运行，从而提高稳定性、安全性和性能。以下是浏览器中常见的几种进程：</p>
+<h2 id="浏览器主进程（Browser-Process）"><a href="#浏览器主进程（Browser-Process）" class="headerlink" title="浏览器主进程（Browser Process）"></a>浏览器主进程（Browser Process）</h2><ul>
+<li><strong>作用</strong>：浏览器的核心控制进程，负责管理浏览器的各个窗口和标签页，协调和调度其他进程。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>控制用户界面（如地址栏、书签栏、前进&#x2F;后退按钮等）。</li>
+<li>管理浏览器的多个标签页和窗口。</li>
+<li>处理网络请求的代理，下载管理。</li>
+<li>负责安全机制，比如处理权限请求（摄像头、麦克风等）。</li>
+<li>管理各个渲染进程的生命周期，创建和销毁渲染进程。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：一般只有一个主进程，无论有多少个标签页和窗口。</li>
+</ul>
+<h2 id="渲染进程（Renderer-Process）"><a href="#渲染进程（Renderer-Process）" class="headerlink" title="渲染进程（Renderer Process）"></a>渲染进程（Renderer Process）</h2><ul>
+<li><strong>作用</strong>：负责一个或多个标签页的内容渲染。每个标签页或框架通常都有自己的渲染进程，用于处理 HTML、CSS、JavaScript 等。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>解析 HTML、CSS，构建 DOM 树和 CSSOM 树，并渲染页面。</li>
+<li>执行 JavaScript 代码（JavaScript 是单线程在渲染进程中运行）。</li>
+<li>处理页面的布局、绘制以及将内容展示在屏幕上。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>通常每个标签页都有一个独立的渲染进程，以实现页面的隔离。某个页面崩溃不会影响其他页面。</li>
+<li>如果页面内包含 <code>iframe</code>，浏览器可能会为每个 <code>iframe</code> 分配一个渲染进程。</li>
+<li>渲染进程是<strong>多进程架构</strong>的核心，它直接与用户的网页交互。</li>
+</ul>
+</li>
+</ul>
+<h2 id="GPU-进程（GPU-Process）"><a href="#GPU-进程（GPU-Process）" class="headerlink" title="GPU 进程（GPU Process）"></a>GPU 进程（GPU Process）</h2><ul>
+<li><strong>作用</strong>：负责处理图形相关的任务，主要是加速页面的绘制和 WebGL 相关的操作。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>管理和协调 GPU 的硬件加速。</li>
+<li>负责页面中的 2D&#x2F;3D 绘图、视频解码、WebGL 等图形处理任务。</li>
+<li>渲染进程将需要绘制的内容交给 GPU 进程，然后通过 GPU 将内容加速绘制到屏幕上。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>现代浏览器使用 GPU 加速绘制页面，提升渲染性能和动画效果的流畅度。</li>
+<li>通常，GPU 进程是独立的，所有渲染进程共享同一个 GPU 进程。</li>
+</ul>
+</li>
+</ul>
+<h2 id="插件进程（Plugin-Process）"><a href="#插件进程（Plugin-Process）" class="headerlink" title="插件进程（Plugin Process）"></a>插件进程（Plugin Process）</h2><ul>
+<li><strong>作用</strong>：用于管理浏览器中的插件，比如 Adobe Flash 等。插件进程负责加载、运行插件，并处理与插件相关的任务。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>加载并执行浏览器支持的插件（如 Flash、PDF 查看器等）。</li>
+<li>确保插件的崩溃不会导致浏览器的主进程或渲染进程崩溃。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>每个插件通常有独立的进程，插件的崩溃不会影响浏览器的其他部分。</li>
+<li>随着现代 Web 技术的发展，传统插件（如 Flash）的使用逐渐减少，因此插件进程的作用越来越弱。</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络进程（Network-Process）"><a href="#网络进程（Network-Process）" class="headerlink" title="网络进程（Network Process）"></a>网络进程（Network Process）</h2><ul>
+<li><strong>作用</strong>：负责处理所有与网络相关的任务，包括发起 HTTP&#x2F;HTTPS 请求、处理 WebSocket 连接、处理缓存和资源加载等。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>处理 HTTP、HTTPS、WebSocket 等网络请求。</li>
+<li>管理浏览器的缓存系统，加速资源加载。</li>
+<li>处理下载任务，管理网络状态等。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>网络进程可以为多个渲染进程提供网络服务，从而减少重复的资源请求。</li>
+<li>这一进程独立于渲染进程，确保即使网络请求出错也不会导致页面崩溃。</li>
+</ul>
+</li>
+</ul>
+<h2 id="存储进程（Storage-Process）—（在某些浏览器中）"><a href="#存储进程（Storage-Process）—（在某些浏览器中）" class="headerlink" title="存储进程（Storage Process）—（在某些浏览器中）"></a>存储进程（Storage Process）—（在某些浏览器中）</h2><ul>
+<li><strong>作用</strong>：负责处理浏览器的本地存储任务，比如 IndexedDB、LocalStorage、SessionStorage、Cookie 等。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>管理和存储用户数据，包括浏览器缓存、用户登录凭证等。</li>
+<li>提供页面和插件访问本地存储的接口，确保存储操作安全。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>某些浏览器将存储相关的操作独立为一个进程，以确保数据操作的安全性和隔离性。</li>
+<li>它与渲染进程进行通信以提供和存储数据。</li>
+</ul>
+</li>
+</ul>
+<h2 id="服务工作进程（Service-Worker-Process）"><a href="#服务工作进程（Service-Worker-Process）" class="headerlink" title="服务工作进程（Service Worker Process）"></a>服务工作进程（Service Worker Process）</h2><ul>
+<li><strong>作用</strong>：专门用于处理后台任务，比如 <code>Service Workers</code>，它们在后台运行，支持离线功能、推送通知等。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>管理 <code>Service Workers</code>，处理离线缓存、后台同步、推送通知等功能。</li>
+<li><code>Service Workers</code> 可以拦截网络请求，提供离线支持。</li>
+<li>即使页面关闭，<code>Service Worker</code> 仍然可以继续执行任务。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li><code>Service Worker</code> 是独立于页面的进程，在没有打开页面时也能执行任务。</li>
+</ul>
+</li>
+</ul>
+<h2 id="扩展进程（Extension-Process）"><a href="#扩展进程（Extension-Process）" class="headerlink" title="扩展进程（Extension Process）"></a>扩展进程（Extension Process）</h2><ul>
+<li><strong>作用</strong>：管理浏览器的扩展（插件），为浏览器安装的扩展提供独立的运行环境。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>执行和管理用户安装的浏览器扩展。</li>
+<li>确保扩展的错误不会影响浏览器其他进程的运行。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>每个扩展可以在自己的独立进程中运行，避免扩展崩溃影响浏览器主进程或渲染进程。</li>
+<li>浏览器扩展的权限相对较高，因此浏览器会对扩展进行权限和安全管理。</li>
+</ul>
+</li>
+</ul>
+<h2 id="沙盒进程（Sandbox-Process）"><a href="#沙盒进程（Sandbox-Process）" class="headerlink" title="沙盒进程（Sandbox Process）"></a>沙盒进程（Sandbox Process）</h2><ul>
+<li><strong>作用</strong>：渲染进程通常运行在<strong>沙盒环境</strong>中，以提高浏览器的安全性，防止恶意代码通过渲染进程攻击系统。</li>
+<li><strong>主要职责</strong>：<ul>
+<li>通过沙盒机制，将渲染进程的权限限制在严格的范围内，防止其访问系统的敏感资源（如文件系统等）。</li>
+<li>如果某个渲染进程受到攻击或崩溃，沙盒机制可以确保问题不会扩展到系统其他部分。</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>浏览器是由多个进程组成的复杂应用程序，每个进程都有特定的职责，互相独立又协作工作。通过这种<strong>多进程架构</strong>，现代浏览器能够实现<strong>稳定性、安全性和性能优化</strong>。主要的进程有：</p>
+<ol>
+<li><strong>浏览器主进程</strong>：负责管理界面、页面、网络、下载等。</li>
+<li><strong>渲染进程</strong>：负责渲染网页内容、执行 JavaScript 和处理用户交互。</li>
+<li><strong>GPU 进程</strong>：负责加速图形渲染。</li>
+<li><strong>插件进程</strong>：管理浏览器插件的加载与执行。</li>
+<li><strong>网络进程</strong>：负责处理网络请求和响应。</li>
+<li><strong>存储进程</strong>：管理本地存储、数据库等操作。</li>
+<li><strong>服务工作进程</strong>：负责后台任务，如离线缓存、推送通知等。</li>
+<li><strong>扩展进程</strong>：运行用户安装的浏览器扩展。</li>
+</ol>
+<p>这种多进程架构使得浏览器更加健壮，保证即使某个进程崩溃，也不会影响其他进程的正常工作，从而提供更高的稳定性和安全性。</p>
+<h1 id="JavaScript有几种方式声明函数？"><a href="#JavaScript有几种方式声明函数？" class="headerlink" title="JavaScript有几种方式声明函数？"></a>JavaScript有几种方式声明函数？</h1><ol>
+<li><p><strong>函数声明（Function Declaration）</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>函数表达式（Function Expression）</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="keyword">function</span>(<span class="params">parameters</span>) &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>箭头函数（Arrow Function）</strong>（ES6引入）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">functionName</span> = (<span class="params">parameters</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Function构造函数</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> functionName = <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&#x27;parameters&#x27;</span>, <span class="string">&#x27;function body&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这些方式各有特点，函数声明和函数表达式是最常见和推荐的方式，而箭头函数是在ES6中引入的一种更简洁的写法，而Function构造函数则较少使用，因为它会在运行时解析字符串，有一定的性能开销和安全风险。</p>
+<img src="https://uploadfiles.nowcoder.com/message_images/20240321/550678068_1711009268544/discuss_1711009267441.jpeg" alt="img" style="zoom: 33%;" />
+
+<h1 id="原生Javascript获取DOM节点有哪些方式？"><a href="#原生Javascript获取DOM节点有哪些方式？" class="headerlink" title="原生Javascript获取DOM节点有哪些方式？"></a>原生Javascript获取DOM节点有哪些方式？</h1><h2 id="document-getElementById"><a href="#document-getElementById" class="headerlink" title="document.getElementById"></a>document.getElementById</h2><blockquote>
+<p>获取具有指定的ID，ID唯一。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="variable language_">document</span>。<span class="title function_">getElementById</span>(<span class="string">&#x27;id&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="document-getElementByTagName"><a href="#document-getElementByTagName" class="headerlink" title="document.getElementByTagName"></a>document.getElementByTagName</h2><blockquote>
+<p>返回一个包含所有给定标签名元素的HTML</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="variable language_">document</span>.<span class="title function_">getElementByTagName</span>(<span class="string">&#x27;div&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="1document-getElementByClassName"><a href="#1document-getElementByClassName" class="headerlink" title="1document.getElementByClassName"></a>1document.getElementByClassName</h2><blockquote>
+<p>返回一个包含所有给定类名的元素的 <code>HTMLCollection</code>。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a=document.getElementByClassName(&#x27;myclass&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>在原生 JavaScript 中，有多种方式可以获取或选择 DOM (Document Object Model) 元素。这些方法提供了从简单到复杂的不同级别的选择功能，可以让你根据 ID、类名、标签名、CSS 选择器等多种方式选择元素。以下是一些最常用的方法：</p>
+<h3 id="document-getElementById-1"><a href="#document-getElementById-1" class="headerlink" title="document.getElementById"></a><code>document.getElementById</code></h3><p>获取具有指定 ID 的一个元素。ID 在一个文档中应该是唯一的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myId&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-getElementsByTagName"><a href="#document-getElementsByTagName" class="headerlink" title="document.getElementsByTagName"></a><code>document.getElementsByTagName</code></h3><p>返回一个包含所有给定标签名的元素的 <code>HTMLCollection</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;div&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-getElementsByClassName"><a href="#document-getElementsByClassName" class="headerlink" title="document.getElementsByClassName"></a><code>document.getElementsByClassName</code></h3><p>返回一个包含所有给定类名的元素的 <code>HTMLCollection</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;myClass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-querySelector"><a href="#document-querySelector" class="headerlink" title="document.querySelector"></a><code>document.querySelector</code></h3><p>返回文档中匹配指定 CSS 选择器的第一个元素。如果没有找到匹配项，返回 <code>null</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.myClass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#myId&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div[name=&quot;myElement&quot;]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-querySelectorAll"><a href="#document-querySelectorAll" class="headerlink" title="document.querySelectorAll"></a><code>document.querySelectorAll</code></h3><p>返回一个 <code>NodeList</code>，其中包含文档中所有符合指定 CSS 选择器的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.myClass&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div.myClass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-forms-96"><a href="#document-forms-96" class="headerlink" title="document.forms&#96;"></a>document.forms&#96;</h3><p>这是一个比较老的方法，用来获取文档中的表单元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="variable language_">document</span>.<span class="property">forms</span>[<span class="number">0</span>]; <span class="comment">// 获取第一个表单</span></span><br><span class="line"><span class="keyword">var</span> myForm = <span class="variable language_">document</span>.<span class="property">forms</span>[<span class="string">&#x27;myFormName&#x27;</span>]; <span class="comment">// 通过名称获取表单</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="document-getElementsByName"><a href="#document-getElementsByName" class="headerlink" title="document.getElementsByName"></a><code>document.getElementsByName</code></h3><p>这个方法返回一个 <code>NodeList</code>，其中包含所有具有指定的 name 特性的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">&#x27;name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-CSS-属性选择器"><a href="#使用-CSS-属性选择器" class="headerlink" title="使用 CSS 属性选择器"></a>使用 CSS 属性选择器</h3><p>你也可以使用 <code>querySelector</code> 和 <code>querySelectorAll</code> 方法配合属性选择器来选择具有特定属性的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input[type=&quot;checkbox&quot;]&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> elements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;input[type=&quot;text&quot;]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用建议："><a href="#使用建议：" class="headerlink" title="使用建议："></a>使用建议：</h3><ul>
+<li>如果你只需要选择一个元素，并且该元素具有 ID，那么 <code>getElementById</code> 是最快的选择。</li>
+<li>如果需要根据类名、标签名或者更复杂的 CSS 选择器选择多个元素，<code>querySelectorAll</code> 是非常强大的工具。</li>
+<li>对于需要兼容性考虑，所有上述方法除了较新的 <code>querySelector</code> 和 <code>querySelectorAll</code>，其他都有很好的兼容性。<code>querySelector</code> 和 <code>querySelectorAll</code> 主要不支持 IE8 及以下版本。</li>
+</ul>
+<p>这些方法都是原生 JavaScript 提供的，无需依赖任何库或框架即可在现代浏览器中使用。</p>
+<h1 id="Javascript的this绑定"><a href="#Javascript的this绑定" class="headerlink" title="Javascript的this绑定"></a>Javascript的this绑定</h1><blockquote>
+<p>在JavaScript中，<code>this</code> 关键字是非常核心的一个概念，它引用的是函数执行时的上下文对象。理解<code>this</code>如何绑定到不同的上下文是理解和掌握JavaScript非常重要的一部分。<code>this</code>的绑定规则可以通过以下几种方式确定：</p>
+</blockquote>
+<h2 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h2><p>当函数独立调用时（即不作为某个对象的方法或未被显式绑定到某个对象），<code>this</code> 默认绑定到全局对象。在非严格模式下，<code>this</code> 指向全局对象（浏览器中的<code>window</code>，Node.js中的<code>global</code>）；在严格模式下（函数或全局代码中使用<code>&#39;use strict&#39;;</code>），<code>this</code> 会被绑定到<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">show</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">show</span>(); <span class="comment">// 在非严格模式下，输出 window/global；在严格模式下，输出 undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h2><p>当函数作为对象的方法被调用时，<code>this</code> 隐式绑定到该对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Example&#x27;</span>,</span><br><span class="line">  <span class="attr">show</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">show</span>(); <span class="comment">// 输出 &#x27;Example&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果存在多层对象嵌套，<code>this</code> 将绑定到最近一层的对象上。</p>
+<h2 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h2><p>使用<code>call()</code>、<code>apply()</code> 或 <code>bind()</code> 方法可以显式地指定<code>this</code> 的绑定对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">show</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;Explicit Example&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line">show.<span class="title function_">call</span>(obj); <span class="comment">// 输出 &#x27;Explicit Example&#x27;</span></span><br><span class="line">show.<span class="title function_">apply</span>(obj); <span class="comment">// 输出 &#x27;Explicit Example&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> boundShow = show.<span class="title function_">bind</span>(obj);</span><br><span class="line"><span class="title function_">boundShow</span>(); <span class="comment">// 输出 &#x27;Explicit Example&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="new绑定"><a href="#new绑定" class="headerlink" title="new绑定"></a>new绑定</h2><p>当一个函数通过<code>new</code> 关键字被作为构造函数调用时，<code>this</code> 被绑定到新创建的对象上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;New Person&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// 输出 &#x27;New Person&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数绑定"><a href="#箭头函数绑定" class="headerlink" title="箭头函数绑定"></a>箭头函数绑定</h2><p>箭头函数不使用以上四种规则，而是捕获其所在上下文的<code>this</code> 值，作为自己的<code>this</code> 值，也称为词法绑定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Arrow&#x27;</span>,</span><br><span class="line">  <span class="attr">show</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">show</span>(); <span class="comment">// 输出 &#x27;Arrow&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在箭头函数中，<code>this</code> 绑定到外围函数的上下文中，即使是在<code>setTimeout</code>这样的异步函数中。</p>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p>JavaScript的<code>this</code> 绑定是动态的，除了箭头函数外，其绑定取决于函数调用的上下文。理解这些绑定规则对于编写可预测的JavaScript代码非常重要。</p>
+<h1 id="JS主线程有哪些"><a href="#JS主线程有哪些" class="headerlink" title="JS主线程有哪些"></a>JS主线程有哪些</h1><p>在JavaScript中，特别是在浏览器环境下，存在一个称为“主线程”的概念，通常也被称为“UI线程”。JavaScript 是单线程运行的，意味着在任一时刻只能执行一个任务。主线程负责执行代码、渲染界面、处理用户的交互操作等任务。这里主要解释的是JavaScript在浏览器中的运行环境：</p>
+<h3 id="JavaScript-主线程的职责"><a href="#JavaScript-主线程的职责" class="headerlink" title="JavaScript 主线程的职责"></a>JavaScript 主线程的职责</h3><ol>
+<li><p><strong>执行代码</strong>：</p>
+<ul>
+<li>JavaScript 主线程执行所有的JavaScript代码。无论是从<code>&lt;script&gt;</code>标签引入的代码，还是通过事件触发的函数，都在这个单一的线程上执行。</li>
+</ul>
+</li>
+<li><p><strong>UI 渲染</strong>：</p>
+<ul>
+<li>浏览器使用主线程来渲染页面。这包括HTML的解析、CSS的应用、DOM的操作以及最终的画面渲染。这也是为什么在执行重计算或大量DOM操作时，页面可能会感觉卡顿或冻结，因为这些操作会占用主线程的资源，影响到UI的更新。</li>
+</ul>
+</li>
+<li><p><strong>用户交互</strong>：</p>
+<ul>
+<li>主线程还处理来自用户的所有交互，如点击、滚动、键盘输入等。这意味着如果JavaScript代码执行耗时过长，它可以阻塞用户交互，导致不良的用户体验。</li>
+</ul>
+</li>
+</ol>
+<h3 id="与主线程交互的其他组件"><a href="#与主线程交互的其他组件" class="headerlink" title="与主线程交互的其他组件"></a>与主线程交互的其他组件</h3><p>尽管JavaScript是单线程执行的，但现代浏览器和Node.js环境提供了多种机制来处理异步事件和后台任务，以避免阻塞主线程，如：</p>
+<ol>
+<li><p><strong>Web Workers</strong>：</p>
+<ul>
+<li>提供一种在浏览器背景下运行脚本的方法，不影响主线程。Web Workers运行在与主线程完全独立的线程上，可以执行复杂计算或处理大量数据，不会导致界面卡顿。</li>
+</ul>
+</li>
+<li><p><strong>事件队列和事件循环</strong>：</p>
+<ul>
+<li>浏览器维护一个事件队列，所有异步事件，如网络请求、定时器触发、用户输入等，都会被排到这个队列中。主线程在执行完当前代码后，会查看这个队列，并处理队列中的事件。</li>
+</ul>
+</li>
+<li><p><strong>异步API</strong>：</p>
+<ul>
+<li>浏览器提供了许多异步API，如<code>setTimeout</code>、<code>setInterval</code>、<code>fetch</code>（网络请求）等，这些API的回调不会立即执行，而是在合适的时机被推入事件队列，待主线程空闲时执行。</li>
+</ul>
+</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>由于主线程的多重职责，作为开发者在编写JavaScript代码时，需要注意不要执行过于复杂或耗时的同步代码，这可能会阻塞主线程，影响到UI的渲染和用户的交互体验。在处理大量数据或复杂计算时，应考虑使用Web Workers或其他异步处理方法，以提高应用性能和响应性。</p>
+<h1 id="事件捕获、目标、冒泡"><a href="#事件捕获、目标、冒泡" class="headerlink" title="事件捕获、目标、冒泡"></a>事件捕获、目标、冒泡</h1><p>在Web开发中，事件冒泡是一种事件处理机制，其中从一个元素发起的事件会逐层向上传播到其父元素，直至根元素。有时候，我们可能需要阻止这种冒泡行为，以避免触发父元素上的事件处理函数。这可以通过JavaScript中的事件对象提供的方法来实现。</p>
+<p>以下是如何在不同情况下阻止事件冒泡的方法：</p>
+<h2 id="使用-event-stopPropagation"><a href="#使用-event-stopPropagation" class="headerlink" title="使用 event.stopPropagation()"></a>使用 <code>event.stopPropagation()</code></h2><p>这是阻止事件冒泡的标准方法。当在事件处理函数中调用此方法时，当前事件将不会进一步传播到父元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回-false"><a href="#返回-false" class="headerlink" title="返回 false"></a>返回 <code>false</code></h2><p>在使用jQuery时，你可以通过在事件处理函数中返回<code>false</code>来同时阻止事件冒泡和默认行为。在原生JavaScript中，这种方法只适用于通过HTML属性添加的事件处理器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 jQuery</span></span><br><span class="line">$(<span class="string">&#x27;#element&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 阻止冒泡并阻止默认行为</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在HTML元素中直接使用</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;doSomething(); return false;&quot;</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">doSomething</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-event-stopImmediatePropagation"><a href="#使用-event-stopImmediatePropagation" class="headerlink" title="使用 event.stopImmediatePropagation()"></a>使用 <code>event.stopImmediatePropagation()</code></h2><p>这个方法不仅阻止事件继续冒泡到更高的父元素，还阻止任何当前元素上的其他事件监听器被调用。这是一个比<code>stopPropagation()</code>更强大的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    event.<span class="title function_">stopImmediatePropagation</span>();</span><br><span class="line">    <span class="comment">// 事件处理代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li><strong>阻止链接默认打开新页面</strong>：阻止<code>&lt;a&gt;</code>标签的默认行为。</li>
+<li><strong>防止表单提交</strong>：阻止表单的自动提交行为。</li>
+<li><strong>组织事件传播到其他元素</strong>：如在弹出菜单中阻止点击事件传播到背景页面。</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>虽然阻止事件冒泡可以解决一些问题，但过度使用它可能会导致维护困难，因为这改变了事件的正常流动。合理使用这一特性，并确保理解其对整体交互逻辑的影响。</p>
+<h1 id="JavaScript的对象方法"><a href="#JavaScript的对象方法" class="headerlink" title="JavaScript的对象方法"></a>JavaScript的对象方法</h1><p><code>JavaScript</code>的对象（<code>Object</code>）有许多内置的方法，这些方法可以帮助我们操作和管理对象。以下是一些常见的对象方法及其示例：</p>
+<h2 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a><code>Object.keys()</code></h2><p>返回一个数组，包含对象自身可枚举属性的键。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">city</span>: <span class="string">&quot;New York&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> keys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(person);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(keys); <span class="comment">// 输出: [&quot;name&quot;, &quot;age&quot;, &quot;city&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a><code>Object.values()</code></h2><p>返回一个数组，包含对象自身可枚举属性的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">city</span>: <span class="string">&quot;New York&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> values = <span class="title class_">Object</span>.<span class="title function_">values</span>(person);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(values); <span class="comment">// 输出: [&quot;John&quot;, 30, &quot;New York&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries()"></a><code>Object.entries()</code></h2><p>返回一个数组，包含对象自身可枚举属性的键值对数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">city</span>: <span class="string">&quot;New York&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> entries = <span class="title class_">Object</span>.<span class="title function_">entries</span>(person);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(entries); <span class="comment">// 输出: [[&quot;name&quot;, &quot;John&quot;], [&quot;age&quot;, 30], [&quot;city&quot;, &quot;New York&quot;]]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a><code>Object.assign()</code></h2><p>将所有可枚举的自身属性从一个或多个源对象复制到目标对象。它返回目标对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source = &#123; <span class="attr">b</span>: <span class="number">4</span>, <span class="attr">c</span>: <span class="number">5</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> returnedTarget = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(returnedTarget); <span class="comment">// 输出: &#123; a: 1, b: 4, c: 5 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">// 输出: &#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze()"></a><code>Object.freeze()</code></h2><p>冻结对象：一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。该对象的原型也不能被修改。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">freeze</span>(person);</span><br><span class="line"></span><br><span class="line">person.<span class="property">age</span> = <span class="number">40</span>; <span class="comment">// 这行代码不会生效</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>); <span class="comment">// 输出: 30</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-seal"><a href="#Object-seal" class="headerlink" title="Object.seal()"></a><code>Object.seal()</code></h2><p>密封对象：一个密封的对象不能再添加新的属性，且所有现有属性将变为不可配置的。现有属性的值仍然可以修改。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">seal</span>(person);</span><br><span class="line"></span><br><span class="line">person.<span class="property">age</span> = <span class="number">40</span>; <span class="comment">// 这行代码会生效</span></span><br><span class="line">person.<span class="property">city</span> = <span class="string">&quot;New York&quot;</span>; <span class="comment">// 这行代码不会生效</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person); <span class="comment">// 输出: &#123; name: &quot;John&quot;, age: 40 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a><code>Object.create()</code></h2><p>使用指定的原型对象及其属性创建一个新对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> personPrototype = &#123;</span><br><span class="line">  <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hello, my name is <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> john = <span class="title class_">Object</span>.<span class="title function_">create</span>(personPrototype);</span><br><span class="line">john.<span class="property">name</span> = <span class="string">&quot;John&quot;</span>;</span><br><span class="line">john.<span class="title function_">greet</span>(); <span class="comment">// 输出: Hello, my name is John</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a><code>Object.defineProperty()</code></h2><p>直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回这个对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(person, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">  <span class="attr">writable</span>: <span class="literal">false</span>, <span class="comment">// 不能修改</span></span><br><span class="line">  <span class="attr">enumerable</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">configurable</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// 输出: John</span></span><br><span class="line">person.<span class="property">name</span> = <span class="string">&#x27;Jane&#x27;</span>; <span class="comment">// 这行代码不会生效</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// 输出: John</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a><code>Object.getOwnPropertyDescriptor()</code></h2><p>返回指定对象上一个自有属性对应的属性描述符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;John&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> descriptor = <span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(person, <span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(descriptor);</span><br><span class="line"><span class="comment">// 输出:</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   value: &#x27;John&#x27;,</span></span><br><span class="line"><span class="comment">//   writable: true,</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   configurable: true</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a><code>Object.getPrototypeOf()</code></h2><p>返回指定对象的原型（即，内部[[Prototype]]属性的值）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> personPrototype = &#123;</span><br><span class="line">  <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hello, my name is <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> john = <span class="title class_">Object</span>.<span class="title function_">create</span>(personPrototype);</span><br><span class="line">john.<span class="property">name</span> = <span class="string">&quot;John&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(john) === personPrototype); <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><p>JavaScript对象有许多内置方法，可以帮助我们操作和管理对象。上述列举的只是其中的一部分，实际开发中可以根据需要选择合适的方法来处理对象。</p>
+<h1 id="JavaScript的包装类型"><a href="#JavaScript的包装类型" class="headerlink" title="JavaScript的包装类型"></a>JavaScript的包装类型</h1><p>在 JavaScript 中，<strong>包装类型</strong>（wrapper types）是指为基本数据类型（primitive types）提供对象表示的方法。基本数据类型本身是不可变且没有方法的，但 JavaScript 自动为这些类型创建对应的包装对象，使得我们可以调用它们的方法。</p>
+<p>JavaScript 的基本数据类型包括：</p>
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>symbol</code></li>
+<li><code>bigint</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul>
+<p><strong>包装类型</strong>为基本数据类型中的 <code>string</code>、<code>number</code> 和 <code>boolean</code> 提供了对象包装类，使它们能暂时表现为对象，可以调用对象方法。具体包括 <code>String</code>、<code>Number</code> 和 <code>Boolean</code> 三个构造函数。</p>
+<h3 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h3><p>JavaScript 会在某些场合自动将基本数据类型转换为对应的对象，称为<strong>自动装箱</strong>。当调用基本数据类型的属性或方法时，JavaScript 会临时创建一个包装对象，使得我们可以像操作对象一样操作基本类型的值。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="property">length</span>);  <span class="comment">// 输出: 5</span></span><br></pre></td></tr></table></figure>
+<p>在这里，<code>str</code> 是一个基本类型（<code>string</code>），但我们可以调用 <code>.length</code> 属性，这是因为 JavaScript 在访问 <code>str.length</code> 时，临时创建了一个 <code>String</code> 对象，从而使 <code>str</code> 拥有对象的属性和方法。</p>
+<p>自动装箱的步骤如下：</p>
+<ol>
+<li>JavaScript 将基本类型 <code>str</code> 转换为其包装对象 <code>String</code>。</li>
+<li>查找 <code>String</code> 对象上的 <code>length</code> 属性并返回。</li>
+<li>之后 <code>String</code> 包装对象被销毁，<code>str</code> 依然是原本的基本类型。</li>
+</ol>
+<h3 id="包装类型的例子"><a href="#包装类型的例子" class="headerlink" title="包装类型的例子"></a>包装类型的例子</h3><h4 id="String-包装类型"><a href="#String-包装类型" class="headerlink" title="String 包装类型"></a><code>String</code> 包装类型</h4><p><code>String</code> 对象用于包装字符串，并允许调用与字符串相关的各种方法，如 <code>length</code>、<code>toUpperCase()</code> 等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="property">length</span>);             <span class="comment">// 输出: 5</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">toUpperCase</span>());      <span class="comment">// 输出: &quot;HELLO&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接创建 String 对象</span></span><br><span class="line"><span class="keyword">let</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> strObj);          <span class="comment">// 输出: &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj <span class="keyword">instanceof</span> <span class="title class_">String</span>); <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Number-包装类型"><a href="#Number-包装类型" class="headerlink" title="Number 包装类型"></a><code>Number</code> 包装类型</h4><p><code>Number</code> 对象用于包装数字，并允许调用与数字相关的各种方法，如 <code>toFixed()</code>、<code>toString()</code> 等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">123</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num.<span class="title function_">toFixed</span>(<span class="number">2</span>));         <span class="comment">// 输出: &quot;123.00&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接创建 Number 对象</span></span><br><span class="line"><span class="keyword">let</span> numObj = <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">123</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> numObj);          <span class="comment">// 输出: &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numObj <span class="keyword">instanceof</span> <span class="title class_">Number</span>); <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Boolean-包装类型"><a href="#Boolean-包装类型" class="headerlink" title="Boolean 包装类型"></a><code>Boolean</code> 包装类型</h4><p><code>Boolean</code> 对象用于包装布尔值，并允许调用与布尔值相关的方法，如 <code>toString()</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bool = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(bool.<span class="title function_">toString</span>());        <span class="comment">// 输出: &quot;true&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接创建 Boolean 对象</span></span><br><span class="line"><span class="keyword">let</span> boolObj = <span class="keyword">new</span> <span class="title class_">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> boolObj);         <span class="comment">// 输出: &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(boolObj <span class="keyword">instanceof</span> <span class="title class_">Boolean</span>); <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="包装类型与基本类型的区别"><a href="#包装类型与基本类型的区别" class="headerlink" title="包装类型与基本类型的区别"></a>包装类型与基本类型的区别</h3><p>尽管包装对象和基本类型类似，它们仍然是不同的类型。使用 <code>typeof</code> 时可以看出：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> str);       <span class="comment">// 输出: &quot;string&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> strObj);    <span class="comment">// 输出: &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在进行比较时，基本类型和包装对象也可能表现不同：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str === strObj);   <span class="comment">// 输出: false</span></span><br></pre></td></tr></table></figure>
+<p><code>str</code> 是基本类型，而 <code>strObj</code> 是包装对象，它们不是同一个类型，因此返回 <code>false</code>。</p>
+<h3 id="不推荐使用显式的包装类型"><a href="#不推荐使用显式的包装类型" class="headerlink" title="不推荐使用显式的包装类型"></a>不推荐使用显式的包装类型</h3><p>尽管 JavaScript 支持通过 <code>new</code> 关键字显式创建包装类型对象，但通常<strong>不推荐</strong>这样做。这样做会让代码变得不直观，而且可能导致一些难以察觉的错误。大多数情况下，依赖 JavaScript 的自动装箱机制就足够了。</p>
+<h4 id="坏例子："><a href="#坏例子：" class="headerlink" title="坏例子："></a>坏例子：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str == <span class="string">&quot;hello&quot;</span>);   <span class="comment">// 输出: true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str === <span class="string">&quot;hello&quot;</span>);  <span class="comment">// 输出: false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="推荐做法："><a href="#推荐做法：" class="headerlink" title="推荐做法："></a>推荐做法：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str == <span class="string">&quot;hello&quot;</span>);   <span class="comment">// 输出: true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str === <span class="string">&quot;hello&quot;</span>);  <span class="comment">// 输出: true</span></span><br></pre></td></tr></table></figure>
+
+<p>总结来说，JavaScript 的包装类型允许基本数据类型暂时表现为对象，从而调用它们的属性和方法。尽管可以显式创建包装对象，但更推荐使用隐式的自动装箱机制。</p>
+<h1 id="如何理解json"><a href="#如何理解json" class="headerlink" title="如何理解json"></a>如何理解<code>json</code></h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
+<p><strong>JSON（JavaScript Object Notation）</strong> 是一种轻量级的数据交换格式，它易于人类阅读和编写，也便于机器解析和生成。JSON 的数据结构简单，通常用于在网络上进行数据传输，是现代 Web 开发中的重要数据格式之一。</p>
+</blockquote>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li><strong>轻量级</strong>：JSON 采用文本格式，结构简单，便于快速传输。</li>
+<li><strong>易读性</strong>：JSON 语法直观，接近 JavaScript 对象的字面量表示，易于阅读和理解。</li>
+<li><strong>语言无关性</strong>：虽然 JSON 起源于 JavaScript，但几乎所有编程语言都支持 JSON，可以方便地在不同系统和语言之间交换数据。</li>
+<li><strong>可扩展性</strong>：JSON 数据结构灵活，支持嵌套对象和数组，适合描述复杂的数据结构。</li>
+</ol>
+<h2 id="JSON-的数据类型"><a href="#JSON-的数据类型" class="headerlink" title="JSON 的数据类型"></a>JSON 的数据类型</h2><p>JSON 支持以下几种数据类型：</p>
+<ul>
+<li><strong>对象（Object）</strong>：由键值对组成，键为字符串类型，值可以是任何有效的 JSON 数据类型。对象用花括号 <code>&#123;&#125;</code> 包裹，键值对之间用逗号分隔。</li>
+<li><strong>数组（Array）</strong>：一个有序的值的集合，使用方括号 <code>[]</code> 包裹，元素之间用逗号分隔。</li>
+<li><strong>字符串（String）</strong>：必须使用双引号 <code>&quot;&quot;</code>。</li>
+<li><strong>数值（Number）</strong>：支持整数和浮点数，不支持 <code>NaN</code>、<code>Infinity</code>。</li>
+<li><strong>布尔值（Boolean）</strong>：<code>true</code> 或 <code>false</code>。</li>
+<li><strong>空值（null）</strong>：表示空值或无值。</li>
+</ul>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Alice&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">30</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;isStudent&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;skills&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;JavaScript&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Python&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Java&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;New York&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;zip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;10001&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;projects&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSON-与-JavaScript-对象的区别"><a href="#JSON-与-JavaScript-对象的区别" class="headerlink" title="JSON 与 JavaScript 对象的区别"></a>JSON 与 JavaScript 对象的区别</h2><ul>
+<li><strong>键必须用双引号</strong>：JSON 中的键必须是双引号括起来的字符串，而 JavaScript 对象的键不必使用引号。</li>
+<li><strong>不能包含函数</strong>：JSON 不支持函数或方法，而 JavaScript 对象可以包含函数作为属性。</li>
+<li><strong>数据类型限制</strong>：JSON 不支持 <code>undefined</code>、<code>NaN</code> 和 <code>Infinity</code>，而 JavaScript 对象可以。</li>
+</ul>
+<h2 id="JSON-的应用场景"><a href="#JSON-的应用场景" class="headerlink" title="JSON 的应用场景"></a>JSON 的应用场景</h2><ol>
+<li><strong>数据传输</strong>：JSON 常用于客户端和服务器的数据交换。例如，使用 <code>AJAX</code> 或 <code>Fetch API</code> 从服务器请求数据时，通常会收到 JSON 格式的数据。</li>
+<li><strong>配置文件</strong>：许多应用和工具（如 ESLint、Babel 等）使用 JSON 文件来存储配置数据。</li>
+<li><strong>数据持久化</strong>：一些 NoSQL 数据库（如 MongoDB）直接使用 JSON 格式存储数据。</li>
+<li><strong>跨平台数据交换</strong>：JSON 是一种语言无关的格式，可以在不同语言之间交换数据，如 Java、Python、JavaScript 等。</li>
+</ol>
+<h2 id="JSON-的解析与生成"><a href="#JSON-的解析与生成" class="headerlink" title="JSON 的解析与生成"></a>JSON 的解析与生成</h2><p>在 JavaScript 中，可以使用 <code>JSON.parse()</code> 和 <code>JSON.stringify()</code> 这两个方法来解析和生成 JSON 数据。</p>
+<h3 id="解析-JSON-字符串为-JavaScript-对象"><a href="#解析-JSON-字符串为-JavaScript-对象" class="headerlink" title="解析 JSON 字符串为 JavaScript 对象"></a>解析 JSON 字符串为 JavaScript 对象</h3>   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonString = <span class="string">&#x27;&#123;&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> jsonObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonObj.<span class="property">name</span>);  <span class="comment">// 输出: Alice</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="将-JavaScript-对象转换为-JSON-字符串"><a href="#将-JavaScript-对象转换为-JSON-字符串" class="headerlink" title="将 JavaScript 对象转换为 JSON 字符串"></a>将 JavaScript 对象转换为 JSON 字符串</h3>   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;Alice&quot;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> jsonString = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonString);  <span class="comment">// 输出: &#123;&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:30&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSON-的优缺点"><a href="#JSON-的优缺点" class="headerlink" title="JSON 的优缺点"></a>JSON 的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><strong>通用性强</strong>：几乎所有编程语言都支持 JSON，使得跨平台、跨语言的数据交换变得简单。</li>
+<li><strong>格式清晰</strong>：结构直观，易于阅读和编写。</li>
+<li><strong>解析效率高</strong>：解析 JSON 的成本较低，尤其是在 Web 环境中性能表现较好。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><strong>缺乏数据类型</strong>：JSON 仅支持基本数据类型，不支持日期、时间、二进制数据等复杂类型。</li>
+<li><strong>文件体积较大</strong>：与二进制格式（如 Protobuf）相比，JSON 文件体积较大，不适合传输非常大量的数据。</li>
+<li><strong>安全风险</strong>：在 Web 环境中，如果 JSON 直接在 HTML 中进行解析，可能导致跨站脚本攻击（XSS），因此应使用 <code>JSON.parse()</code> 进行解析，而非 <code>eval()</code>。</li>
+</ul>
+<h3 id="JSON-的替代格式"><a href="#JSON-的替代格式" class="headerlink" title="JSON 的替代格式"></a>JSON 的替代格式</h3><p>JSON 是广泛使用的，但在某些特定场景下，也有一些替代格式：</p>
+<ul>
+<li><strong>XML</strong>：曾广泛用于 Web 服务的数据交换，但比 JSON 更冗长。</li>
+<li><strong>YAML</strong>：结构更加简洁，主要用于配置文件（如 <code>.yaml</code>），易于人类阅读。</li>
+<li><strong>MessagePack</strong>、<strong>Protobuf</strong>、<strong>Avro</strong>：这些是二进制格式，体积更小、效率更高，适合在性能至关重要的场景使用。</li>
+</ul>
+<h2 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>JSON 是一种轻量级、语言无关的数据交换格式，适用于客户端与服务器之间的数据传输。它在现代 Web 开发中广泛使用，且具有通用性强、格式清晰等优点，但也存在缺乏复杂数据类型、体积较大等局限性。通过合理地使用 JSON，可以在各种编程语言和环境之间实现高效的数据交换。</p>
+</blockquote>
+<h2 id="判断-JSON-是否为空"><a href="#判断-JSON-是否为空" class="headerlink" title="判断 JSON 是否为空"></a>判断 JSON 是否为空</h2><p>实际上是判断 JSON 对象是否为空对象或空数组。由于 JSON 本质上可以是对象或数组，因此我们可以分别判断对象或数组是否为空。</p>
+<h3 id="判断-JSON-对象为空"><a href="#判断-JSON-对象为空" class="headerlink" title="判断 JSON 对象为空"></a>判断 JSON 对象为空</h3><p>在 JavaScript 中，判断一个 JSON 对象是否为空，可以检查该对象是否没有任何可枚举属性。通常可以使用 <code>Object.keys()</code>、<code>Object.values()</code> 或 <code>Object.entries()</code> 来判断。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;; <span class="comment">// 空 JSON 对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Object.keys() 判断</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="title function_">keys</span>(obj).<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;JSON 对象为空&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;JSON 对象不为空&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果对象的键长度为 0，那么这个对象就是空对象。</p>
+<h3 id="判断-JSON-数组为空"><a href="#判断-JSON-数组为空" class="headerlink" title="判断 JSON 数组为空"></a>判断 JSON 数组为空</h3><p>对于 JSON 数组，可以简单地通过检查数组的长度来判断是否为空。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = []; <span class="comment">// 空 JSON 数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (arr.<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;JSON 数组为空&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;JSON 数组不为空&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数组长度为 0 意味着数组为空。</p>
+<h3 id="处理-JSON-字符串"><a href="#处理-JSON-字符串" class="headerlink" title="处理 JSON 字符串"></a>处理 JSON 字符串</h3><p>如果你有一个 JSON 字符串，首先需要将其解析为 JavaScript 对象或数组，然后再检查是否为空。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonString = <span class="string">&#x27;&#123;&#125;&#x27;</span>; <span class="comment">// 或者 &#x27;[]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析 JSON 字符串</span></span><br><span class="line"><span class="keyword">const</span> jsonObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为空对象或数组</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(jsonObj)) &#123;</span><br><span class="line">  <span class="comment">// 如果是数组</span></span><br><span class="line">  <span class="keyword">if</span> (jsonObj.<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;空数组&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;非空数组&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> jsonObj === <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="title class_">Object</span>.<span class="title function_">keys</span>(jsonObj).<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="comment">// 如果是对象且无属性</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;空对象&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;非空对象&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断特殊情况"><a href="#判断特殊情况" class="headerlink" title="判断特殊情况"></a>判断特殊情况</h3><ul>
+<li><p><strong>null 值</strong>：如果 JSON 数据为 <code>null</code>，可以直接通过比较判断。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonObj = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (jsonObj === <span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;JSON 为 null&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>对于 <strong>JSON 对象</strong>，可以使用 <code>Object.keys().length</code> 来判断是否为空。</li>
+<li>对于 <strong>JSON 数组</strong>，可以通过检查 <code>array.length</code> 来判断是否为空。</li>
+<li>如果是 <strong>JSON 字符串</strong>，需要先使用 <code>JSON.parse()</code> 将其转换为对象或数组，然后再根据具体类型进行判断。</li>
+</ul>
+<h1 id="DOM和BOM"><a href="#DOM和BOM" class="headerlink" title="DOM和BOM"></a><code>DOM</code>和<code>BOM</code></h1><p><code>DOM</code>（Document Object Model）和 <code>BOM</code>（Browser Object Model）是 JavaScript 在浏览器中的两个重要概念，它们帮助开发者与网页和浏览器进行交互。虽然两者都与浏览器有关，但它们的作用和涵盖范围不同。</p>
+<h2 id="DOM（Document-Object-Model）"><a href="#DOM（Document-Object-Model）" class="headerlink" title="DOM（Document Object Model）"></a>DOM（Document Object Model）</h2><p><code>DOM</code> 是浏览器将网页（HTML 或 XML 文档）结构化成的一棵树形结构。它将 HTML 文档表示为对象，允许 JavaScript 与网页的结构、内容和样式进行动态交互。通过 <code>DOM</code>，开发者可以获取、修改、添加或删除页面中的元素。</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ul>
+<li><strong>表示网页结构</strong>：<code>DOM</code> 将 HTML 文档映射成一个树形结构，树中的每个节点都是页面的一部分，如元素、属性或文本。</li>
+<li><strong>动态操作文档</strong>：JavaScript 可以使用 <code>DOM API</code> 操作页面元素，例如更改元素内容、修改样式、添加&#x2F;删除节点。</li>
+<li><strong>事件处理</strong>：<code>DOM</code> 还支持事件机制，允许 JavaScript 响应用户的交互，例如点击、输入、滚动等。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;example&quot;</span>&gt;</span>Hello, DOM!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 使用 DOM 选择元素并修改内容</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;example&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      div.<span class="property">textContent</span> = <span class="string">&#x27;DOM has changed!&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>document.getElementById(&#39;example&#39;)</code> 是通过 <code>DOM</code> API 选择页面中的一个 <code>div</code> 元素，并修改其内容。<code>document</code> 是整个 <code>DOM</code> 的根对象，它代表了整个 HTML 文档。</p>
+<h4 id="DOM-的一些常用方法："><a href="#DOM-的一些常用方法：" class="headerlink" title="DOM 的一些常用方法："></a><code>DOM</code> 的一些常用方法：</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>返回类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>getElementById()</code></td>
+<td>根据 <code>id</code> 获取单个元素</td>
+<td><code>Element</code> 或 <code>null</code></td>
+</tr>
+<tr>
+<td><code>getElementsByClassName()</code></td>
+<td>根据 <code>class</code> 获取所有匹配的元素</td>
+<td><code>HTMLCollection</code></td>
+</tr>
+<tr>
+<td><code>getElementsByTagName()</code></td>
+<td>根据标签名获取所有匹配的元素</td>
+<td><code>HTMLCollection</code></td>
+</tr>
+<tr>
+<td><code>getElementsByName()</code></td>
+<td>根据 <code>name</code> 属性获取所有匹配的元素</td>
+<td><code>NodeList</code></td>
+</tr>
+<tr>
+<td><code>querySelector()</code></td>
+<td>使用 CSS 选择器获取第一个匹配的元素</td>
+<td><code>Element</code> 或 <code>null</code></td>
+</tr>
+<tr>
+<td><code>querySelectorAll()</code></td>
+<td>使用 CSS 选择器获取所有匹配的元素</td>
+<td><code>NodeList</code></td>
+</tr>
+<tr>
+<td><code>document.forms[]</code></td>
+<td>获取所有表单元素</td>
+<td><code>HTMLCollection</code></td>
+</tr>
+<tr>
+<td><code>document.images[]</code></td>
+<td>获取所有 <code>&lt;img&gt;</code> 元素</td>
+<td><code>HTMLCollection</code></td>
+</tr>
+<tr>
+<td><code>document.links[]</code></td>
+<td>获取所有包含 <code>href</code> 属性的链接元素 (<code>&lt;a&gt;</code>)</td>
+<td><code>HTMLCollection</code></td>
+</tr>
+<tr>
+<td><code>document.anchors[]</code></td>
+<td>获取所有带有 <code>name</code> 属性的 <code>&lt;a&gt;</code> 标签（较为过时）</td>
+<td><code>HTMLCollection</code></td>
+</tr>
+</tbody></table>
+<h3 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h3><ul>
+<li>**<code>HTMLCollection</code>**：是一个动态集合，实时反映 DOM 的变化。</li>
+<li>**<code>NodeList</code>**：是一种静态集合，通常是 <code>querySelectorAll()</code> 返回的结果，不会随着 DOM 的变化而自动更新。</li>
+</ul>
+<h2 id="BOM（Browser-Object-Model）"><a href="#BOM（Browser-Object-Model）" class="headerlink" title="BOM（Browser Object Model）"></a>BOM（Browser Object Model）</h2><p><code>BOM</code> 是浏览器提供的一组对象，它们用于与浏览器窗口进行交互。<code>BOM</code> 主要涉及与浏览器环境相关的功能，比如控制浏览器窗口、导航、历史记录、屏幕大小等。<code>BOM</code> 并不是与页面内容相关，而是与浏览器本身的操作有关。</p>
+<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ul>
+<li><strong>表示浏览器环境</strong>：<code>BOM</code> 允许 JavaScript 访问和操作浏览器的各种功能，如窗口、导航、历史等。</li>
+<li><strong>不依赖于网页结构</strong>：<code>BOM</code> 提供的是与浏览器相关的功能，不像 <code>DOM</code> 直接操作页面元素。</li>
+<li><strong>管理浏览器窗口和导航</strong>：通过 <code>BOM</code>，可以控制窗口的打开&#x2F;关闭、调整大小、获取和修改 URL、处理历史记录等。</li>
+</ul>
+<h4 id="常用的-BOM-对象："><a href="#常用的-BOM-对象：" class="headerlink" title="常用的 BOM 对象："></a>常用的 <code>BOM</code> 对象：</h4><ul>
+<li><code>window</code>：表示浏览器窗口的全局对象，所有 <code>BOM</code> 对象都是 <code>window</code> 的属性。</li>
+<li><code>navigator</code>：包含浏览器的信息，如浏览器名称、版本、操作系统等。</li>
+<li><code>screen</code>：表示用户屏幕的信息，如分辨率和颜色深度等。</li>
+<li><code>location</code>：表示当前文档的 URL 信息，可以用来重定向页面或获取当前页面的 URL。</li>
+<li><code>history</code>：用于操作浏览器的历史记录。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 访问浏览器的 URL 信息</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>); <span class="comment">// 获取当前页面的 URL</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 重定向到新页面</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&#x27;https://example.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取浏览器历史记录的长度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">history</span>.<span class="property">length</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取用户的屏幕宽度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">screen</span>.<span class="property">width</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开一个新窗口</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&#x27;https://example.com&#x27;</span>, <span class="string">&#x27;_blank&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，<code>window.location.href</code> 获取当前页面的 URL，<code>window.history.length</code> 返回浏览器的历史记录长度，而 <code>window.screen.width</code> 获取用户屏幕的宽度。这些都是 <code>BOM</code> 提供的功能。</p>
+<h2 id="DOM-和-BOM-的区别"><a href="#DOM-和-BOM-的区别" class="headerlink" title="DOM 和 BOM 的区别"></a>DOM 和 BOM 的区别</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>DOM</th>
+<th>BOM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>定义</strong></td>
+<td>文档对象模型，表示网页的结构</td>
+<td>浏览器对象模型，表示浏览器环境</td>
+</tr>
+<tr>
+<td><strong>作用</strong></td>
+<td>操作网页内容和结构</td>
+<td>操作浏览器窗口、导航、历史等功能</td>
+</tr>
+<tr>
+<td><strong>核心对象</strong></td>
+<td><code>document</code></td>
+<td><code>window</code></td>
+</tr>
+<tr>
+<td><strong>API 示例</strong></td>
+<td><code>document.getElementById()</code>、<code>innerHTML</code></td>
+<td><code>window.open()</code>、<code>navigator.userAgent</code></td>
+</tr>
+<tr>
+<td><strong>关联范围</strong></td>
+<td>与网页内容相关</td>
+<td>与浏览器功能相关</td>
+</tr>
+</tbody></table>
+<h2 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><strong>DOM</strong>：用于操作页面内容，帮助开发者通过 JavaScript 动态修改网页结构、内容和样式。核心对象是 <code>document</code>，它代表整个 HTML 页面。</li>
+<li><strong>BOM</strong>：用于操作浏览器窗口和相关功能，核心对象是 <code>window</code>，代表整个浏览器窗口。它包含了与浏览器环境相关的对象，比如 <code>navigator</code>、<code>location</code>、<code>history</code>、<code>screen</code> 等。</li>
+</ul>
+<p>这两者的功能结合起来，JavaScript 能够同时控制页面内容和浏览器的行为，使得网页可以动态且与用户交互。</p>
+<ul>
+<li><strong>表示网页结构</strong>：<code>DOM</code> 将 HTML 文档映射成一个树形结构，树中的每个节点都是页面的一部分，如元素、属性或文本。</li>
+<li><strong>动态操作文档</strong>：JavaScript 可以使用 <code>DOM API</code> 操作页面元素，例如更改元素内容、修改样式、添加&#x2F;删除节点。</li>
+<li><strong>事件处理</strong>：<code>DOM</code> 还支持事件机制，允许 JavaScript 响应用户的交互，例如点击、输入、滚动等。</li>
+</ul>
+<h1 id="浏览器相关API"><a href="#浏览器相关API" class="headerlink" title="浏览器相关API"></a>浏览器相关API</h1><p>浏览器提供了丰富的 Web API，这些 API 使开发者可以通过 JavaScript 与浏览器进行交互，操作 DOM、管理数据存储、处理网络请求、响应用户交互等。这些 API 大致可以分为几个主要的类别，涵盖了不同的功能领域。</p>
+<h2 id="DOM-操作-API"><a href="#DOM-操作-API" class="headerlink" title="DOM 操作 API"></a>DOM 操作 API</h2><p>   这些 API 允许开发者访问、修改和操控 HTML 和 CSS，从而改变页面的外观和交互行为。</p>
+<ul>
+<li><strong><code>document.querySelector()</code> &#x2F; <code>document.getElementById()</code></strong>: 查找和获取 DOM 元素。</li>
+<li><strong><code>document.createElement()</code></strong>: 动态创建新 DOM 元素。</li>
+<li><strong><code>element.appendChild()</code></strong> &#x2F; <strong><code>element.removeChild()</code></strong>: 操作 DOM 树，插入或删除元素。</li>
+<li><strong><code>element.classList</code></strong>: 操作元素的 CSS 类。</li>
+<li><strong><code>element.style</code></strong>: 动态设置或修改内联样式。</li>
+<li><strong><code>innerHTML</code></strong> &#x2F; <strong><code>textContent</code></strong>: 操作元素的 HTML 或文本内容。</li>
+<li><strong>事件相关 API</strong>:<code>addEventListener()</code>: 为 DOM 元素添加事件监听器，如 <code>click</code>、<code>mouseover</code> 等。</li>
+</ul>
+<h2 id="网络请求-API"><a href="#网络请求-API" class="headerlink" title="网络请求 API"></a>网络请求 API</h2><p>   这些 API 使开发者能够与服务器通信，发送和接收数据，通常用于异步操作。</p>
+<ul>
+<li><strong><code>fetch()</code></strong>: 现代的网络请求 API，用于发送 HTTP 请求（<code>GET</code>、<code>POST</code> 等），支持 <code>Promise</code>。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/api/data&#x27;</span>)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data));</span><br></pre></td></tr></table></figure></li>
+<li><strong><code>XMLHttpRequest</code></strong>: 旧的网络请求方式，但仍然在一些场景中被使用，特别是为了兼容性。</li>
+<li><strong><code>WebSocket</code></strong>: 实现客户端和服务器之间的双向通信，适用于实时数据传输，如聊天应用或游戏。</li>
+<li><strong><code>Server-Sent Events (SSE)</code></strong>: 单向通信，服务器向浏览器推送数据。</li>
+</ul>
+<h2 id="存储-API"><a href="#存储-API" class="headerlink" title="存储 API"></a>存储 API</h2><p>   这些 API 允许在客户端存储数据，支持不同类型的存储机制。</p>
+<ul>
+<li><strong><code>localStorage</code></strong>: 本地存储，存储键值对，数据在页面刷新或浏览器关闭后仍然存在。</li>
+<li><strong><code>sessionStorage</code></strong>: 会话存储，存储键值对，数据在会话期间有效，一旦关闭页面或标签页，数据即失效。</li>
+<li><strong><code>IndexedDB</code></strong>: 基于事务的 NoSQL 数据库，允许存储大量结构化数据。</li>
+<li><strong><code>Cookies</code></strong>: 小量的数据存储在浏览器中，用于跟踪用户会话，通常用于身份验证等。</li>
+</ul>
+<h2 id="图形和多媒体-API"><a href="#图形和多媒体-API" class="headerlink" title="图形和多媒体 API"></a>图形和多媒体 API</h2><p>   这些 API 允许开发者创建、操作图形和处理音视频，丰富 Web 应用的表现能力。</p>
+<ul>
+<li><strong><code>Canvas API</code></strong>: 允许在 HTML <code>&lt;canvas&gt;</code> 元素上绘制 2D 图形，适用于图形渲染和游戏开发。</li>
+<li><strong><code>WebGL</code></strong>: 基于 Canvas 的 3D 图形 API，允许通过 JavaScript 访问 GPU，加速 3D 渲染。</li>
+<li><strong><code>&lt;audio&gt;</code> &#x2F; <code>&lt;video&gt;</code> 元素及 API</strong>: 控制音视频播放、暂停、调整音量等。</li>
+<li><strong><code>MediaRecorder API</code></strong>: 用于录制音频或视频流，特别是在直播或视频会议等场景下使用。</li>
+</ul>
+<h2 id="工作线程和并发处理-API"><a href="#工作线程和并发处理-API" class="headerlink" title="工作线程和并发处理 API"></a>工作线程和并发处理 API</h2><p>   这些 API 提供了浏览器中的并发能力，允许执行多线程任务以提升性能。</p>
+<ul>
+<li><strong><code>Web Workers</code></strong>: 提供多线程执行的能力，允许在后台线程运行 JavaScript，不会阻塞主线程。</li>
+<li><strong><code>Service Workers</code></strong>: 允许在后台运行的脚本，用于缓存和推送通知，提升离线访问和性能。</li>
+<li><strong><code>requestIdleCallback()</code></strong>: 用于在浏览器空闲时间执行非紧急任务，优化主线程性能。</li>
+<li><strong><code>requestAnimationFrame()</code></strong>: 在下一个浏览器重绘之前执行高效的动画或图形渲染代码。</li>
+</ul>
+<h2 id="设备访问-API"><a href="#设备访问-API" class="headerlink" title="设备访问 API"></a>设备访问 API</h2><p>   浏览器提供了多种 API 以访问设备硬件和传感器，使 Web 应用能够与用户设备进行交互。</p>
+<ul>
+<li><strong><code>Geolocation API</code></strong>: 获取用户的位置信息，适用于基于位置的服务。</li>
+<li><strong><code>DeviceOrientation API</code></strong>: 访问设备的方向传感器（如陀螺仪），通常用于移动设备上的游戏或增强现实。</li>
+<li><strong><code>Battery Status API</code></strong>: 获取设备的电池状态，如充电状态、电量等信息。</li>
+<li><strong><code>Camera/Media API (getUserMedia)</code></strong>: 允许访问设备的摄像头和麦克风，常用于视频会议或拍照应用。</li>
+<li><strong><code>Vibration API</code></strong>: 允许控制设备振动，常用于移动设备。</li>
+<li><strong><code>Web Bluetooth API</code></strong>: 允许 Web 应用与蓝牙设备通信。</li>
+<li><strong><code>Web USB API</code></strong>: 允许 Web 应用直接与 USB 设备进行通信。</li>
+</ul>
+<h2 id="安全与加密-API"><a href="#安全与加密-API" class="headerlink" title="安全与加密 API"></a>安全与加密 API</h2><p>   提供了一些安全功能，以确保数据的加密和身份验证。</p>
+<ul>
+<li><strong><code>Web Crypto API</code></strong>: 提供加密、解密、签名和哈希功能，支持加密操作和数据签名，确保安全的 Web 通信。</li>
+<li><strong><code>Credentials Management API</code></strong>: 允许 Web 应用管理用户的登录信息，例如自动填充密码和身份验证。</li>
+</ul>
+<h2 id="推送通知和后台同步-API"><a href="#推送通知和后台同步-API" class="headerlink" title="推送通知和后台同步 API"></a>推送通知和后台同步 API</h2><p>   这些 API 用于在 Web 应用中实现后台通信和通知功能。</p>
+<ul>
+<li><strong><code>Push API</code></strong>: 允许 Web 应用通过服务器向用户发送推送通知，哪怕用户当前不活跃或页面已关闭。</li>
+<li><strong><code>Notification API</code></strong>: 允许应用在用户设备上显示桌面通知。</li>
+<li><strong><code>Background Sync API</code></strong>: 在网络连接恢复时，允许 Web 应用后台同步数据，常用于离线应用。</li>
+</ul>
+<h2 id="性能与资源管理-API"><a href="#性能与资源管理-API" class="headerlink" title="性能与资源管理 API"></a>性能与资源管理 API</h2><p>   提供一些工具来分析和优化 Web 应用的性能。</p>
+<ul>
+<li><strong><code>Performance API</code></strong>: 提供性能监控功能，用于测量页面加载时间、资源获取时间等。</li>
+<li><strong><code>Navigator API</code></strong>: 获取用户代理信息、在线状态、硬件能力（如 CPU 核心数）、语言设置等。</li>
+<li><strong><code>Memory Management API</code></strong>: 提供关于内存使用的统计信息，帮助开发者优化内存管理。</li>
+</ul>
+<h2 id="文件操作-API"><a href="#文件操作-API" class="headerlink" title="文件操作 API"></a>文件操作 API</h2><p>   这些 API 允许 Web 应用与用户的本地文件系统进行交互。</p>
+<ul>
+<li><strong><code>File API</code></strong>: 允许用户上传文件，并使用 JavaScript 读取文件的内容（如文本、图片等）。</li>
+<li><strong><code>FileReader API</code></strong>: 用于异步读取文件的内容，可以读取为文本、Data URL 或 ArrayBuffer。</li>
+<li><strong><code>File System Access API</code></strong>: 允许 Web 应用访问和管理本地文件系统，提供直接的文件读写操作（尚未广泛支持）。</li>
+</ul>
+<h2 id="历史和导航-API"><a href="#历史和导航-API" class="headerlink" title="历史和导航 API"></a>历史和导航 API</h2><p>   这些 API 用于管理浏览器历史记录和页面导航。</p>
+<ul>
+<li><strong><code>History API</code></strong>: 允许操作浏览器的历史记录，使用 <code>pushState()</code> 和 <code>replaceState()</code> 修改 URL 而不会刷新页面。</li>
+<li><strong><code>Location API</code></strong>: 提供有关当前页面 URL 的信息，并允许更改 URL。</li>
+</ul>
+<h2 id="事件处理-API"><a href="#事件处理-API" class="headerlink" title="事件处理 API"></a>事件处理 API</h2><p>   提供事件模型和机制，允许开发者监听并响应用户输入事件。</p>
+<ul>
+<li><strong><code>addEventListener()</code></strong>: 绑定 DOM 事件，如 <code>click</code>、<code>scroll</code>、<code>keydown</code> 等。</li>
+<li><strong><code>CustomEvent</code></strong>: 创建和触发自定义事件，用于自定义应用中的事件机制。</li>
+</ul>
+<h2 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h2><p>浏览器提供的 API 覆盖了从基础的 DOM 操作到高级的设备访问、性能优化、网络请求、并发处理等多方面的功能。它们帮助开发者创建功能丰富、响应迅速的 Web 应用，同时提升用户体验。每个 API 都针对特定的需求和功能场景，使得 Web 应用能够与设备、服务器和用户之间进行强大的交互。</p>
+<p><code>requestIdleCallback</code> 是一个浏览器提供的 API，用来在浏览器的空闲时间执行一些不紧急的、后台任务或低优先级任务。这个 API 主要用于在不阻塞主线程的情况下执行非关键性操作，比如数据预加载、日志记录、UI 渲染后的性能监控等。</p>
+<p><code>requestIdleCallback</code> 是一种让开发者可以充分利用浏览器渲染空闲时间的机制，确保在用户体验不受影响的情况下处理一些后台任务，而不会影响 UI 的流畅度。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a><strong>基本使用</strong></h3><p><code>requestIdleCallback</code> 接收一个回调函数，当浏览器有空闲时间时，会执行这个回调函数。你可以通过可选的超时参数来确保某些任务不会无限期等待。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本用法</span></span><br><span class="line"><span class="title function_">requestIdleCallback</span>(<span class="function">(<span class="params">deadline</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">while</span> (deadline.<span class="title function_">timeRemaining</span>() &gt; <span class="number">0</span> &amp;&amp; tasks.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="title function_">performTask</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者带有超时参数</span></span><br><span class="line"><span class="title function_">requestIdleCallback</span>(myCallback, &#123; <span class="attr">timeout</span>: <span class="number">2000</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a><strong>参数说明：</strong></h4><ol>
+<li><p>**回调函数 (<code>callback</code>)**：回调函数接收一个 <code>IdleDeadline</code> 对象作为参数，该对象包含两个属性：</p>
+<ul>
+<li>**<code>timeRemaining()</code>**：返回当前帧内剩余的空闲时间（以毫秒为单位），如果为 0，意味着当前没有剩余时间。</li>
+<li>**<code>didTimeout</code>**：布尔值，表示该回调函数是否因为超时而被执行。</li>
+</ul>
+</li>
+<li><p>**可选参数 (<code>options</code>)**：</p>
+<ul>
+<li>**<code>timeout</code>**：设定一个超时时间（以毫秒为单位），即使浏览器没有空闲时间，也会在超时时间后强制执行回调函数。</li>
+</ul>
+</li>
+</ol>
+<h3 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a><strong>示例代码：</strong></h3><p>假设我们有一些低优先级的任务需要在浏览器空闲时执行，比如在页面加载后预加载下一页的数据。这是一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">preloadData</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Preloading data for the next page...&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">myCallback</span>(<span class="params">deadline</span>) &#123;</span><br><span class="line">  <span class="comment">// 在空闲时间内执行任务</span></span><br><span class="line">  <span class="keyword">while</span> (deadline.<span class="title function_">timeRemaining</span>() &gt; <span class="number">0</span> &amp;&amp; tasks.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="title function_">preloadData</span>(); <span class="comment">// 执行预加载任务</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果任务未完成，继续请求下一个空闲回调</span></span><br><span class="line">  <span class="keyword">if</span> (tasks.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="title function_">requestIdleCallback</span>(myCallback);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始请求空闲时间执行任务</span></span><br><span class="line"><span class="title function_">requestIdleCallback</span>(myCallback);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>requestIdleCallback</code> 会在浏览器的空闲时间预加载数据，但不会打断主线程的 UI 渲染，保证了用户的交互体验。</p>
+<h3 id="主要应用场景"><a href="#主要应用场景" class="headerlink" title="主要应用场景"></a><strong>主要应用场景</strong></h3><p><code>requestIdleCallback</code> 常用于以下场景：</p>
+<ol>
+<li><strong>后台任务处理</strong>：适用于那些非紧急的后台任务，比如分析数据、记录日志、预加载内容、缓存更新等。</li>
+<li><strong>优化性能</strong>：通过利用空闲时间执行低优先级任务，减少主线程的压力，提升用户的体验。</li>
+<li><strong>数据预加载</strong>：页面加载完毕后，使用空闲时间提前预加载下一步的数据（比如用户未请求的部分页面资源）。</li>
+<li><strong>避免主线程阻塞</strong>：在不打断用户交互或影响页面流畅度的前提下，执行大量运算或者 DOM 操作。</li>
+</ol>
+<h3 id="API-原理"><a href="#API-原理" class="headerlink" title="API 原理"></a><strong>API 原理</strong></h3><p><code>requestIdleCallback</code> 的核心在于它的设计目标是让开发者可以更好地利用浏览器的“空闲时间”。它的底层工作机制是：</p>
+<ol>
+<li>浏览器每一帧会进行<strong>渲染、布局、绘制等工作</strong>。这些任务是有较高优先级的，必须尽快完成，以确保用户界面流畅。</li>
+<li>一帧完成后，浏览器如果检测到有剩余时间，才会调用通过 <code>requestIdleCallback</code> 注册的回调函数，这时剩余的时间就叫做<strong>空闲时间</strong>。</li>
+<li>如果浏览器没有足够的空闲时间，则会等到未来的某个空闲时间才执行回调。</li>
+<li>如果指定了 <code>timeout</code> 参数，浏览器会在超时时间到了之后强制执行回调，即使没有空闲时间。</li>
+</ol>
+<h3 id="IdleDeadline-对象"><a href="#IdleDeadline-对象" class="headerlink" title="IdleDeadline 对象"></a><strong><code>IdleDeadline</code> 对象</strong></h3><p>在回调函数中，浏览器会传递一个 <code>IdleDeadline</code> 对象，提供了一些有用的信息：</p>
+<ol>
+<li><p>**<code>timeRemaining()</code>**：</p>
+<ul>
+<li>它是一个动态值，表示当前帧剩余的可用空闲时间（以毫秒为单位）。如果 <code>timeRemaining()</code> 的值是 0，意味着浏览器不再有空闲时间执行额外任务，任务应该被推迟到下一次空闲时间执行。</li>
+<li>通常在一帧的剩余空闲时间不超过 50 毫秒。</li>
+</ul>
+</li>
+<li><p>**<code>didTimeout</code>**：</p>
+<ul>
+<li><code>didTimeout</code> 是一个布尔值，表示回调是否因为超时而被强制执行（即浏览器已经没有空闲时间了，但因为设置了 <code>timeout</code> 参数，回调仍然被执行）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="性能优化与局限性"><a href="#性能优化与局限性" class="headerlink" title="性能优化与局限性"></a><strong>性能优化与局限性</strong></h3><p>尽管 <code>requestIdleCallback</code> 是一个非常有用的 API，但它并不适用于所有场景。以下是一些需要注意的事项：</p>
+<ol>
+<li><p><strong>不适合高优先级任务</strong>：由于 <code>requestIdleCallback</code> 仅在空闲时间才执行回调，它并不适用于那些需要及时响应的高优先级任务（比如用户输入响应、关键路径的渲染任务）。对于这类任务，应该优先使用常规的事件处理和同步渲染。</p>
+</li>
+<li><p><strong>不保证回调执行的时间</strong>：如果浏览器没有空闲时间，回调函数可能会延迟很久，甚至不会执行。因此，如果你需要在一定时间内强制执行回调，应该设置 <code>timeout</code>。</p>
+</li>
+<li><p><strong>浏览器支持有限</strong>：虽然现代浏览器大多支持 <code>requestIdleCallback</code>，但一些老旧版本的浏览器并不支持。在不支持的浏览器中，可以通过 <code>setTimeout</code> 创建一个降级的 polyfill。</p>
+</li>
+</ol>
+<h3 id="Polyfill（降级处理）"><a href="#Polyfill（降级处理）" class="headerlink" title="Polyfill（降级处理）"></a><strong>Polyfill（降级处理）</strong></h3><p>在某些不支持 <code>requestIdleCallback</code> 的环境中，你可以手动创建一个 Polyfill：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="variable language_">window</span>.<span class="property">requestIdleCallback</span>) &#123;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="property">requestIdleCallback</span> = <span class="keyword">function</span> (<span class="params">cb</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> start = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line">      <span class="title function_">cb</span>(&#123;</span><br><span class="line">        <span class="attr">timeRemaining</span>: <span class="function">() =&gt;</span> <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">0</span>, <span class="number">50</span> - (<span class="title class_">Date</span>.<span class="title function_">now</span>() - start))</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="variable language_">window</span>.<span class="property">cancelIdleCallback</span>) &#123;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="property">cancelIdleCallback</span> = <span class="keyword">function</span> (<span class="params">id</span>) &#123;</span><br><span class="line">    <span class="built_in">clearTimeout</span>(id);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个简单的 polyfill 模拟了 <code>requestIdleCallback</code> 的行为，虽然无法完全复制浏览器空闲时间的精确度，但至少可以确保回调函数在一定的时间间隔内执行。</p>
+<h3 id="总结-7"><a href="#总结-7" class="headerlink" title="总结"></a><strong>总结</strong></h3><p><code>requestIdleCallback</code> 是一个用于在浏览器空闲时间执行后台任务的 API，可以帮助开发者优化性能，尤其是在执行低优先级任务时，不会阻塞用户界面的响应和渲染。它的原理依赖于浏览器的任务调度系统，利用每帧的空闲时间执行额外任务。在使用时，要注意任务的优先级和潜在的执行延迟，以确保对用户体验的影响最小。</p>
+<p><code>unload</code> 和 <code>DOMContentLoaded</code> 是两个常用的浏览器事件，它们在页面的不同加载和卸载阶段被触发，分别用于处理页面资源加载完成或即将离开页面时的情况。理解它们的触发时机和使用场景，可以帮助开发者更好地管理 Web 页面资源、性能和交互行为。</p>
+<h3 id="DOMContentLoaded-事件"><a href="#DOMContentLoaded-事件" class="headerlink" title="DOMContentLoaded 事件"></a><strong><code>DOMContentLoaded</code> 事件</strong></h3><h4 id="触发时机："><a href="#触发时机：" class="headerlink" title="触发时机："></a><strong>触发时机</strong>：</h4><ul>
+<li><code>DOMContentLoaded</code> 事件会在 <strong>HTML 文档被完全解析</strong> 且 <strong>DOM 树已构建完成</strong> 后触发。</li>
+<li>它不会等待样式表、图片、iframe 等外部资源的加载完成，只要 DOM 结构本身已经准备好，事件就会被触发。因此，它的触发时间通常比 <code>load</code> 事件更早。</li>
+</ul>
+<h4 id="典型场景："><a href="#典型场景：" class="headerlink" title="典型场景："></a><strong>典型场景</strong>：</h4><ul>
+<li>当你只需要操作 DOM 元素或者初始化页面的基本逻辑，而不依赖于页面中的外部资源（如图片、视频）的加载时，<code>DOMContentLoaded</code> 是非常理想的事件。</li>
+<li>可以通过这个事件确保在脚本中可以安全地操作所有 DOM 元素。</li>
+</ul>
+<h4 id="用法："><a href="#用法：" class="headerlink" title="用法："></a><strong>用法</strong>：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;DOM fully loaded and parsed&quot;</span>);</span><br><span class="line">  <span class="comment">// 这里可以操作 DOM 元素</span></span><br><span class="line">  <span class="keyword">const</span> element = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;my-element&quot;</span>);</span><br><span class="line">  element.<span class="property">textContent</span> = <span class="string">&quot;DOM is ready!&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="工作原理："><a href="#工作原理：" class="headerlink" title="工作原理："></a><strong>工作原理</strong>：</h4><ul>
+<li>当浏览器解析 HTML 文档时，它会构建 DOM 树。<code>DOMContentLoaded</code> 事件在文档解析完成后立即触发，无需等待图像、样式表或其他资源的加载完成。</li>
+<li>该事件适合于希望尽早执行 DOM 操作的场景，尤其是在需要高响应的 Web 应用中，避免等待所有资源加载的额外时间开销。</li>
+</ul>
+<h3 id="unload-事件"><a href="#unload-事件" class="headerlink" title="unload 事件"></a><strong><code>unload</code> 事件</strong></h3><h4 id="触发时机：-1"><a href="#触发时机：-1" class="headerlink" title="触发时机："></a><strong>触发时机</strong>：</h4><ul>
+<li><code>unload</code> 事件会在页面即将被卸载（如用户关闭窗口、刷新页面或导航到其他页面）时触发。</li>
+<li>它标志着当前页面的生命周期即将结束，页面将被移除。通常用于执行清理任务，比如释放资源、保存用户状态或发送分析数据等。</li>
+</ul>
+<h4 id="典型场景：-1"><a href="#典型场景：-1" class="headerlink" title="典型场景："></a><strong>典型场景</strong>：</h4><ul>
+<li>用于在用户离开页面时执行一些清理工作，比如断开 WebSocket 连接、停止媒体播放、取消未完成的网络请求或提交表单数据等。</li>
+<li>还可以在离开页面之前向服务器发送分析数据，记录用户行为。</li>
+</ul>
+<h4 id="用法：-1"><a href="#用法：-1" class="headerlink" title="用法："></a><strong>用法</strong>：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;unload&quot;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Page is being unloaded&quot;</span>);</span><br><span class="line">  <span class="comment">// 在这里做一些清理任务，比如保存用户数据或释放资源</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="工作原理：-1"><a href="#工作原理：-1" class="headerlink" title="工作原理："></a><strong>工作原理</strong>：</h4><ul>
+<li>当用户即将离开页面时，<code>unload</code> 事件会被触发。此时，页面的所有资源仍然存在，但已经不再交互。</li>
+<li>重要的是，<code>unload</code> 事件中的操作通常是异步的，而浏览器不会等待这些异步操作完成。如果在 <code>unload</code> 中执行异步操作（如发送网络请求），则这些任务可能无法完成，因为浏览器很快就会关闭或切换到新页面。</li>
+</ul>
+<h4 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><strong>注意事项</strong>：</h4><ul>
+<li>现代浏览器在 <code>unload</code> 事件中有严格的限制。为了防止恶意脚本在用户离开页面时阻塞页面卸载进程，很多浏览器可能会忽略或抑制一些操作。</li>
+<li>使用 <code>unload</code> 事件时，不能依赖其完成所有的清理工作或数据保存。更好的选择是使用 <code>beforeunload</code> 事件，它允许用户在离开页面前有机会取消卸载，或者使用异步机制处理数据清理。</li>
+</ul>
+<h3 id="区别和对比"><a href="#区别和对比" class="headerlink" title="区别和对比"></a><strong>区别和对比</strong></h3><table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>DOMContentLoaded</strong></th>
+<th><strong>unload</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>触发时机</strong></td>
+<td>DOM 树完全构建后，但不等待外部资源（如图片、CSS）的加载</td>
+<td>页面即将被卸载，用户离开页面或刷新页面时</td>
+</tr>
+<tr>
+<td><strong>用途</strong></td>
+<td>执行 DOM 操作，初始化脚本</td>
+<td>页面离开前进行清理工作或保存数据</td>
+</tr>
+<tr>
+<td><strong>等待资源加载</strong></td>
+<td>不等待外部资源的加载</td>
+<td>不适用（页面即将卸载）</td>
+</tr>
+<tr>
+<td><strong>适合的操作</strong></td>
+<td>操作 DOM 元素，初始化 UI</td>
+<td>释放资源，保存数据，停止后台任务</td>
+</tr>
+<tr>
+<td><strong>执行的可靠性</strong></td>
+<td>始终可靠，页面加载过程中会保证触发</td>
+<td>有些浏览器对异步操作有限制，不一定能完全执行</td>
+</tr>
+<tr>
+<td><strong>现代替代方案</strong></td>
+<td><code>load</code> 事件（等待所有资源加载完毕后）</td>
+<td><code>beforeunload</code>，允许用户交互，或使用现代框架中的清理机制</td>
+</tr>
+</tbody></table>
+<h3 id="现代替代方案：beforeunload"><a href="#现代替代方案：beforeunload" class="headerlink" title="现代替代方案：beforeunload"></a><strong>现代替代方案：<code>beforeunload</code></strong></h3><p><code>beforeunload</code> 是另一个常用的事件，它比 <code>unload</code> 提供更多的灵活性和控制。</p>
+<ul>
+<li><p><strong><code>beforeunload</code> 触发时机</strong>：与 <code>unload</code> 类似，但它允许开发者阻止页面卸载，或者提醒用户即将离开页面。如果你希望在页面离开之前弹出确认对话框询问用户，可以使用这个事件。</p>
+</li>
+<li><p><strong>用法</strong>：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;beforeunload&quot;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  event.<span class="title function_">preventDefault</span>();</span><br><span class="line">  event.<span class="property">returnValue</span> = <span class="string">&#x27;&#x27;</span>;  <span class="comment">// 某些浏览器需要设置 returnValue 才能弹出对话框</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;  <span class="comment">// 触发确认对话框</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>beforeunload</code> 可以让用户有机会取消关闭页面或刷新页面，是保存用户数据、阻止未保存工作丢失的有效手段。</p>
+<h3 id="总结-8"><a href="#总结-8" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
+<li><p>**<code>DOMContentLoaded</code>**：适用于需要尽早操作 DOM 的场景，比如页面初始化或用户界面操作。这时，DOM 已经加载完毕，外部资源（如图片、样式表）可能还没有完全加载。</p>
+</li>
+<li><p>**<code>unload</code>**：适用于页面离开时的清理任务，如释放资源或发送离线统计数据，但现代浏览器对其使用有诸多限制。</p>
+</li>
+<li><p>**<code>beforeunload</code>**：在需要提示用户或阻止用户意外离开页面时可以使用，允许用户确认是否真的要关闭页面或刷新。</p>
+</li>
+</ul>
+<h1 id="原型链继承的缺点"><a href="#原型链继承的缺点" class="headerlink" title="原型链继承的缺点"></a>原型链继承的缺点</h1><p>在 JavaScript 中，<strong>原型链继承</strong>是最常见的一种继承方式，借助对象的 <code>prototype</code> 属性实现继承关系。然而，尽管原型链继承具有一定的优势，但它也存在一些显著的缺点和局限性。以下是使用原型链继承时常见的缺点：</p>
+<h2 id="引用类型属性的共享问题"><a href="#引用类型属性的共享问题" class="headerlink" title="引用类型属性的共享问题"></a>引用类型属性的共享问题</h2><p>原型链继承的最大问题是<strong>引用类型属性的共享</strong>。如果父类（超类）构造函数中包含了引用类型（如数组或对象）的属性，那么所有子类实例都会共享这个引用类型的数据。如果一个子类修改了引用类型的数据，其他子类实例也会受到影响。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">colors</span> = [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line"></span><br><span class="line">child1.<span class="property">colors</span>.<span class="title function_">push</span>(<span class="string">&#x27;yellow&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child1.<span class="property">colors</span>); <span class="comment">// [&#x27;red&#x27;, &#x27;blue&#x27;, &#x27;green&#x27;, &#x27;yellow&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child2.<span class="property">colors</span>); <span class="comment">// [&#x27;red&#x27;, &#x27;blue&#x27;, &#x27;green&#x27;, &#x27;yellow&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h3><ul>
+<li>由于 <code>colors</code> 数组是定义在父类 <code>Parent</code> 的实例对象中的，而 <code>Child</code> 的原型是 <code>Parent</code> 的一个实例，因此 <strong>所有 <code>Child</code> 的实例都会共享同一个 <code>colors</code> 数组</strong>。</li>
+<li>当 <code>child1</code> 修改 <code>colors</code> 数组时，<code>child2</code> 的 <code>colors</code> 数组也被修改了。</li>
+</ul>
+<h2 id="无法向父类构造函数传递参数"><a href="#无法向父类构造函数传递参数" class="headerlink" title="无法向父类构造函数传递参数"></a>无法向父类构造函数传递参数</h2><p>通过原型链继承，子类实例没有办法向父类的构造函数传递参数。因为子类的原型指向了父类的实例，而不是通过调用父类的构造函数来创建，这导致不能为父类构造函数传递参数来初始化。</p>
+<h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child1.<span class="property">name</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解释：-1"><a href="#解释：-1" class="headerlink" title="解释："></a>解释：</h3><ul>
+<li><code>Child</code> 的原型对象是通过 <code>new Parent()</code> 创建的，但在创建时没有传递任何参数，因此父类的 <code>name</code> 属性无法正确初始化，子类实例的 <code>name</code> 属性为 <code>undefined</code>。</li>
+</ul>
+<h2 id="子类无法独立定义自己的属性"><a href="#子类无法独立定义自己的属性" class="headerlink" title="子类无法独立定义自己的属性"></a>子类无法独立定义自己的属性</h2><p>在原型链继承中，子类的实例属性只能从父类继承，子类实例中的属性是在父类构造函数中初始化的。如果我们想要给每个子类实例独立定义一些属性，就需要额外编写逻辑。否则，子类只能继承父类的属性，且所有子类实例共用父类的引用类型属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name || <span class="string">&#x27;Parent&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params">age</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> <span class="title class_">Child</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child1.<span class="property">name</span>); <span class="comment">// &#x27;Parent&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child1.<span class="property">age</span>);  <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在这个例子中，虽然 <code>Child</code> 的实例可以设置 <code>age</code> 属性，但是 <code>name</code> 属性却只能继承自 <code>Parent</code>，且无法在 <code>Child</code> 的实例中独立设置它。</li>
+</ul>
+<h2 id="无法合理区分实例属性与原型属性"><a href="#无法合理区分实例属性与原型属性" class="headerlink" title="无法合理区分实例属性与原型属性"></a>无法合理区分实例属性与原型属性</h2><p>在原型链继承中，父类的实例属性是被子类共享的，因此很容易出现子类中的实例属性和原型属性混淆不清的情况。特别是对于引用类型的属性，当子类实例修改这些属性时，会导致其他子类实例的行为异常。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Parent&#x27;</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">colors</span> = [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> <span class="title class_">Child</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改子类1的 name 和 colors</span></span><br><span class="line">child1.<span class="property">name</span> = <span class="string">&#x27;Child1&#x27;</span>;</span><br><span class="line">child1.<span class="property">colors</span>.<span class="title function_">push</span>(<span class="string">&#x27;yellow&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child1.<span class="property">name</span>);  <span class="comment">// &#x27;Child1&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child2.<span class="property">name</span>);  <span class="comment">// &#x27;Parent&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child1.<span class="property">colors</span>);  <span class="comment">// [&#x27;red&#x27;, &#x27;blue&#x27;, &#x27;green&#x27;, &#x27;yellow&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child2.<span class="property">colors</span>);  <span class="comment">// [&#x27;red&#x27;, &#x27;blue&#x27;, &#x27;green&#x27;, &#x27;yellow&#x27;] (也被修改)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 <code>child1</code> 中，<code>name</code> 属性被修改后，子类对象会首先在自身属性中查找 <code>name</code>，因此不会影响其他实例。</li>
+<li>但 <code>colors</code> 属性是一个数组类型的引用属性，所有子类实例都共享同一个 <code>colors</code>，所以修改一个实例的 <code>colors</code>，其他实例的 <code>colors</code> 也会被修改。</li>
+</ul>
+<h2 id="调试困难"><a href="#调试困难" class="headerlink" title="调试困难"></a>调试困难</h2><p>由于 JavaScript 使用原型链继承，调试时很容易发生属性查找混淆，尤其是当原型链很深时，子类的属性可能来自多个层级的父类，定位某个属性的定义位置就变得更加困难。</p>
+<ul>
+<li>例如，当你试图修改一个子类实例的属性时，你可能不知道它是定义在当前实例上，还是定义在原型链上的某个父类构造函数中。这个层级深度的增加会让调试和维护代码变得复杂。</li>
+</ul>
+<h2 id="效率问题"><a href="#效率问题" class="headerlink" title="效率问题"></a>效率问题</h2><p>当使用原型链继承时，JavaScript 引擎会在原型链上逐级向上查找某个属性或方法。原型链的层级越深，查找的效率就会越低。如果链条过长，性能也会随之下降。</p>
+<h2 id="无多继承支持"><a href="#无多继承支持" class="headerlink" title="无多继承支持"></a>无多继承支持</h2><p>JavaScript 的原型链继承模式只支持单继承，也就是说，子类只能从一个父类继承属性和方法。对于某些复杂的设计模式，这可能会限制代码的灵活性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ParentA</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;ParentA&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ParentB</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = <span class="number">50</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无法同时继承 ParentA 和 ParentB</span></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">ParentA</span>();</span><br><span class="line"><span class="comment">// Child.prototype = new ParentB(); // 这将覆盖 ParentA 的原型</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>子类只能继承一个父类的原型（最后的赋值覆盖了之前的赋值），这使得 JavaScript 原型链继承无法直接支持多继承。</li>
+</ul>
+<h2 id="过度依赖原型链，容易破坏封装"><a href="#过度依赖原型链，容易破坏封装" class="headerlink" title="过度依赖原型链，容易破坏封装"></a>过度依赖原型链，容易破坏封装</h2><p>JavaScript 中过度使用原型链继承可能会破坏封装性。子类可以访问父类的所有属性和方法，即使这些属性和方法是内部实现的，或者设计时不打算暴露给外部使用的。这样容易导致子类直接依赖父类的内部实现，破坏了封装原则。</p>
+<h2 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h2><p>虽然原型链继承在 JavaScript 中是实现继承的基本方式，但它也存在不少缺点，特别是在处理引用类型共享、参数传递以及实例独立性方面。这些缺点通常可以通过一些其他的继承模式（如<strong>组合继承</strong>、<strong>寄生组合式继承</strong>）来弥补。原型链继承的主要缺点包括：</p>
+<ol>
+<li><strong>引用类型的属性共享</strong>，导致子类实例之间出现干扰。</li>
+<li><strong>无法向父类构造函数传参</strong>，导致父类的属性无法根据子类需求初始化。</li>
+<li><strong>子类无法独立定义自己的属性</strong>。</li>
+<li><strong>难以区分实例属性和原型属性</strong>，容易导致属性覆盖和共享问题。</li>
+<li><strong>调试困难</strong>，特别是在复杂的原型链结构中。</li>
+<li><strong>性能问题</strong>，原型链层次过深时影响性能。</li>
+<li><strong>不支持多继承</strong>。</li>
+<li><strong>可能破坏封装性</strong>，子类可以访问父类的内部实现。</li>
+</ol>
+<p>解决这些问题的一个常见做法是结合其他继承方式（如组合继承或寄生组合式继承）来避免原型链继承的这些缺陷。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://Lavender321.github.com">流泪猫猫头</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://lavender321.github.com/2024/04/12/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/">http://lavender321.github.com/2024/04/12/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Lavender321.github.com" target="_blank">Lavender's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/18/%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/" title="腾讯面经"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">腾讯面经</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/14/Java%E9%9D%A2%E8%AF%95/" title="Java面试"><img class="cover" src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java面试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/03/31/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="JavaScript设计模式"><img class="cover" src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-31</div><div class="title">JavaScript设计模式</div></div></a></div><div><a href="/2023/01/27/JavaScript%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/" title="JavaScript数组常用方法总结"><img class="cover" src="https://s2.loli.net/2022/12/31/HYB9fKZPknOqSLz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-27</div><div class="title">JavaScript数组常用方法总结</div></div></a></div><div><a href="/2023/01/29/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" title="事件循环机制"><img class="cover" src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-29</div><div class="title">事件循环机制</div></div></a></div><div><a href="/2023/02/17/%E8%8F%9C%E9%B8%9F%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95U%C2%B7%E3%82%A7%C2%B7U/" title="菜鸟前端面试记录U·ェ·U"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">菜鸟前端面试记录U·ェ·U</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/03/01/ObQE3TvFKInczfl.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">流泪猫猫头</div><div class="author-info__description">THE TORTURED POETS DEPARTMENT</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lavender321"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lavender321" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:r1727439300@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B8%B8%E8%A7%81%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.</span> <span class="toc-text">浏览器常见的进程都有哪些</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%BB%E8%BF%9B%E7%A8%8B%EF%BC%88Browser-Process%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">浏览器主进程（Browser Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%9B%E7%A8%8B%EF%BC%88Renderer-Process%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">渲染进程（Renderer Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU-%E8%BF%9B%E7%A8%8B%EF%BC%88GPU-Process%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">GPU 进程（GPU Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E8%BF%9B%E7%A8%8B%EF%BC%88Plugin-Process%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">插件进程（Plugin Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%BF%9B%E7%A8%8B%EF%BC%88Network-Process%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">网络进程（Network Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%BF%9B%E7%A8%8B%EF%BC%88Storage-Process%EF%BC%89%E2%80%94%EF%BC%88%E5%9C%A8%E6%9F%90%E4%BA%9B%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">存储进程（Storage Process）—（在某些浏览器中）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%B7%A5%E4%BD%9C%E8%BF%9B%E7%A8%8B%EF%BC%88Service-Worker-Process%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">服务工作进程（Service Worker Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E8%BF%9B%E7%A8%8B%EF%BC%88Extension-Process%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">扩展进程（Extension Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B2%99%E7%9B%92%E8%BF%9B%E7%A8%8B%EF%BC%88Sandbox-Process%EF%BC%89"><span class="toc-number">1.9.</span> <span class="toc-text">沙盒进程（Sandbox Process）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.10.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E6%9C%89%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">JavaScript有几种方式声明函数？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%94%9FJavascript%E8%8E%B7%E5%8F%96DOM%E8%8A%82%E7%82%B9%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">原生Javascript获取DOM节点有哪些方式？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementById"><span class="toc-number">3.1.</span> <span class="toc-text">document.getElementById</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document-getElementByTagName"><span class="toc-number">3.2.</span> <span class="toc-text">document.getElementByTagName</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1document-getElementByClassName"><span class="toc-number">3.3.</span> <span class="toc-text">1document.getElementByClassName</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#document-getElementById-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">document.getElementById</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-getElementsByTagName"><span class="toc-number">3.3.2.</span> <span class="toc-text">document.getElementsByTagName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-getElementsByClassName"><span class="toc-number">3.3.3.</span> <span class="toc-text">document.getElementsByClassName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-querySelector"><span class="toc-number">3.3.4.</span> <span class="toc-text">document.querySelector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-querySelectorAll"><span class="toc-number">3.3.5.</span> <span class="toc-text">document.querySelectorAll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-forms-96"><span class="toc-number">3.3.6.</span> <span class="toc-text">document.forms&#96;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-getElementsByName"><span class="toc-number">3.3.7.</span> <span class="toc-text">document.getElementsByName</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-CSS-%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">3.3.8.</span> <span class="toc-text">使用 CSS 属性选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BB%BA%E8%AE%AE%EF%BC%9A"><span class="toc-number">3.3.9.</span> <span class="toc-text">使用建议：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Javascript%E7%9A%84this%E7%BB%91%E5%AE%9A"><span class="toc-number">4.</span> <span class="toc-text">Javascript的this绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%BB%91%E5%AE%9A"><span class="toc-number">4.1.</span> <span class="toc-text">默认绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="toc-number">4.2.</span> <span class="toc-text">隐式绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="toc-number">4.3.</span> <span class="toc-text">显式绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new%E7%BB%91%E5%AE%9A"><span class="toc-number">4.4.</span> <span class="toc-text">new绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A"><span class="toc-number">4.5.</span> <span class="toc-text">箭头函数绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">4.6.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">5.</span> <span class="toc-text">JS主线程有哪些</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E4%B8%BB%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%81%8C%E8%B4%A3"><span class="toc-number">5.0.1.</span> <span class="toc-text">JavaScript 主线程的职责</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E4%B8%BB%E7%BA%BF%E7%A8%8B%E4%BA%A4%E4%BA%92%E7%9A%84%E5%85%B6%E4%BB%96%E7%BB%84%E4%BB%B6"><span class="toc-number">5.0.2.</span> <span class="toc-text">与主线程交互的其他组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.0.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E3%80%81%E7%9B%AE%E6%A0%87%E3%80%81%E5%86%92%E6%B3%A1"><span class="toc-number">6.</span> <span class="toc-text">事件捕获、目标、冒泡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-event-stopPropagation"><span class="toc-number">6.1.</span> <span class="toc-text">使用 event.stopPropagation()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E-false"><span class="toc-number">6.2.</span> <span class="toc-text">返回 false</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-event-stopImmediatePropagation"><span class="toc-number">6.3.</span> <span class="toc-text">使用 event.stopImmediatePropagation()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">6.4.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">6.5.</span> <span class="toc-text">注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">JavaScript的对象方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-keys"><span class="toc-number">7.1.</span> <span class="toc-text">Object.keys()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-values"><span class="toc-number">7.2.</span> <span class="toc-text">Object.values()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-entries"><span class="toc-number">7.3.</span> <span class="toc-text">Object.entries()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-assign"><span class="toc-number">7.4.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-freeze"><span class="toc-number">7.5.</span> <span class="toc-text">Object.freeze()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-seal"><span class="toc-number">7.6.</span> <span class="toc-text">Object.seal()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-create"><span class="toc-number">7.7.</span> <span class="toc-text">Object.create()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-defineProperty"><span class="toc-number">7.8.</span> <span class="toc-text">Object.defineProperty()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-getOwnPropertyDescriptor"><span class="toc-number">7.9.</span> <span class="toc-text">Object.getOwnPropertyDescriptor()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-getPrototypeOf"><span class="toc-number">7.10.</span> <span class="toc-text">Object.getPrototypeOf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">7.11.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E7%9A%84%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.</span> <span class="toc-text">JavaScript的包装类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E4%B8%8E%E6%8B%86%E7%AE%B1"><span class="toc-number">8.0.1.</span> <span class="toc-text">自动装箱与拆箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">8.0.2.</span> <span class="toc-text">包装类型的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String-%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.0.2.1.</span> <span class="toc-text">String 包装类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Number-%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.0.2.2.</span> <span class="toc-text">Number 包装类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Boolean-%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.0.2.3.</span> <span class="toc-text">Boolean 包装类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">8.0.3.</span> <span class="toc-text">包装类型与基本类型的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E6%98%BE%E5%BC%8F%E7%9A%84%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.0.4.</span> <span class="toc-text">不推荐使用显式的包装类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9D%8F%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-number">8.0.4.1.</span> <span class="toc-text">坏例子：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E5%81%9A%E6%B3%95%EF%BC%9A"><span class="toc-number">8.0.4.2.</span> <span class="toc-text">推荐做法：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3json"><span class="toc-number">9.</span> <span class="toc-text">如何理解json</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">9.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">9.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">9.3.</span> <span class="toc-text">JSON 的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">9.3.1.</span> <span class="toc-text">示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-%E4%B8%8E-JavaScript-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">9.4.</span> <span class="toc-text">JSON 与 JavaScript 对象的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">9.5.</span> <span class="toc-text">JSON 的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-%E7%9A%84%E8%A7%A3%E6%9E%90%E4%B8%8E%E7%94%9F%E6%88%90"><span class="toc-number">9.6.</span> <span class="toc-text">JSON 的解析与生成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90-JSON-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%BA-JavaScript-%E5%AF%B9%E8%B1%A1"><span class="toc-number">9.6.1.</span> <span class="toc-text">解析 JSON 字符串为 JavaScript 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86-JavaScript-%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2%E4%B8%BA-JSON-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">9.6.2.</span> <span class="toc-text">将 JavaScript 对象转换为 JSON 字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">9.7.</span> <span class="toc-text">JSON 的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">9.7.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">9.7.2.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-%E7%9A%84%E6%9B%BF%E4%BB%A3%E6%A0%BC%E5%BC%8F"><span class="toc-number">9.7.3.</span> <span class="toc-text">JSON 的替代格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">9.8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD-JSON-%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA"><span class="toc-number">9.9.</span> <span class="toc-text">判断 JSON 是否为空</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD-JSON-%E5%AF%B9%E8%B1%A1%E4%B8%BA%E7%A9%BA"><span class="toc-number">9.9.1.</span> <span class="toc-text">判断 JSON 对象为空</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD-JSON-%E6%95%B0%E7%BB%84%E4%B8%BA%E7%A9%BA"><span class="toc-number">9.9.2.</span> <span class="toc-text">判断 JSON 数组为空</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86-JSON-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">9.9.3.</span> <span class="toc-text">处理 JSON 字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5"><span class="toc-number">9.9.4.</span> <span class="toc-text">判断特殊情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-4"><span class="toc-number">9.9.5.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM%E5%92%8CBOM"><span class="toc-number">10.</span> <span class="toc-text">DOM和BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%EF%BC%88Document-Object-Model%EF%BC%89"><span class="toc-number">10.1.</span> <span class="toc-text">DOM（Document Object Model）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">10.1.0.1.</span> <span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">10.1.0.2.</span> <span class="toc-text">DOM 的一些常用方法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E6%B3%A8%EF%BC%9A"><span class="toc-number">10.1.1.</span> <span class="toc-text">备注：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM%EF%BC%88Browser-Object-Model%EF%BC%89"><span class="toc-number">10.2.</span> <span class="toc-text">BOM（Browser Object Model）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A-1"><span class="toc-number">10.2.0.1.</span> <span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-BOM-%E5%AF%B9%E8%B1%A1%EF%BC%9A"><span class="toc-number">10.2.0.2.</span> <span class="toc-text">常用的 BOM 对象：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-%E5%92%8C-BOM-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">10.3.</span> <span class="toc-text">DOM 和 BOM 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-5"><span class="toc-number">10.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3API"><span class="toc-number">11.</span> <span class="toc-text">浏览器相关API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-%E6%93%8D%E4%BD%9C-API"><span class="toc-number">11.1.</span> <span class="toc-text">DOM 操作 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82-API"><span class="toc-number">11.2.</span> <span class="toc-text">网络请求 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8-API"><span class="toc-number">11.3.</span> <span class="toc-text">存储 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%92%8C%E5%A4%9A%E5%AA%92%E4%BD%93-API"><span class="toc-number">11.4.</span> <span class="toc-text">图形和多媒体 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%B9%B6%E5%8F%91%E5%A4%84%E7%90%86-API"><span class="toc-number">11.5.</span> <span class="toc-text">工作线程和并发处理 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E8%AE%BF%E9%97%AE-API"><span class="toc-number">11.6.</span> <span class="toc-text">设备访问 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E4%B8%8E%E5%8A%A0%E5%AF%86-API"><span class="toc-number">11.7.</span> <span class="toc-text">安全与加密 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5%E5%92%8C%E5%90%8E%E5%8F%B0%E5%90%8C%E6%AD%A5-API"><span class="toc-number">11.8.</span> <span class="toc-text">推送通知和后台同步 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86-API"><span class="toc-number">11.9.</span> <span class="toc-text">性能与资源管理 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C-API"><span class="toc-number">11.10.</span> <span class="toc-text">文件操作 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E5%92%8C%E5%AF%BC%E8%88%AA-API"><span class="toc-number">11.11.</span> <span class="toc-text">历史和导航 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86-API"><span class="toc-number">11.12.</span> <span class="toc-text">事件处理 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-6"><span class="toc-number">11.13.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">11.13.1.</span> <span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">11.13.1.1.</span> <span class="toc-text">参数说明：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">11.13.2.</span> <span class="toc-text">示例代码：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">11.13.3.</span> <span class="toc-text">主要应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-%E5%8E%9F%E7%90%86"><span class="toc-number">11.13.4.</span> <span class="toc-text">API 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IdleDeadline-%E5%AF%B9%E8%B1%A1"><span class="toc-number">11.13.5.</span> <span class="toc-text">IdleDeadline 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B8%8E%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">11.13.6.</span> <span class="toc-text">性能优化与局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polyfill%EF%BC%88%E9%99%8D%E7%BA%A7%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-number">11.13.7.</span> <span class="toc-text">Polyfill（降级处理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-7"><span class="toc-number">11.13.8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOMContentLoaded-%E4%BA%8B%E4%BB%B6"><span class="toc-number">11.13.9.</span> <span class="toc-text">DOMContentLoaded 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E6%97%B6%E6%9C%BA%EF%BC%9A"><span class="toc-number">11.13.9.1.</span> <span class="toc-text">触发时机：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="toc-number">11.13.9.2.</span> <span class="toc-text">典型场景：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">11.13.9.3.</span> <span class="toc-text">用法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">11.13.9.4.</span> <span class="toc-text">工作原理：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unload-%E4%BA%8B%E4%BB%B6"><span class="toc-number">11.13.10.</span> <span class="toc-text">unload 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E6%97%B6%E6%9C%BA%EF%BC%9A-1"><span class="toc-number">11.13.10.1.</span> <span class="toc-text">触发时机：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%9C%BA%E6%99%AF%EF%BC%9A-1"><span class="toc-number">11.13.10.2.</span> <span class="toc-text">典型场景：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%EF%BC%9A-1"><span class="toc-number">11.13.10.3.</span> <span class="toc-text">用法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A-1"><span class="toc-number">11.13.10.4.</span> <span class="toc-text">工作原理：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-number">11.13.10.5.</span> <span class="toc-text">注意事项：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB%E5%92%8C%E5%AF%B9%E6%AF%94"><span class="toc-number">11.13.11.</span> <span class="toc-text">区别和对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88%EF%BC%9Abeforeunload"><span class="toc-number">11.13.12.</span> <span class="toc-text">现代替代方案：beforeunload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-8"><span class="toc-number">11.13.13.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">12.</span> <span class="toc-text">原型链继承的缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E7%9A%84%E5%85%B1%E4%BA%AB%E9%97%AE%E9%A2%98"><span class="toc-number">12.1.</span> <span class="toc-text">引用类型属性的共享问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-number">12.1.1.</span> <span class="toc-text">解释：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%90%91%E7%88%B6%E7%B1%BB%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-number">12.2.</span> <span class="toc-text">无法向父类构造函数传递参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-1"><span class="toc-number">12.2.1.</span> <span class="toc-text">示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A-1"><span class="toc-number">12.2.2.</span> <span class="toc-text">解释：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%B1%BB%E6%97%A0%E6%B3%95%E7%8B%AC%E7%AB%8B%E5%AE%9A%E4%B9%89%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">12.3.</span> <span class="toc-text">子类无法独立定义自己的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%90%88%E7%90%86%E5%8C%BA%E5%88%86%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%8E%9F%E5%9E%8B%E5%B1%9E%E6%80%A7"><span class="toc-number">12.4.</span> <span class="toc-text">无法合理区分实例属性与原型属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%9B%B0%E9%9A%BE"><span class="toc-number">12.5.</span> <span class="toc-text">调试困难</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E7%8E%87%E9%97%AE%E9%A2%98"><span class="toc-number">12.6.</span> <span class="toc-text">效率问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%A4%9A%E7%BB%A7%E6%89%BF%E6%94%AF%E6%8C%81"><span class="toc-number">12.7.</span> <span class="toc-text">无多继承支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E5%BA%A6%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%9E%8B%E9%93%BE%EF%BC%8C%E5%AE%B9%E6%98%93%E7%A0%B4%E5%9D%8F%E5%B0%81%E8%A3%85"><span class="toc-number">12.8.</span> <span class="toc-text">过度依赖原型链，容易破坏封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-9"><span class="toc-number">12.9.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/10/22/%E9%93%B6%E8%A1%8C/" title="银行"><img src="https://s2.loli.net/2022/12/31/qZrDP8nOQ4tGc6L.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="银行"/></a><div class="content"><a class="title" href="/2024/10/22/%E9%93%B6%E8%A1%8C/" title="银行">银行</a><time datetime="2024-10-22T02:15:44.000Z" title="发表于 2024-10-22 10:15:44">2024-10-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/16/nodejs%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="nodejs面试笔记"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nodejs面试笔记"/></a><div class="content"><a class="title" href="/2024/10/16/nodejs%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="nodejs面试笔记">nodejs面试笔记</a><time datetime="2024-10-16T02:23:20.000Z" title="发表于 2024-10-16 10:23:20">2024-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小米"/></a><div class="content"><a class="title" href="/2024/10/16/%E5%B0%8F%E7%B1%B3/" title="小米">小米</a><time datetime="2024-10-16T02:12:12.000Z" title="发表于 2024-10-16 10:12:12">2024-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="华为前端面试合集"/></a><div class="content"><a class="title" href="/2024/10/15/%E5%8D%8E%E4%B8%BA%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%90%88%E9%9B%86/" title="华为前端面试合集">华为前端面试合集</a><time datetime="2024-10-15T08:35:34.000Z" title="发表于 2024-10-15 16:35:34">2024-10-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字"><img src="https://s2.loli.net/2022/10/08/xzepUwCs3gKPWy2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数字"/></a><div class="content"><a class="title" href="/2024/10/14/%E6%95%B0%E5%AD%97/" title="数字">数字</a><time datetime="2024-10-14T08:44:56.000Z" title="发表于 2024-10-14 16:44:56">2024-10-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 流泪猫猫头</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
